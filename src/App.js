@@ -3,12 +3,18 @@ import './App.css';
 
 function App() {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
+		<div className="App">
+			<header className="App-header">
+				<img src={logo} className="App-logo" alt="logo" />
 				<p>DEVolution Team</p>
-				<a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-					Branche de Sabri-dev build auth Amir validate PR
+				<a
+					className="App-link"
+					href="https://reactjs.org"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Branche de Sabri-dev build auth Amir validate PR nouvelle
+					modifier
 				</a>
 			</header>
 		</div>
