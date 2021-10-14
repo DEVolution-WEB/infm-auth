@@ -1,4 +1,5 @@
-import './App.css';
+
+import './assets/css/App.css';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';

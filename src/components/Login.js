@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../AuthContext';
 import { Link, useHistory } from 'react-router-dom';
-import '../App.css';
+import '../assets/css/App.css';
 
 const Login = () => {
 	// set password authentication
@@ -28,19 +28,9 @@ const Login = () => {
 
 	return (
 		<div className="h-screen flex bg-grey-light">
-			<nav>
-				<img src="" alt="logo INFM" />
-				<ul>
-				<li> Accueil </li>
-				<li> Accueil </li>
-				<li> Accueil </li>
-				<li> Accueil </li>
-				</ul>
-			</nav>
-
 			<div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
 				<h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
-					Page de connection
+					Page de connexion
 				</h1>
 				{error && (
 					<div>
