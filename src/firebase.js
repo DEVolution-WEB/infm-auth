@@ -3,13 +3,13 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const app = firebase.initializeApp({
-	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-	authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-	projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-	storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-	messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-	appId: process.env.REACT_APP_FIREBASE_APP_ID,
-	measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID_URL,
+	apiKey: "AIzaSyCpEvpxo8VHfs81oqDkLdGpKePR7niLF_o",
+  	authDomain: "infm-773d8.firebaseapp.com",
+  	projectId: "infm-773d8",
+  	storageBucket: "infm-773d8.appspot.com",
+  	messagingSenderId: "36573213521",
+  	appId: "1:36573213521:web:a71cd5ab57d6a0e12cd970",
+  	measurementId: "G-K9X8D7GMEX"
 });
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();

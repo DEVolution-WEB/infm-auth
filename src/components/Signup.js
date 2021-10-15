@@ -4,7 +4,7 @@ import { useAuth } from '../AuthContext';
 import { Link, useHistory } from 'react-router-dom';
 import { usePasswordValidation } from './usePasswordValidation';
 import Validpassword from './ValidPassword';
-import '../App.css';
+import '../assets/css/App.css';
 
 const Signup = () => {
 	// Set password validation le mot de passe doit contenir entre 8 caractères min, 1 chiffre, 1 lettre majuscule, 1 lettre minuscule //
