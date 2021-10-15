@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function CustomSection({children}) {
-    return (
-        <div>
-            <div class="customSection"></div>
-			<div class="bg-gray-100 py-12 px-10">{children}</div>
-        </div>
-    )
+function CustomSection({ children }) {
+	return (
+		<div>
+			<div className="customSection"></div>
+			<div className="bg-gray-100 py-12 px-10">{children}</div>
+		</div>
+	);
 }
 
-export default CustomSection
+export default CustomSection;

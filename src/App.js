@@ -1,5 +1,6 @@
 import './App.css';
 // import Signup from './components/Signup';
+import Navbar from './components/navbar/NavBar';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import { AuthProvider } from './AuthContext';
@@ -13,9 +14,10 @@ function App() {
 		<>
 			<Router>
 				<AuthProvider>
+					<Navbar />
 					<Switch>
-						<Privateroute exact path="/" component={Dashboard} />
-						<Privateroute
+						<Route exact path="/" component={Dashboard} />
+						<Route
 							path="/update-profile"
 							component={UpdateProfile}
 						/>

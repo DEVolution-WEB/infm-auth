@@ -4,6 +4,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import SelectedUsers from './SelectedUsers';
 import Signup from './Signup';
 import { useGlobalContext } from '../context';
+import CustomSection from './CustomSection';
 
 const CreateUser = () => {
 	const { users, setUsers } = useGlobalContext();
@@ -52,21 +53,52 @@ const CreateUser = () => {
 	console.log(users);
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
-				<h1 className='text-2xl font-medium text-primary mt-0 mb-5 text-center'>Dashbord Admin</h1>
-				<h2 className='text-xl font-medium text-primary mt-0 mb-8'>Créer un nouvel utilisateur</h2>
-				<label htmlFor='name'>Nom d'utilisateur</label>
-				<input type='text' className='w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4' placeholder='Utilisateur' onChange={(e) => setUserName(e.target.value)} required value={userName} />
-				<label htmlFor='email'>Email</label>
-				<input type='email' className='w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4' placeholder='email' onChange={(e) => setEmail(e.target.value)} required value={email} />
+			<div>
+				<CustomSection>
+					<div className="flex justify-center mb-10 space-x-36">
+						<form onSubmit={handleSubmit}>
+							<h2 className="text-xl font-medium text-primary mt-0 mb-8">
+								Créer un nouvel utilisateur
+							</h2>
+							<label htmlFor="name">Nom d'utilisateur</label>
+							<input
+								type="text"
+								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+								placeholder="Utilisateur"
+								onChange={(e) => setUserName(e.target.value)}
+								required
+								value={userName}
+							/>
+							<label htmlFor="email">Email</label>
+							<input
+								type="email"
+								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+								placeholder="email"
+								onChange={(e) => setEmail(e.target.value)}
+								required
+								value={email}
+							/>
 
-				<label htmlFor='formationid'>Formation Id</label>
-				<input type='number' className='w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4' placeholder='Identifiant formation' onChange={(e) => setFormationId(e.target.value)} required value={formationId} />
+							<label htmlFor="formationid">Formation Id</label>
+							<input
+								type="number"
+								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+								placeholder="Identifiant formation"
+								onChange={(e) => setFormationId(e.target.value)}
+								required
+								value={formationId}
+							/>
 
-				<button type='submit' className='bg-blue mt-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light'>
-					Créer
-				</button>
-			</form>
+							<button
+								type="submit"
+								className="bg-darkBlueCust mt-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+							>
+								Créer
+							</button>
+						</form>
+					</div>
+				</CustomSection>
+			</div>
 
 			<SelectedUsers isFetched={isFetched} />
 			{/* <Signup /> */}
