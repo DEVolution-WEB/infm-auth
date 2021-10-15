@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../AuthContext';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import '../App.css';
 
 const Login = () => {
@@ -12,31 +12,34 @@ const Login = () => {
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
 
-	async function handleSubmit(e) {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		try {
 			setError('');
 			setLoading(true);
 			await login(emailRef.current.value, passwordRef.current.value);
-		} catch (error) {
-			setError('Impossible de se connecter');
+		} catch {
+			return setError(
+				'Votre e-mail ou votre mot de passe est incorrect.'
+			);
 		}
 		setLoading(false);
 		history.push('/');
-	}
+	};
 
 	return (
 		<div className="h-screen flex bg-grey-light">
 			<div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
-				<h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
+				<h1
+					className="text-2xl font-medium text-primary mt-4 mb-10
+				 text-center"
+				>
 					Page de connection
 				</h1>
-				{error && (
-					<div>
-						<p className="bg-warning p-3 rounded-md">{error}</p>
-					</div>
-				)}
+
+				{error && <p className="text-sm text-red mb-5">{error}</p>}
+
 				<form onSubmit={handleSubmit}>
 					<div>
 						<label htmlFor="email">Adresse e-mail</label>
@@ -60,28 +63,14 @@ const Login = () => {
 							required
 						/>
 					</div>
-					<div className="flex justify-center items-center mt-6">
+					<div className="flex flex-col justify-center items-center mt-6">
 						<button
 							disabled={loading}
 							type="submit"
-							className="bg-blue py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+							className="w-full bg-blue mb-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
 						>
 							Se connecter
 						</button>
-					</div>
-					<div className="w-full text-center mt-3 mb-3">
-						<Link
-							className="hover:text-blue-light"
-							to="/forgot-password"
-						>
-							Mot de passe oublié ?
-						</Link>
-					</div>
-					<div className="mt-2 mb-0">
-						Nouveau membre ?{' '}
-						<Link className="hover:text-blue-light" to="/signup">
-							Créer un compte
-						</Link>
 					</div>
 				</form>
 			</div>

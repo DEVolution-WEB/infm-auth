@@ -59,7 +59,7 @@ const UpdateProfile = () => {
 		Promise.all(promises)
 			.then()
 			.catch(() => {
-				setError('Impossible de mettre à jour le compte');
+				return setError('Impossible de mettre à jour le compte');
 			})
 			.finally(() => {
 				setLoading(false);
@@ -70,12 +70,12 @@ const UpdateProfile = () => {
 	return (
 		<div className="h-screen flex bg-grey-light">
 			<div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
-				<h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
+				<h1 className="text-2xl font-medium text-primary mt-4 mb-10 text-center">
 					Mettre à jour votre compte
 				</h1>
 				{error && (
 					<div>
-						<p className="bg-warning p-3 rounded-md">{error}</p>
+						<p className="text-base text-red mb-5">{error}</p>
 					</div>
 				)}
 				<form onSubmit={handleSubmit}>
@@ -121,12 +121,12 @@ const UpdateProfile = () => {
 							className={`bg-blue py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
 								activeBtn ? '' : 'hidden'
 							}`}
-							disabled={loading}
+							disabled={!activeBtn}
 						>
 							Mettre à jour
 						</button>
 					</div>
-					<div>
+					<div className="flex justify-center items-center">
 						<Validpassword
 							validLength={validLength}
 							hasNumber={hasNumber}

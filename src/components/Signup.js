@@ -42,7 +42,7 @@ const Signup = () => {
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
 
-	async function handleSubmit(e) {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (passwordRef.current.value !== passwordConfirmRef.current.value) {
 			return setError('Les mots de passe ne correspondent pas!');
@@ -52,96 +52,87 @@ const Signup = () => {
 			setLoading(true);
 			await signup(emailRef.current.value, passwordRef.current.value);
 		} catch {
-			setError('Impossible de créer un compte');
+			return setError('Impossible de créer un compte');
 		}
 		setLoading(false);
-		history.push('/');
-	}
+		// history.push('/');
+	};
 
 	return (
-		<div className="h-screen flex bg-grey-light">
-			<div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
-				<h1 className="text-2xl font-medium text-primary mt-4 mb-12 text-center">
-					Créer un compte
-				</h1>
-				{error && (
-					<div>
-						<p className="bg-warning p-3 rounded-md">{error}</p>
-					</div>
-				)}
-				<form onSubmit={handleSubmit}>
-					<div>
-						<label htmlFor="email">Adresse e-mail</label>
-						<input
-							type="email"
-							ref={emailRef}
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-							id="email"
-							placeholder="Votre e-mail"
-							required
-						/>
-					</div>
-					<div>
-						<label htmlFor="password">Mot de passe</label>
-						<input
-							type="password"
-							ref={passwordRef}
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-							id="password"
-							placeholder="Mot de passe"
-							required
-							onChange={setFirst}
-						/>
-					</div>
-					<div>
-						<label htmlFor="password-confirm">
-							Confirmer votre mot de passe
-						</label>
-						<input
-							type="password"
-							ref={passwordConfirmRef}
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-							id="passwordconfirm"
-							placeholder="Confirmer mot de passe"
-							required
-							onChange={setSecond}
-						/>
-					</div>
+		<div className="w-full m-auto bg-grey-light rounded-lg py-5 px-16">
+			<h1 className="text-2xl font-medium text-primary mt-4 mb-8 text-center">
+				Créer un nouvel accées utilisateur
+			</h1>
+			{error && <p className="text-sm text-red mb-5">{error}</p>}
+			<form onSubmit={handleSubmit}>
+				<div>
+					<label htmlFor="email">Adresse e-mail</label>
+					<input
+						type="email"
+						ref={emailRef}
+						className="w-full max-w-xs max-w-5xl p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+						id="email"
+						placeholder="Votre e-mail"
+						required
+					/>
+				</div>
+				<div>
+					<label htmlFor="password">Mot de passe</label>
+					<input
+						type="password"
+						ref={passwordRef}
+						className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+						id="password"
+						placeholder="Mot de passe"
+						required
+						onChange={setFirst}
+					/>
+				</div>
+				<div>
+					<label htmlFor="password-confirm">
+						Confirmer votre mot de passe
+					</label>
+					<input
+						type="password"
+						ref={passwordConfirmRef}
+						className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+						id="passwordconfirm"
+						placeholder="Confirmer mot de passe"
+						required
+						onChange={setSecond}
+					/>
+				</div>
 
-					<div className="flex justify-center items-center mt-6">
-						<button
-							className={`bg-blue py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
-								activeBtn ? '' : 'hidden'
-							}`}
-							type="submit"
-							disabled={loading}
-						>
-							Créer mon compte
-						</button>
-					</div>
-					<div className="flex justify-center items-center">
-						<Validpassword
-							validLength={validLength}
-							hasNumber={hasNumber}
-							upperCase={upperCase}
-							lowerCase={lowerCase}
-							match={match}
-						/>
-					</div>
-					<div
-						onClick={() => setPassword({ secondPassword: '' })}
-						className="flex justify-center items-center mt-2"
+				<div className="flex justify-center items-center mt-6">
+					<button
+						className={`bg-blue py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
+							activeBtn ? '' : 'hidden'
+						}`}
+						type="submit"
+						disabled={!activeBtn}
 					>
-						Déjà membre ?{' '}
-						<Link
-							className="hover:text-blue-light ml-1"
-							to="/login"
-						>
-							Connectez-vous
-						</Link>
-					</div>
-				</form>
-			</div>
+						Créer mon compte
+					</button>
+				</div>
+				<div className="flex justify-center items-center">
+					<Validpassword
+						validLength={validLength}
+						hasNumber={hasNumber}
+						upperCase={upperCase}
+						lowerCase={lowerCase}
+						match={match}
+					/>
+				</div>
+				<div
+					onClick={() => setPassword({ secondPassword: '' })}
+					className="flex justify-center items-center mt-2"
+				>
+					Déjà membre ?{' '}
+					<Link className="hover:text-blue-light ml-1" to="/login">
+						Connectez-vous
+					</Link>
+				</div>
+			</form>
 		</div>
 	);
 };

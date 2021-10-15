@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
 		secondPassword: '',
 	});
 	const [activeBtn, setActiveBtn] = useState(false);
+	const [users, setUsers] = useState([]);
 
 	return (
 		<AppContext.Provider
@@ -16,6 +17,8 @@ const AppProvider = ({ children }) => {
 				setPassword,
 				activeBtn,
 				setActiveBtn,
+				users,
+				setUsers,
 			}}
 		>
 			{children}
