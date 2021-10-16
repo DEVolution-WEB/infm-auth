@@ -9,9 +9,8 @@ import { useGlobalContext } from '../context';
 import CustomSection from './CustomSection';
 
 const CreateUser = ({ admin }) => {
-	const { users, setUsers } = useGlobalContext();
+	const { setUsers } = useGlobalContext();
 	const [loading, setLoading] = useState(false);
-	const [isFetched, setIsFetched] = useState(true);
 	const [userName, setUserName] = useState('');
 	const [email, setEmail] = useState('');
 	const [formationId, setFormationId] = useState('');
@@ -21,7 +20,7 @@ const CreateUser = ({ admin }) => {
 	const handleSubmit = async (e) => {
 		// ADD USERS TO DATABASE
 		e.preventDefault();
-		const docRef = await addDoc(collection(db, 'users'), {
+		await addDoc(collection(db, 'users'), {
 			user_name: userName,
 			email: email,
 			formation_id: formationId,
@@ -46,9 +45,8 @@ const CreateUser = ({ admin }) => {
 					data: doc.data(),
 				}))
 			);
-			setIsFetched(true);
+			setLoading(false);
 		});
-		setLoading(false);
 	};
 
 	useEffect(() => {
@@ -95,7 +93,7 @@ const CreateUser = ({ admin }) => {
 
 							<label htmlFor="formationid">Formation Id</label>
 							<input
-								type="number"
+								type="text"
 								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
 								placeholder="Identifiant formation"
 								onChange={(e) => setFormationId(e.target.value)}
@@ -121,7 +119,7 @@ const CreateUser = ({ admin }) => {
 				</CustomSection>
 			</div>
 
-			<SelectedUsers isFetched={isFetched} />
+			<SelectedUsers />
 			{/* <Signup /> */}
 		</div>
 	);

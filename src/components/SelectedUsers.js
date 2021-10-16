@@ -34,43 +34,37 @@ const SelectedUsers = () => {
 	return (
 		<>
 			<div className="w-full bg-white py-5 px-10">
-				<div>
-					<div className="text-black text-center pt-6 pb-6">
-						<h1 className="text-5xl">Utilisateurs inscrit</h1>
-						<div className="flex items-center justify-center pt-8 pb-6">
-							<img
-								className="pointer-events-none"
-								src={blueSep}
-								alt="separateur jaune"
-							></img>
-						</div>
+				<div className="text-black text-center pt-6 pb-6">
+					<h1 className="text-5xl">Utilisateurs inscrit</h1>
+					<div className="flex items-center justify-center pt-8 pb-6">
+						<img
+							className="pointer-events-none"
+							src={blueSep}
+							alt="separateur jaune"
+						></img>
 					</div>
-					<div className="flex justify-center mb-2 space-x-36">
-						<div className="w-full max-w-4xl">
-							<label htmlFor="user">
-								Liste des Utilisateurs:
-							</label>
-							<select
-								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-								name="user"
-								onChange={(e) => setQuery(e.target.value)}
-							>
-								<option></option>
-								{users
-									.sort()
-									.map(({ id, data: { user_name } }) => (
-										<option key={id} value={user_name}>
-											{user_name}
-										</option>
-									))}
-							</select>
-						</div>
+				</div>
+				<div className="flex justify-center mb-2 space-x-36">
+					<div className="w-full max-w-4xl">
+						<label htmlFor="user">Liste des Utilisateurs:</label>
+						<select
+							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+							name="user"
+							onChange={(e) => setQuery(e.target.value)}
+						>
+							<option></option>
+							{users.sort().map(({ id, data: { user_name } }) => (
+								<option key={id} value={user_name}>
+									{user_name}
+								</option>
+							))}
+						</select>
 					</div>
 				</div>
 			</div>
 
 			{users
-				.filter(({ id, data: { user_name } }) => user_name === query)
+				.filter(({ data: { user_name } }) => user_name === query)
 				.map(
 					(
 						{
@@ -84,12 +78,12 @@ const SelectedUsers = () => {
 						},
 						index
 					) => (
-						<div>
+						<div key={index}>
 							<Modal
 								id={id}
 								handleDeleteUsers={handleDeleteUsers}
 							/>
-							<div key={index} className="bg-white py-5 px-20">
+							<div className="bg-white py-5 px-20">
 								<div>
 									<div className="flex mb-5 space-x-2">
 										<h1 className="text-xl text-black">

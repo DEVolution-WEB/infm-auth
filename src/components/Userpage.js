@@ -3,7 +3,7 @@ import { db } from '../firebase';
 import { useGlobalContext } from '../context';
 
 const Userpage = ({ currentUser }) => {
-	const { users, setUsers } = useGlobalContext();
+	const { users, setUsers, isFetched, setIsFetched } = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 
 	const getUsers = () => {
@@ -18,16 +18,21 @@ const Userpage = ({ currentUser }) => {
 			);
 		});
 		setLoading(false);
+		setIsFetched(true);
 	};
 
 	useEffect(() => {
 		getUsers();
 	}, []);
 
+	// const filteredUser = users.filter(
+	// 	(user) => user.data.email === currentUser.email
+	// );
+
 	return (
 		<div className="pt-10">
 			<h1>useur pages</h1>
-			{loading &&
+			{isFetched &&
 				users
 					.filter(
 						({ data: { email } }) => email === currentUser.email

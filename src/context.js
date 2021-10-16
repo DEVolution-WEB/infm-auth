@@ -9,7 +9,9 @@ const AppProvider = ({ children }) => {
 	});
 	const [activeBtn, setActiveBtn] = useState(false);
 	const [users, setUsers] = useState([]);
+	const [formations, setFormations] = useState([]);
 	const [modal, setModal] = useState(false);
+	const [isFetched, setIsFetched] = useState(false);
 
 	return (
 		<AppContext.Provider
@@ -22,6 +24,10 @@ const AppProvider = ({ children }) => {
 				setUsers,
 				modal,
 				setModal,
+				formations,
+				setFormations,
+				isFetched,
+				setIsFetched,
 			}}
 		>
 			{children}
