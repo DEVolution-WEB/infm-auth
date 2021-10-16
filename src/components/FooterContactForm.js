@@ -2,11 +2,8 @@ import React from 'react';
 
 const Footercontactform = () => {
 	return (
-		<div className="flex justify-center mb-10 space-x-36">
-			{/* <h2 className="text-lg opacity-80">
-								Formulaire de contact + adresse/horaires
-							</h2> */}
-			<form className="w-full max-w-xl bg-darkBlueForm text-lightGrayCust p-3 mt-6">
+		<div className="inline-block xl:flex md:justify-center mb-10 xl:space-x-32 px-6">
+			<form className="w-full lg:max-w-lg bg-darkBlueForm text-lightGrayCust p-3 mt-6">
 				<div className="flex flex-wrap -mx-3 mb-6">
 					<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 						<label
@@ -73,8 +70,8 @@ const Footercontactform = () => {
 					</button>
 				</div>
 			</form>
-			<div className="mt-12">
-				<div className=" text-lg mb-6">
+			<div className="mt-6 md:mt-12">
+				<div className=" text-lg mb-6 ">
 					<div className="flex justify-left space-x-2">
 						<div>
 							<svg
