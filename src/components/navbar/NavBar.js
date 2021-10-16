@@ -1,9 +1,22 @@
 import React, { useRef } from 'react';
 import logoINFM from '../../assets/logo-infm.png';
+import { useHistory } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
 import './NavBar.css';
 
 const Navbar = () => {
 	const contactRef = useRef(null);
+	const { logout } = useAuth();
+	const history = useHistory();
+
+	const handleLogout = async () => {
+		try {
+			await logout();
+			history.push('/');
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const goToSection = (id) => {
 		contactRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -68,12 +81,12 @@ const Navbar = () => {
 								>
 									Contact
 								</button>
-								{/* <a
-									href="https://www.infm.fr/#"
-									className="py-3 px-3 bg-darkBlueCust hover:bg-blue-700 text-white hover:text-yellowCust rounded-3xl transition duration-300"
+								<a
+									onClick={handleLogout}
+									className="cursor-pointer py-3 px-3 bg-darkBlueCust hover:bg-blue-700 text-white hover:text-yellowCust rounded-3xl transition duration-300"
 								>
 									Se déconnecter
-								</a> */}
+								</a>
 							</li>
 						</ul>
 					</nav>
