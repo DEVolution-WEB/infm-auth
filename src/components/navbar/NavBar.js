@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 
 const Navbar = () => {
+	const { logout } = useAuth();
 	const contactRef = useRef(null);
 	const navRef = React.useRef(null);
 	const { logout } = useAuth();
