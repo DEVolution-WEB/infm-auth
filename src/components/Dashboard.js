@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../AuthContext';
-import { useHistory } from 'react-router-dom';
 import CreateUser from './CreateUser';
 import Userpage from './Userpage';
 import yellowSep from '../assets/yellowSep.png';
@@ -12,18 +11,7 @@ import CustomSection from './CustomSection';
 const Dashboard = () => {
 	const [error, setError] = useState('');
 	const [admin, setAdmin] = useState(false);
-	const { currentUser, logout } = useAuth();
-	const history = useHistory();
-
-	const handleLogout = async () => {
-		setError('');
-		try {
-			await logout();
-			history.push('/');
-		} catch (error) {
-			setError('Échec de la déconnexion');
-		}
-	};
+	const { currentUser } = useAuth();
 
 	useEffect(() => {
 		if (currentUser.email === 'admin@dev.team') {
@@ -50,12 +38,7 @@ const Dashboard = () => {
 						)}
 					</div>
 				</div>
-				<button
-					className="bg-darkBlueCust my-8 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
-					onClick={handleLogout}
-				>
-					Se déconnecter
-				</button>
+
 				<CustomSection>
 					<div>
 						<div className="text-black text-center pt-12 pb-6">

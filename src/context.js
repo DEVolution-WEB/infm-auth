@@ -9,6 +9,7 @@ const AppProvider = ({ children }) => {
 	});
 	const [activeBtn, setActiveBtn] = useState(false);
 	const [users, setUsers] = useState([]);
+	const [modal, setModal] = useState(false);
 
 	return (
 		<AppContext.Provider
@@ -19,6 +20,8 @@ const AppProvider = ({ children }) => {
 				setActiveBtn,
 				users,
 				setUsers,
+				modal,
+				setModal,
 			}}
 		>
 			{children}

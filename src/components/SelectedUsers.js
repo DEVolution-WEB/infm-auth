@@ -4,9 +4,10 @@ import { db } from '../firebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import Edituser from './EditUser';
 import blueSep from '../assets/darkBlueSep.png';
+import Modal from './Modal';
 
 const SelectedUsers = () => {
-	const { users } = useGlobalContext();
+	const { users, modal, setModal } = useGlobalContext();
 	const [query, setQuery] = useState('');
 	const [edit, setEdit] = useState(false);
 	const [userName, setUserName] = useState('');
@@ -84,6 +85,10 @@ const SelectedUsers = () => {
 						index
 					) => (
 						<div>
+							<Modal
+								id={id}
+								handleDeleteUsers={handleDeleteUsers}
+							/>
 							<div key={index} className="bg-white py-5 px-20">
 								<div>
 									<div className="flex mb-5 space-x-2">
@@ -125,7 +130,7 @@ const SelectedUsers = () => {
 										Editer
 									</button>
 									<button
-										onClick={() => handleDeleteUsers(id)}
+										onClick={() => setModal(!modal)}
 										className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
 									>
 										Suprimer

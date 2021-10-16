@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import logoINFM from '../../assets/logo-infm.png';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
-import './NavBar.css';
 
 const Navbar = () => {
 	const contactRef = useRef(null);
