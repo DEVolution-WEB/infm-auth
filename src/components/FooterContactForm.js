@@ -6,6 +6,7 @@ const Footercontactform = () => {
 			{/* <h2 className="text-lg opacity-80">
 								Formulaire de contact + adresse/horaires
 							</h2> */}
+
 			<form className="w-full max-w-xl bg-darkBlueForm text-lightGrayCust p-3 mt-6">
 				<div className="flex flex-wrap -mx-3 mb-6">
 					<div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -73,6 +74,7 @@ const Footercontactform = () => {
 					</button>
 				</div>
 			</form>
+
 			<div className="mt-12">
 				<div className=" text-lg mb-6">
 					<div className="flex justify-left space-x-2">
