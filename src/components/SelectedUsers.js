@@ -26,12 +26,13 @@ const SelectedUsers = () => {
 
 	const handleDeleteUsers = async (id) => {
 		// DELETE USERS FROM DATABASE
+
 		await deleteDoc(doc(db, 'users', id));
 	};
 
 	return (
 		<>
-			<div className="w-full bg-white py-12 px-10">
+			<div className="w-full bg-white py-5 px-10">
 				<div>
 					<div className="text-black text-center pt-6 pb-6">
 						<h1 className="text-5xl">Utilisateurs inscrit</h1>
@@ -43,7 +44,7 @@ const SelectedUsers = () => {
 							></img>
 						</div>
 					</div>
-					<div className="flex justify-center mb-10 space-x-36">
+					<div className="flex justify-center mb-2 space-x-36">
 						<div className="w-full max-w-4xl">
 							<label htmlFor="user">
 								Liste des Utilisateurs:
@@ -82,36 +83,68 @@ const SelectedUsers = () => {
 						},
 						index
 					) => (
-						<div className="bg-grey-light" key={index}>
-							<p className="py-1">nom: {user_name}</p>
-							<p className="py-1">Email: {email}</p>
-							<p className="py-1">Formation id: {formation_id}</p>
-							<p className="py-1">
-								Date de création: {created_date}
-							</p>
-							<button
-								onClick={() => setEdit(!edit)}
-								className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
-							>
-								Editer
-							</button>
-							<button
-								onClick={() => handleDeleteUsers(id)}
-								className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
-							>
-								Suprimer
-							</button>
-							{edit && (
-								<Edituser
-									edit={edit}
-									setEdit={setEdit}
-									handleEditUsers={handleEditUsers}
-									id={id}
-									setUserName={setUserName}
-									setEmail={setEmail}
-									setFormationId={setFormationId}
-								/>
-							)}
+						<div>
+							<div key={index} className="bg-white py-5 px-20">
+								<div>
+									<div className="flex mb-5 space-x-2">
+										<h1 className="text-xl text-black">
+											nom:
+										</h1>
+										<p className="text-xl text-black">
+											{user_name}
+										</p>
+									</div>
+									<div className="flex mb-5 space-x-2">
+										<h1 className="text-xl text-black">
+											Email:
+										</h1>
+										<p className="text-xl text-black">
+											{email}
+										</p>
+									</div>
+									<div className="flex mb-5 space-x-2">
+										<h1 className="text-xl text-black">
+											Formation id:
+										</h1>
+										<p className="text-xl text-black">
+											{formation_id}
+										</p>
+									</div>
+									<div className="flex mb-5 space-x-2">
+										<h1 className="text-xl text-black">
+											Date de création:
+										</h1>
+										<p className="text-xl text-black">
+											{created_date}
+										</p>
+									</div>
+									<button
+										onClick={() => setEdit(!edit)}
+										className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+									>
+										Editer
+									</button>
+									<button
+										onClick={() => handleDeleteUsers(id)}
+										className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+									>
+										Suprimer
+									</button>
+								</div>
+							</div>
+							<div className="bg-grey-light" key={index}>
+								{edit && (
+									<Edituser
+										edit={edit}
+										setEdit={setEdit}
+										handleEditUsers={handleEditUsers}
+										id={id}
+										setUserName={setUserName}
+										setEmail={setEmail}
+										setFormationId={setFormationId}
+									/>
+								)}
+							</div>
 						</div>
 					)
 				)}

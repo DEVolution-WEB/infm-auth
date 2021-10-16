@@ -25,7 +25,7 @@ const Login = () => {
 			);
 		}
 		setLoading(false);
-		history.push('/');
+		history.push('/dashboard');
 	};
 
 	return (
@@ -67,7 +67,7 @@ const Login = () => {
 						<button
 							disabled={loading}
 							type="submit"
-							className="w-full bg-blue mb-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+							className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:text-yellowCust"
 						>
 							Se connecter
 						</button>
