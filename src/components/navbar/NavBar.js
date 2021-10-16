@@ -5,92 +5,87 @@ import { useAuth } from '../../AuthContext';
 
 const Navbar = () => {
 	const contactRef = useRef(null);
-	const { logout } = useAuth();
-	const history = useHistory();
-
-	const handleLogout = async () => {
-		try {
-			await logout();
-			history.push('/');
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	const navRef = React.useRef(null);
+	
 
 	const goToSection = (id) => {
 		contactRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
 	};
+
+	const showSidebar = (e) => {
+		navRef.current.classList.remove("translate-x-full");
+	};
+
 	return (
 		<div className="header">
-			<div className="navbar-container px-7">
-				<header>
-					<nav className="flex items-center justify-between p-6 h-24 bg-white shadow-sm bg-opacity-70 fixed inset-x-0 z-40 backdrop-filter backdrop-blur">
-						{' '}
-						{/* inset-x-0 équivaut a top-0 left-0 */}
-						<div className="py-3 px-1">
-							<a href="https://www.infm.fr/#">
-								<img
-									className="py-10"
-									src={logoINFM}
-									alt="logo infm"
-								></img>
-							</a>
+			<header class=''>
+				<div class="sidebar min-h-screen xl:hidden flex fixed right-0 transform translate-x-full transition duration-200 ease-in-out z-50" ref={navRef}>
+						<div class="bg-white text-darkBlueCust w-72">
+
+							<div class="bg-darkBlueCust text-white text-xl flex items-center px-4 h-20">
+											<h1> INFM</h1>
+									</div>
+									<nav>
+										<a href="https://www.infm.fr/#section-a836c60-o" class="block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200">Notre mission</a>
+										<a href="https://www.infm.fr/#section-2f18e25-o" class="block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200">Nos formations</a>
+										<a href="https://www.infm.fr/#section-6bb4f66-o" class="block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200">Le fondateur</a>
+										<a href="https://www.infm.fr/#section-8cf797d-o" class="block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200">Quelques chiffres</a>
+										<a href="https://www.infm.fr/#section-c1b9ad3-o" class="block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200">Témoignages</a>
+										<a href="https://www.infm.fr/#section-71bd491-o" class="block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200">Plan d'accès</a>
+										<a onClick={goToSection} class="block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200">Contact</a>
+										<a class="block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200">Se déconnecter</a>
+									</nav>
 						</div>
+					</div>
+				<nav class='flex items-center justify-between p-6 h-24 md:h-20 bg-white shadow-sm bg-opacity-70 fixed inset-x-0 z-40 backdrop-filter backdrop-blur'>
+					{' '}
+					{/* inset-x-0 équivaut a top-0 left-0 */}
+					<div class='py-3 px-1'>
+						<a href='https://www.infm.fr/#'>
+							<img class='h-3/4 w-3/4 sm:h-auto sm:w-full' src={logoINFM} alt='logo infm'></img>
+						</a>
+					</div>
+					<div class="hidden navxl:flex">
 						<ul>
-							<li className="space-x-3 text-lg text-darkBlueCust">
-								<a
-									href="https://www.infm.fr/#section-a836c60-o"
-									className="py-2 px-3 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300"
-								>
+							<li class='space-x-1 text-sm text-darkBlueCust'>
+								<a href='https://www.infm.fr/#section-a836c60-o' class='py-2 px-2 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300'>
 									Notre mission
 								</a>
-								<a
-									href="https://www.infm.fr/#section-2f18e25-o"
-									className="py-2 px-3 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300"
-								>
+								<a href='https://www.infm.fr/#section-2f18e25-o' class='py-2 px-2 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300'>
 									Nos formations
 								</a>
-								<a
-									href="https://www.infm.fr/#section-6bb4f66-o"
-									className="py-2 px-3 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300"
-								>
+								<a href='https://www.infm.fr/#section-6bb4f66-o' class='py-2 px-2 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300'>
 									Le fondateur
 								</a>
-								<a
-									href="https://www.infm.fr/#section-8cf797d-o"
-									className="py-2 px-3 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300"
-								>
+								<a href='https://www.infm.fr/#section-8cf797d-o' class='py-2 px-2 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300'>
 									Quelques chiffres
 								</a>
-								<a
-									href="https://www.infm.fr/#section-c1b9ad3-o"
-									className="py-2 px-3 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300"
-								>
+								<a href='https://www.infm.fr/#section-c1b9ad3-o' class='py-2 px-2 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300'>
 									Témoignages
 								</a>
-								<a
-									href="https://www.infm.fr/#section-71bd491-o"
-									className="py-2 px-3 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300"
-								>
+								<a href='https://www.infm.fr/#section-71bd491-o' class='py-2 px-2 hover:bg-darkBlueCust hover:text-white rounded-3xl transition duration-300'>
 									Plan d'accès
 								</a>
-								<button
-									onClick={goToSection}
-									className="py-2 px-3 hover:bg-blue-900 hover:text-white rounded-3xl transition duration-300"
-								>
+								<button onClick={goToSection} class='py-2 px-2 hover:bg-blue-900 hover:text-white rounded-3xl transition duration-300'>
 									Contact
 								</button>
-								<a
-									onClick={handleLogout}
-									className="cursor-pointer py-3 px-3 bg-darkBlueCust hover:bg-blue-700 text-white hover:text-yellowCust rounded-3xl transition duration-300"
-								>
+								<button class='py-2 px-1 bg-darkBlueCust hover:bg-blue-700 text-white hover:text-yellowCust rounded-3xl transition duration-300'>
 									Se déconnecter
-								</a>
+								</button>
 							</li>
 						</ul>
-					</nav>
-				</header>
-			</div>
+					</div>
+					
+					{/* Burger Button */}
+					<button onClick={showSidebar} class="burger-button xl:hidden flex text-center">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-darkBlueCust" viewBox="0 0 20 20" fill="currentColor">
+							<path fill-rule="evenodd" d="M3 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 5a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" clip-rule="evenodd"/>
+						</svg>
+					</button>
+
+					
+				</nav>
+			</header>
 		</div>
 	);
 };
