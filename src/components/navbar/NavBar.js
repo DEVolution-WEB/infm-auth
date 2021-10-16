@@ -10,8 +10,8 @@ const Navbar = () => {
 	};
 	return (
 		<div className="header">
-			<div className="navbar-container px-7 py-3">
-				<header className="">
+			<div className="navbar-container px-7">
+				<header>
 					<nav className="flex items-center justify-between p-6 h-24 bg-white shadow-sm bg-opacity-70 fixed inset-x-0 z-40 backdrop-filter backdrop-blur">
 						{' '}
 						{/* inset-x-0 équivaut a top-0 left-0 */}
@@ -68,12 +68,12 @@ const Navbar = () => {
 								>
 									Contact
 								</button>
-								<a
+								{/* <a
 									href="https://www.infm.fr/#"
 									className="py-3 px-3 bg-darkBlueCust hover:bg-blue-700 text-white hover:text-yellowCust rounded-3xl transition duration-300"
 								>
 									Se déconnecter
-								</a>
+								</a> */}
 							</li>
 						</ul>
 					</nav>

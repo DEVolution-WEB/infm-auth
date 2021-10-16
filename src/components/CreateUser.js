@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
+import { Link } from 'react-router-dom';
 import { collection, addDoc } from 'firebase/firestore';
 import SelectedUsers from './SelectedUsers';
+import yellowSep from '../assets/yellowSep.png';
 import Signup from './Signup';
 import { useGlobalContext } from '../context';
 import CustomSection from './CustomSection';
 
-const CreateUser = () => {
+const CreateUser = ({ admin }) => {
 	const { users, setUsers } = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 	const [isFetched, setIsFetched] = useState(true);
@@ -25,7 +27,9 @@ const CreateUser = () => {
 			formation_id: formationId,
 			created_date: date,
 		}).then(() => {
-			alert('Utilisateur ajouté');
+			alert(
+				'Utilisateur ajouté, Vous devez lui attribué un login est password'
+			);
 			setUserName('');
 			setEmail('');
 			setFormationId('');
@@ -50,13 +54,23 @@ const CreateUser = () => {
 	useEffect(() => {
 		getUsers();
 	}, []);
-	console.log(users);
+
 	return (
 		<div>
 			<div>
 				<CustomSection>
-					<div className="flex justify-center mb-10 space-x-36">
-						<form onSubmit={handleSubmit}>
+					<div className="text-darkBlueCust text-center pt-5 pb-6">
+						<h1 className="text-5xl">Dashbord Admin</h1>
+						<div className="flex items-center justify-center pt-8 pb-6">
+							<img
+								className="pointer-events-none"
+								src={yellowSep}
+								alt="separateur jaune"
+							></img>
+						</div>
+					</div>
+					<div className="w-full mb-10 py-15 px-10">
+						<form className="max-w-4xl" onSubmit={handleSubmit}>
 							<h2 className="text-xl font-medium text-primary mt-0 mb-8">
 								Créer un nouvel utilisateur
 							</h2>
@@ -95,6 +109,13 @@ const CreateUser = () => {
 							>
 								Créer
 							</button>
+							<div className=" flex flex-col justify-around mt-2 mb-0">
+								{admin && (
+									<Link to="./update-profile">
+										Modifier les identifiant de connexion{' '}
+									</Link>
+								)}
+							</div>
 						</form>
 					</div>
 				</CustomSection>
