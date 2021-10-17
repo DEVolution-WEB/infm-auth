@@ -37,14 +37,12 @@ const Userpage = ({ currentUser }) => {
 					.filter(
 						({ data: { email } }) => email === currentUser.email
 					)
-					.map(({ id, data: { formation_id } }) => (
+					.map(({ id, data: { formation_id, user_name, email } }) => (
 						<div key={id}>
 							<div>
 								<h2>Page utilisateur</h2>
-								<strong>Nom: {currentUser.displayName} </strong>
-								<strong>
-									Address e-mail: {currentUser.email}{' '}
-								</strong>
+								<strong>Nom: {user_name} </strong>
+								<strong>Address e-mail: {email} </strong>
 								<strong>Formation-id: {formation_id}</strong>
 							</div>
 							<div className="pt-48 relative">

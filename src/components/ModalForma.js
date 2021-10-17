@@ -2,11 +2,11 @@ import React from 'react';
 import { useGlobalContext } from '../context';
 import '../assets/css/Modal.css';
 
-const Modal = ({ id, handleDeleteUsers }) => {
-	const { modal, setModal } = useGlobalContext();
+const Modal = ({ id, handleDeleteFormations }) => {
+	const { modalForma, setModalForma } = useGlobalContext();
 
 	return (
-		<div className={`modal-screen ${modal && 'open'}`}>
+		<div className={`modal-screen ${modalForma && 'open'}`}>
 			<div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
 				<h2
 					className="text-2xl font-medium text-primary mt-4 mb-10
@@ -16,17 +16,17 @@ const Modal = ({ id, handleDeleteUsers }) => {
 				</h2>
 				<div className="flex justify-around items-center mt-6">
 					<button
-						disabled={!modal}
+						disabled={!modalForma}
 						onClick={() => {
-							handleDeleteUsers(id);
-							setModal(!modal);
+							handleDeleteFormations(id);
+							setModalForma(!modalForma);
 						}}
 						className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:text-yellowCust"
 					>
 						oui
 					</button>
 					<button
-						onClick={() => setModal(!modal)}
+						onClick={() => setModalForma(!modalForma)}
 						className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:text-yellowCust"
 					>
 						non

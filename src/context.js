@@ -11,6 +11,7 @@ const AppProvider = ({ children }) => {
 	const [users, setUsers] = useState([]);
 	const [formations, setFormations] = useState([]);
 	const [modal, setModal] = useState(false);
+	const [modalForma, setModalForma] = useState(false);
 	const [isFetched, setIsFetched] = useState(false);
 
 	return (
@@ -28,6 +29,8 @@ const AppProvider = ({ children }) => {
 				setFormations,
 				isFetched,
 				setIsFetched,
+				modalForma,
+				setModalForma,
 			}}
 		>
 			{children}

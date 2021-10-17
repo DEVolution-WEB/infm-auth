@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import logoINFM from '../../assets/logo-infm.png';
 import cross from '../../assets/cross.png';
+import { useGlobalContext } from '../../context';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 
 const Navbar = () => {
+	const { setIsFetched } = useGlobalContext();
 	const contactRef = useRef(null);
 	const navRef = React.useRef(null);
 	const { logout } = useAuth();
@@ -12,6 +14,7 @@ const Navbar = () => {
 
 	const handleLogout = async () => {
 		try {
+			setIsFetched(false);
 			await logout();
 		} catch (error) {
 			console.log(error);
