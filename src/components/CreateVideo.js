@@ -19,7 +19,6 @@ const Createvideo = () => {
 		e.preventDefault();
 		await addDoc(collection(db, 'formations'), {
 			formation_name: nameFormation,
-			formation_id: formationId,
 			video_url: url,
 			created_date: date,
 		}).then(() => {
@@ -42,7 +41,7 @@ const Createvideo = () => {
 		});
 		setLoading(false);
 	};
-	console.log(formations);
+
 	useEffect(() => {
 		getFormations();
 	}, []);
@@ -73,15 +72,6 @@ const Createvideo = () => {
 						required
 						value={nameFormation}
 						onChange={(e) => setNameFormation(e.target.value)}
-					/>
-					<label htmlFor="formationid">Formation Id</label>
-					<input
-						type="text"
-						className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-						placeholder="Ex: F23"
-						required
-						value={formationId}
-						onChange={(e) => setFormationId(e.target.value)}
 					/>
 					<label htmlFor="email">URL Video</label>
 					<input

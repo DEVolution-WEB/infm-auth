@@ -6,8 +6,6 @@ import yellowSep from '../assets/yellowSep.png';
 import blueSep from '../assets/darkBlueSep.png';
 import '../assets/css/fonts/font.css';
 import '../assets/css/section.css';
-import CustomSection from './CustomSection';
-import CreateVideo from './CreateVideo';
 
 const Dashboard = () => {
 	// const [error, setError] = useState('');
@@ -37,8 +35,6 @@ const Dashboard = () => {
 						)}
 					</div>
 				</div>
-
-				<CustomSection>{admin && <CreateVideo />}</CustomSection>
 
 				{/* <div className="bg-white py-12 px-10">
 					<div>

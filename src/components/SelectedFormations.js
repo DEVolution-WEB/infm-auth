@@ -68,91 +68,64 @@ const Selectedformations = () => {
 						({ data: { formation_name } }) =>
 							formation_name === query
 					)
-					.map(
-						({
-							id,
-							data: {
-								created_date,
-								formation_id,
-								formation_name,
-								video_url,
-							},
-						}) => (
-							<div key={id}>
-								<ModalForma
-									id={id}
-									handleDeleteFormations={
-										handleDeleteFormations
-									}
-								/>
-								<div className="bg-white py-5 px-20">
-									<div>
-										<div className="flex mb-5 space-x-2">
-											<h1 className="text-xl text-black">
-												Nom de la formation:
-											</h1>
-											<p className="text-xl text-black">
-												{formation_name}
-											</p>
-										</div>
-										<div className="flex mb-5 space-x-2">
-											<h1 className="text-xl text-black">
-												Formation Id:
-											</h1>
-											<p className="text-xl text-black">
-												{formation_id}
-											</p>
-										</div>
-										<div className="flex mb-5 space-x-2">
-											<h1 className="text-xl text-black">
-												URL Video:
-											</h1>
-											<p className="text-xl text-black">
-												{video_url}
-											</p>
-										</div>
-										<div className="flex mb-5 space-x-2">
-											<h1 className="text-xl text-black">
-												Date de création:
-											</h1>
-											<p className="text-xl text-black">
-												{created_date}
-											</p>
-										</div>
-										<button
-											onClick={() => setEdit(!edit)}
-											className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
-										>
-											Editer
-										</button>
-										<button
-											onClick={() =>
-												setModalForma(!modalForma)
-											}
-											className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
-										>
-											Suprimer
-										</button>
+					.map(({ id, data: { formation_name, video_url } }) => (
+						<div key={id}>
+							<ModalForma
+								id={id}
+								handleDeleteFormations={handleDeleteFormations}
+							/>
+							<div className="bg-white py-5 px-20">
+								<div>
+									<div className="flex mb-5 space-x-2">
+										<h1 className="text-xl text-black">
+											Nom de la formation:
+										</h1>
+										<p className="text-xl text-black">
+											{formation_name}
+										</p>
 									</div>
-								</div>
-								<div className="bg-grey-light" key={id}>
-									{edit && (
-										<Editformation
-											edit={edit}
-											setEdit={setEdit}
-											handleEditFormations={
-												handleEditFormations
-											}
-											id={id}
-											setNameFormation={setNameFormation}
-											setUrl={setUrl}
-											setFormationId={setFormationId}
-										/>
-									)}
+									<div className="flex mb-5 space-x-2">
+										<h1 className="text-xl text-black">
+											URL Video:
+										</h1>
+										<p className="text-xl text-black">
+											{video_url}
+										</p>
+									</div>
+
+									<button
+										onClick={() => setEdit(!edit)}
+										className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+									>
+										Editer
+									</button>
+									<button
+										onClick={() =>
+											setModalForma(!modalForma)
+										}
+										className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+									>
+										Suprimer
+									</button>
 								</div>
 							</div>
-						)
-					)}
+							<div className="bg-grey-light" key={id}>
+								{edit && (
+									<Editformation
+										edit={edit}
+										setEdit={setEdit}
+										handleEditFormations={
+											handleEditFormations
+										}
+										id={id}
+										setNameFormation={setNameFormation}
+										setUrl={setUrl}
+										setFormationId={setFormationId}
+									/>
+								)}
+							</div>
+						</div>
+					))}
 			</div>
 		</div>
 	);

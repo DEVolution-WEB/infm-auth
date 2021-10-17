@@ -40,11 +40,11 @@ const Edituser = ({
 							required
 						/>
 
-						<label htmlFor="formationid">Formation Id</label>
+						<label htmlFor="formationid">Formation:</label>
 						<input
 							type="text"
 							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-							placeholder="Identifiant formation"
+							placeholder="Formation"
 							onChange={(e) => setFormationId(e.target.value)}
 							required
 						/>

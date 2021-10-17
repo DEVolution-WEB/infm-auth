@@ -7,13 +7,14 @@ import yellowSep from '../assets/yellowSep.png';
 import Signup from './Signup';
 import { useGlobalContext } from '../context';
 import CustomSection from './CustomSection';
+import Createvideo from './CreateVideo';
 
 const CreateUser = ({ admin }) => {
-	const { setUsers } = useGlobalContext();
+	const { setUsers, formations } = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 	const [userName, setUserName] = useState('');
 	const [email, setEmail] = useState('');
-	const [formationId, setFormationId] = useState('');
+	const [formationName, setFormationName] = useState('');
 
 	const date = new Date().toLocaleDateString();
 
@@ -23,13 +24,13 @@ const CreateUser = ({ admin }) => {
 		await addDoc(collection(db, 'users'), {
 			user_name: userName,
 			email: email,
-			formation_id: formationId,
+			formation_id: formationName,
 			created_date: date,
 		}).then(() => {
 			alert('Utilisateur ajouté');
 			setUserName('');
 			setEmail('');
-			setFormationId('');
+			setFormationName('');
 		});
 	};
 
@@ -65,7 +66,7 @@ const CreateUser = ({ admin }) => {
 							></img>
 						</div>
 					</div>
-					<Signup />
+					{/* <Signup /> */}
 					<div className="w-full mb-10 py-15 px-10">
 						<form className="max-w-4xl" onSubmit={handleSubmit}>
 							<h2 className="text-xl font-medium text-primary mt-0 mb-8">
@@ -90,15 +91,23 @@ const CreateUser = ({ admin }) => {
 								value={email}
 							/>
 
-							<label htmlFor="formationid">Formation Id</label>
-							<input
-								type="text"
+							<label htmlFor="user">Liste des Formations:</label>
+							<select
 								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-								placeholder="Identifiant formation"
-								onChange={(e) => setFormationId(e.target.value)}
-								required
-								value={formationId}
-							/>
+								name="user"
+								onChange={(e) =>
+									setFormationName(e.target.value)
+								}
+							>
+								<option></option>
+								{formations
+									.sort()
+									.map(({ id, data: { formation_name } }) => (
+										<option key={id} value={formation_name}>
+											{formation_name}
+										</option>
+									))}
+							</select>
 
 							<button
 								type="submit"
@@ -107,15 +116,16 @@ const CreateUser = ({ admin }) => {
 								Créer
 							</button>
 							<div className=" flex flex-col justify-around mt-2 mb-0">
-								{admin && (
+								{/* {admin && (
 									<Link to="./update-profile">
 										Modifier les identifiant de connexion{' '}
 									</Link>
-								)}
+								)} */}
 							</div>
 						</form>
 					</div>
 				</CustomSection>
+				{admin && <Createvideo />}
 			</div>
 
 			<SelectedUsers />

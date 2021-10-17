@@ -103,7 +103,7 @@ const SelectedUsers = () => {
 									</div>
 									<div className="flex mb-5 space-x-2">
 										<h1 className="text-xl text-black">
-											Formation id:
+											Formation:
 										</h1>
 										<p className="text-xl text-black">
 											{formation_id}

@@ -59,7 +59,7 @@ const Userpage = ({ currentUser }) => {
 				formations
 					.filter(
 						(formation) =>
-							formation.data.formation_id ===
+							formation.data.formation_name ===
 							activeUser[0].data.formation_id
 					)
 					.map(({ id, data: { video_url } }) => (
