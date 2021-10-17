@@ -3,7 +3,14 @@ import { db } from '../firebase';
 import { useGlobalContext } from '../context';
 
 const Userpage = ({ currentUser }) => {
-	const { users, setUsers, isFetched, setIsFetched } = useGlobalContext();
+	const {
+		users,
+		setUsers,
+		formations,
+		setFormations,
+		isFetched,
+		setIsFetched,
+	} = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 
 	const getUsers = () => {
@@ -21,33 +28,45 @@ const Userpage = ({ currentUser }) => {
 		setIsFetched(true);
 	};
 
+	const getFormations = () => {
+		// GET FORMATIONS FROM DATABASE
+		setLoading(true);
+		db.collection('formations').onSnapshot((Snapshot) => {
+			setFormations(
+				Snapshot.docs.map((doc) => ({
+					id: doc.id,
+					data: doc.data(),
+				}))
+			);
+		});
+		setLoading(false);
+		setIsFetched(true);
+	};
+
 	useEffect(() => {
 		getUsers();
+		getFormations();
 	}, []);
 
-	// const filteredUser = users.filter(
-	// 	(user) => user.data.email === currentUser.email
-	// );
+	const activeUser = users.filter(
+		(user) => user.data.email === currentUser.email
+	);
 
 	return (
 		<div className="pt-10">
 			<h1>useur pages</h1>
 			{isFetched &&
-				users
+				formations
 					.filter(
-						({ data: { email } }) => email === currentUser.email
+						(formation) =>
+							formation.data.formation_id ===
+							activeUser[0].data.formation_id
 					)
-					.map(({ id, data: { formation_id, user_name, email } }) => (
+					.map(({ id, data: { video_url } }) => (
 						<div key={id}>
-							<div>
-								<h2>Page utilisateur</h2>
-								<strong>Nom: {user_name} </strong>
-								<strong>Address e-mail: {email} </strong>
-								<strong>Formation-id: {formation_id}</strong>
-							</div>
 							<div className="pt-48 relative">
 								<iframe
-									src="https://player.vimeo.com/video/612967680?h=88610b9112&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+									src={video_url}
 									frameBorder="0"
 									allow="autoplay; fullscreen; picture-in-picture"
 									allowFullScreen

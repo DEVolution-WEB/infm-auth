@@ -26,9 +26,7 @@ const CreateUser = ({ admin }) => {
 			formation_id: formationId,
 			created_date: date,
 		}).then(() => {
-			alert(
-				'Utilisateur ajouté, Vous devez lui attribué un login est password'
-			);
+			alert('Utilisateur ajouté');
 			setUserName('');
 			setEmail('');
 			setFormationId('');
@@ -67,6 +65,7 @@ const CreateUser = ({ admin }) => {
 							></img>
 						</div>
 					</div>
+					<Signup />
 					<div className="w-full mb-10 py-15 px-10">
 						<form className="max-w-4xl" onSubmit={handleSubmit}>
 							<h2 className="text-xl font-medium text-primary mt-0 mb-8">
@@ -120,7 +119,6 @@ const CreateUser = ({ admin }) => {
 			</div>
 
 			<SelectedUsers />
-			{/* <Signup /> */}
 		</div>
 	);
 };

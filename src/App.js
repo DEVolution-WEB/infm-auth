@@ -1,5 +1,4 @@
 import './App.css';
-// import Signup from './components/Signup';
 import Navbar from './components/navbar/NavBar';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
@@ -38,3 +37,6 @@ function App() {
 }
 
 export default App;
+
+// admin@dev.team
+// Mdp: devteam

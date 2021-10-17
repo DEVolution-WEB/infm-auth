@@ -51,6 +51,9 @@ const Signup = () => {
 			setError('');
 			setLoading(true);
 			await signup(emailRef.current.value, passwordRef.current.value);
+			alert(
+				'Veuillez ne pas rafraîchir la pages pour ne pas être déconnecté entre chaque création de nouveau utilisateur'
+			);
 		} catch {
 			return setError('Impossible de créer un compte');
 		}
@@ -61,7 +64,7 @@ const Signup = () => {
 	return (
 		<div className="w-full m-auto bg-grey-light rounded-lg py-5 px-16">
 			<h1 className="text-2xl font-medium text-primary mt-4 mb-8 text-center">
-				Créer un nouvel accées utilisateur
+				Créer un accées utilisateur
 			</h1>
 			{error && <p className="text-sm text-red mb-5">{error}</p>}
 			<form onSubmit={handleSubmit}>
@@ -70,7 +73,7 @@ const Signup = () => {
 					<input
 						type="email"
 						ref={emailRef}
-						className="w-full max-w-xs max-w-5xl p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+						className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
 						id="email"
 						placeholder="Votre e-mail"
 						required
@@ -105,13 +108,13 @@ const Signup = () => {
 
 				<div className="flex justify-center items-center mt-6">
 					<button
-						className={`bg-blue py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
+						className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
 							activeBtn ? '' : 'hidden'
 						}`}
 						type="submit"
 						disabled={!activeBtn}
 					>
-						Créer mon compte
+						Créer un compte
 					</button>
 				</div>
 				<div className="flex justify-center items-center">
@@ -123,7 +126,7 @@ const Signup = () => {
 						match={match}
 					/>
 				</div>
-				<div
+				{/* <div
 					onClick={() => setPassword({ secondPassword: '' })}
 					className="flex justify-center items-center mt-2"
 				>
@@ -131,7 +134,7 @@ const Signup = () => {
 					<Link className="hover:text-blue-light ml-1" to="/login">
 						Connectez-vous
 					</Link>
-				</div>
+				</div> */}
 			</form>
 		</div>
 	);
