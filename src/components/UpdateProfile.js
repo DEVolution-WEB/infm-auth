@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useAuth } from '../AuthContext';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import { usePasswordValidation } from './usePasswordValidation';
 import Validpassword from './ValidPassword';
@@ -140,9 +140,14 @@ const UpdateProfile = () => {
 						onClick={() => setPassword({ secondPassword: '' })}
 						className="w-full text-center mt-2 mb-3"
 					>
-						<Link className="hover:text-blue-light" to="/">
+						{/* <div className=" flex flex-col justify-around mt-2 mb-0">
+							<Link to="./update-profile">
+								Modifier les identifiant de connexion{' '}
+							</Link>
+						</div> */}
+						{/* <Link className="hover:text-blue-light" to="/dashboard">
 							Annuler{' '}
-						</Link>
+						</Link> */}
 					</div>
 				</form>
 			</div>

@@ -2,13 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../AuthContext';
 import CreateUser from './CreateUser';
 import Userpage from './Userpage';
-import yellowSep from '../assets/yellowSep.png';
-import blueSep from '../assets/darkBlueSep.png';
 import '../assets/css/fonts/font.css';
 import '../assets/css/section.css';
 
 const Dashboard = () => {
-	// const [error, setError] = useState('');
 	const [admin, setAdmin] = useState(false);
 	const { currentUser } = useAuth();
 

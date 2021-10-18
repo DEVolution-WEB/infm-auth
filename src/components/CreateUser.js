@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { usePasswordValidation } from './usePasswordValidation';
 import { collection, addDoc } from 'firebase/firestore';
 import SelectedUsers from './SelectedUsers';
@@ -11,6 +11,7 @@ import CustomSection from './CustomSection';
 import Createvideo from './CreateVideo';
 import Validpassword from './ValidPassword';
 import '../assets/css/App.css';
+import UpdateProfile from './UpdateProfile';
 
 const CreateUser = ({ admin }) => {
 	const {
@@ -175,7 +176,6 @@ const CreateUser = ({ admin }) => {
 								required
 								onChange={setSecond}
 							/>
-
 							<label htmlFor="user">Liste des Formations:</label>
 							<select
 								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
@@ -194,7 +194,6 @@ const CreateUser = ({ admin }) => {
 										</option>
 									))}
 							</select>
-
 							<div className="flex justify-center items-center">
 								<Validpassword
 									validLength={validLength}
@@ -204,7 +203,8 @@ const CreateUser = ({ admin }) => {
 									match={match}
 								/>
 							</div>
-
+							{/* <UpdateProfile />{' '} */}
+							{/* permet a djamel de modifier sont mot de pas donc optionel */}
 							<button
 								className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
 									activeBtn ? '' : 'hidden'
@@ -214,19 +214,11 @@ const CreateUser = ({ admin }) => {
 							>
 								Créer un compte
 							</button>
-							<div className=" flex flex-col justify-around mt-2 mb-0">
-								{/* {admin && (
-									<Link to="./update-profile">
-										Modifier les identifiant de connexion{' '}
-									</Link>
-								)} */}
-							</div>
 						</form>
 					</div>
 				</CustomSection>
 				{admin && <Createvideo />}
 			</div>
-
 			<SelectedUsers />
 		</div>
 	);

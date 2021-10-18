@@ -51,6 +51,7 @@ const Userpage = ({ currentUser }) => {
 	const activeUser = users.filter(
 		(user) => user.data.email === currentUser.email
 	);
+	console.log(isFetched);
 
 	return (
 		<div className="pt-10">
