@@ -46,6 +46,9 @@ const SelectedUsers = () => {
 				</div>
 				<div className="flex justify-center mb-2 space-x-36">
 					<div className="w-full max-w-4xl">
+						<h2 className="text-xl font-medium text-primary mt-0 mb-8">
+							Modifier un utilisateur
+						</h2>
 						<label htmlFor="user">Liste des Utilisateurs:</label>
 						<select
 							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"

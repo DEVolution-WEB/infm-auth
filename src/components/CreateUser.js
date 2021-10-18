@@ -183,6 +183,7 @@ const CreateUser = ({ admin }) => {
 								onChange={(e) =>
 									setFormationName(e.target.value)
 								}
+								required
 							>
 								<option></option>
 								{formations
@@ -205,10 +206,13 @@ const CreateUser = ({ admin }) => {
 							</div>
 
 							<button
+								className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
+									activeBtn ? '' : 'hidden'
+								}`}
 								type="submit"
-								className="bg-darkBlueCust mt-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+								disabled={!activeBtn}
 							>
-								Créer
+								Créer un compte
 							</button>
 							<div className=" flex flex-col justify-around mt-2 mb-0">
 								{/* {admin && (
