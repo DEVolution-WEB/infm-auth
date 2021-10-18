@@ -21,9 +21,6 @@ const Editformation = ({
 			<CustomSection>
 				<div className="w-full mb-10 py-15 px-10">
 					<form className="max-w-4xl" onSubmit={handleSubmit}>
-						<h2 className="text-xl font-medium text-primary mt-0 mb-8">
-							Modifier une Formation
-						</h2>
 						<label htmlFor="name">Nom de la formation</label>
 						<input
 							type="text"

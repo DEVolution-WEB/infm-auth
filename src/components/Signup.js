@@ -117,7 +117,7 @@ const Signup = () => {
 						Créer un compte
 					</button>
 				</div>
-				<div className="flex justify-center items-center">
+				{/* <div className="flex justify-center items-center">
 					<Validpassword
 						validLength={validLength}
 						hasNumber={hasNumber}
@@ -125,7 +125,7 @@ const Signup = () => {
 						lowerCase={lowerCase}
 						match={match}
 					/>
-				</div>
+				</div> */}
 				{/* <div
 					onClick={() => setPassword({ secondPassword: '' })}
 					className="flex justify-center items-center mt-2"

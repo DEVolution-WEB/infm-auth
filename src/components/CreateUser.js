@@ -1,36 +1,93 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { usePasswordValidation } from './usePasswordValidation';
 import { collection, addDoc } from 'firebase/firestore';
 import SelectedUsers from './SelectedUsers';
 import yellowSep from '../assets/yellowSep.png';
-import Signup from './Signup';
 import { useGlobalContext } from '../context';
+import { useAuth } from '../AuthContext';
 import CustomSection from './CustomSection';
 import Createvideo from './CreateVideo';
+import Validpassword from './ValidPassword';
+import '../assets/css/App.css';
 
 const CreateUser = ({ admin }) => {
-	const { setUsers, formations } = useGlobalContext();
+	const {
+		setUsers,
+		formations,
+		password,
+		setPassword,
+		activeBtn,
+		setActiveBtn,
+	} = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 	const [userName, setUserName] = useState('');
 	const [email, setEmail] = useState('');
 	const [formationName, setFormationName] = useState('');
+	const emailRef = useRef();
+	const passwordRef = useRef();
+	const passwordConfirmRef = useRef();
+	const { signup } = useAuth();
+	const [error, setError] = useState('');
+	const history = useHistory();
+
+	// password validation //
+	const [validLength, hasNumber, upperCase, lowerCase, match] =
+		usePasswordValidation({
+			firstPassword: password.firstPassword,
+			secondPassword: password.secondPassword,
+		});
+
+	useEffect(() => {
+		if (validLength && hasNumber && upperCase && lowerCase && match) {
+			setActiveBtn(true);
+		} else {
+			setActiveBtn(false);
+		}
+	}, [validLength, hasNumber, upperCase, lowerCase, match]);
+
+	const setFirst = (event) => {
+		setPassword({ ...password, firstPassword: event.target.value });
+	};
+	const setSecond = (event) => {
+		setPassword({ ...password, secondPassword: event.target.value });
+	};
+
+	// set password authentication
 
 	const date = new Date().toLocaleDateString();
 
 	const handleSubmit = async (e) => {
 		// ADD USERS TO DATABASE
 		e.preventDefault();
+		if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+			return setError('Les mots de passe ne correspondent pas!');
+		}
+		try {
+			setError('');
+			setLoading(true);
+			await signup(emailRef.current.value, passwordRef.current.value);
+			alert(
+				'Veuillez ne pas rafraîchir la pages pour ne pas être déconnecté entre chaque création de nouveau utilisateur'
+			);
+		} catch {
+			return setError('Impossible de créer un compte');
+		}
+		setLoading(false);
+		// history.push('/');
+		// create database
 		await addDoc(collection(db, 'users'), {
 			user_name: userName,
 			email: email,
 			formation_id: formationName,
 			created_date: date,
 		}).then(() => {
-			alert('Utilisateur ajouté');
 			setUserName('');
 			setEmail('');
 			setFormationName('');
+			passwordRef.current.value = '';
+			passwordConfirmRef.current.value = '';
 		});
 	};
 
@@ -72,7 +129,12 @@ const CreateUser = ({ admin }) => {
 							<h2 className="text-xl font-medium text-primary mt-0 mb-8">
 								Créer un nouvel utilisateur
 							</h2>
-							<label htmlFor="name">Nom d'utilisateur</label>
+							{error && (
+								<p className="text-sm text-red-400 mb-5">
+									{error}
+								</p>
+							)}
+							<label htmlFor="name">Nom</label>
 							<input
 								type="text"
 								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
@@ -81,14 +143,37 @@ const CreateUser = ({ admin }) => {
 								required
 								value={userName}
 							/>
-							<label htmlFor="email">Email</label>
+							<label htmlFor="email">Adresse e-mail</label>
 							<input
 								type="email"
+								ref={emailRef}
 								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
 								placeholder="email"
 								onChange={(e) => setEmail(e.target.value)}
 								required
 								value={email}
+							/>
+							<label htmlFor="password">Mot de passe</label>
+							<input
+								type="password"
+								ref={passwordRef}
+								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+								id="password"
+								placeholder="Mot de passe"
+								required
+								onChange={setFirst}
+							/>
+							<label htmlFor="password-confirm">
+								Confirmer votre mot de passe
+							</label>
+							<input
+								type="password"
+								ref={passwordConfirmRef}
+								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+								id="passwordconfirm"
+								placeholder="Confirmer mot de passe"
+								required
+								onChange={setSecond}
 							/>
 
 							<label htmlFor="user">Liste des Formations:</label>
@@ -108,6 +193,16 @@ const CreateUser = ({ admin }) => {
 										</option>
 									))}
 							</select>
+
+							<div className="flex justify-center items-center">
+								<Validpassword
+									validLength={validLength}
+									hasNumber={hasNumber}
+									upperCase={upperCase}
+									lowerCase={lowerCase}
+									match={match}
+								/>
+							</div>
 
 							<button
 								type="submit"

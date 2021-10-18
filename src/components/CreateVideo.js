@@ -86,7 +86,7 @@ const Createvideo = () => {
 						type="submit"
 						className="bg-darkBlueCust mt-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
 					>
-						Créer
+						Ajouté
 					</button>
 				</form>
 			</div>

@@ -33,16 +33,9 @@ const Selectedformations = () => {
 	return (
 		<div className="w-full bg-white py-5 px-10">
 			<div>
-				<div className="text-black text-center pt-6 pb-6">
-					<h2 className="text-5xl">Formations Disponible</h2>
-					<div className="flex items-center justify-center pt-8 pb-6">
-						<img
-							className="pointer-events-none"
-							src={blueSep}
-							alt="separateur jaune"
-						></img>
-					</div>
-				</div>
+				<h2 className="text-xl font-medium text-primary mt-0 mb-8">
+					Modifier une Formation
+				</h2>
 				<div className="flex justify-center mb-2 space-x-36">
 					<div className="w-full max-w-4xl">
 						<label htmlFor="user">Liste des Formations:</label>
