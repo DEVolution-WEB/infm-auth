@@ -130,7 +130,7 @@ const CreateUser = ({ admin }) => {
 
 	return (
 		<div>
-			<div class="pt-6">
+			<div className="pt-6">
 				<CustomSection>
 					<div className="text-darkBlueCust text-center pt-5 pb-3">
 						<h1 className="text-5xl">Dashboard Admin</h1>
@@ -220,9 +220,20 @@ const CreateUser = ({ admin }) => {
 									lowerCase={lowerCase}
 									match={match}
 								/>
-							</div> */}
-					<div class="bg-transparent mb-6 w-1/3 items-center mx-auto">
-						<nav class="flex flex-col sm:flex-row justify-center">
+							</div>
+							<button
+								className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
+									activeBtn ? '' : 'hidden'
+								}`}
+								type="submit"
+								disabled={!activeBtn}
+							>
+								Créer un compte
+							</button>
+						</form>
+					</div> */}
+					<div className="bg-transparent mb-6 w-1/3 items-center mx-auto">
+						<nav className="flex flex-col sm:flex-row justify-center">
 							<button
 								className={
 									toggleState === 1
@@ -263,7 +274,7 @@ const CreateUser = ({ admin }) => {
 								: 'content'
 						}
 					>
-						<div class="flex justify-center space-x-32">
+						<div className="flex justify-center space-x-32">
 							<div className="mb-10 py-15 px-10">
 								<form
 									className="max-w-4xl"
@@ -277,7 +288,7 @@ const CreateUser = ({ admin }) => {
 											{error}
 										</p>
 									)}
-									<div class="inline">
+									<div className="inline">
 										<div className="w-64">
 											<label
 												className=" text-black opacity-80 text-md mb-2"
@@ -403,7 +414,6 @@ const CreateUser = ({ admin }) => {
 										Créer un compte
 									</button>
 								</form>
-
 								<div className="flex">
 									<Validpassword
 										validLength={validLength}
@@ -413,8 +423,8 @@ const CreateUser = ({ admin }) => {
 										match={match}
 									/>
 								</div>
-								{/* <UpdateProfile />{' '} */}
-								{/* permet a djamel de modifier sont mot de pas donc optionel */}
+								permet a djamel de modifier sont mot de pas donc
+								optionel
 							</div>
 							<SelectedUsers />
 						</div>
