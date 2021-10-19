@@ -255,7 +255,7 @@ const CreateUser = ({ admin }) => {
 							</button>
 						</nav>
 					</div>
-					{/* <Signup /> */}
+
 					<div
 						className={
 							toggleState === 1
