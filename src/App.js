@@ -5,9 +5,6 @@ import Dashboard from './components/Dashboard';
 import { AuthProvider } from './AuthContext';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Privateroute from './components/PrivateRoute';
-import ForgotPassword from './components/ForgotPassword';
-// import UpdateProfile from './components/UpdateProfile';
-// import Footer from './components/Footer';
 
 function App() {
 	return (
@@ -22,10 +19,7 @@ function App() {
 							path="/update-profile"
 							component={UpdateProfile}
 						/> */}
-
-						{/* <Route path="/login" component={Login} /> */}
 					</Switch>
-					{/* <ForgotPassword /> */}
 				</AuthProvider>
 			</Router>
 		</>

@@ -7,7 +7,6 @@ const Edituser = ({
 	id,
 	handleEditUsers,
 	setFormationId,
-	setEmail,
 	setUserName,
 }) => {
 	const handleSubmit = (e) => {
@@ -29,14 +28,6 @@ const Edituser = ({
 							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
 							placeholder="Utilisateur"
 							onChange={(e) => setUserName(e.target.value)}
-							required
-						/>
-						<label htmlFor="email">Email</label>
-						<input
-							type="email"
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-							placeholder="email"
-							onChange={(e) => setEmail(e.target.value)}
 							required
 						/>
 

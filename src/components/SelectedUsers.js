@@ -18,7 +18,6 @@ const SelectedUsers = () => {
 		//   UPDATE USERS FROM DATABASE
 		await updateDoc(doc(db, 'users', id), {
 			user_name: userName,
-			email: email,
 			formation_id: formationId,
 		})
 			.then(() => alert('Modifier avec success'))
