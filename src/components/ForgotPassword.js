@@ -61,9 +61,6 @@ const Forgotpassword = ({ forgotPassword, setForgotPassword }) => {
 
 						<div className="flex justify-center items-center mt-6">
 							<button
-								// onClick={() =>
-								// 	setForgotPassword(!forgotPassword)
-								// }
 								disabled={loading}
 								type="submit"
 								className="bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"

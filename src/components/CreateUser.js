@@ -22,7 +22,6 @@ const CreateUser = ({ admin }) => {
 		setPassword,
 		activeBtn,
 		setActiveBtn,
-		logout,
 	} = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 	const [forgotPassword, setForgotPassword] = useState(false);
@@ -32,7 +31,7 @@ const CreateUser = ({ admin }) => {
 	const emailRef = useRef();
 	const passwordRef = useRef();
 	const passwordConfirmRef = useRef();
-	const { signup } = useAuth();
+	const { signup, login } = useAuth();
 	const [error, setError] = useState('');
 	const history = useHistory();
 
@@ -81,6 +80,11 @@ const CreateUser = ({ admin }) => {
 			return setError('Impossible de créer un compte');
 		}
 		setLoading(false);
+
+		setTimeout(async () => {
+			await login('admin@dev.team', 'devteam');
+			console.log('login');
+		}, 3000);
 
 		// create database
 		await addDoc(collection(db, 'users'), {
