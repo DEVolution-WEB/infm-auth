@@ -58,52 +58,58 @@ const Createvideo = () => {
 
 	return (
 		<div>
-			<div className=" text-darkBlueCust text-center pt-12 pb-6">
-				<h1 className="text-5xl">Gestion Formation</h1>
-				<div className="flex items-center justify-center pt-8 pb-6">
-					<img
-						className="pointer-events-none"
-						src={yellowSep}
-						alt="separateur jaune"
-					></img>
-				</div>
-			</div>
-
-			<div className="w-full mb-10 py-15 px-10">
+			<div className="h-96 mb-10 py-15 px-10">
 				<form className="max-w-4xl" onSubmit={handleSubmit}>
-					<h2 className="text-xl font-medium text-primary mt-0 mb-8">
-						Créer une nouvelle Formation
+					<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
+						Créer une nouvelle formation
 					</h2>
 					{error && (
 						<p className="text-sm text-red-400 mb-5">{error}</p>
 					)}
-					<label htmlFor="name">Nom de la formation</label>
-					<input
-						type="text"
-						className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-						placeholder="Formation"
-						required
-						value={nameFormation}
-						onChange={(e) => setNameFormation(e.target.value)}
-					/>
-					<label htmlFor="email">URL Video</label>
-					<input
-						type="url"
-						className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-						placeholder="https://"
-						required
-						value={url}
-						onChange={(e) => setUrl(e.target.value)}
-					/>
+				<div class="inline">
+					<div className="w-64">
+						<label
+							className=" text-black opacity-80 text-md mb-2"
+							htmlFor="name"
+							>
+							Nom de la formation
+						</label>
+						<input
+							className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
+							type="text"
+							placeholder="Formation"
+							value={nameFormation}
+							required
+							onChange={(e) => setNameFormation(e.target.value)}
+						/>
+					</div>
+					
+					<div className="w-64">
+						<label
+							className=" text-black opacity-80 text-md mb-2"
+							htmlFor="email"
+							>
+							URL de la vidéo
+						</label>
+						<input
+							className="appearance-none block w-full bg-red-100 text-black opacity-80 text-sm border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
+							type="url"
+							placeholder="https://"
+							value={url}
+							required
+							onChange={(e) => setUrl(e.target.value)}
+						/>
+					</div>
 					<button
 						type="submit"
 						className="bg-darkBlueCust mt-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
 					>
-						Ajouté
+						Ajouter
 					</button>
+					</div>
 				</form>
 			</div>
-			<Selectedformations />
+			
 		</div>
 	);
 };

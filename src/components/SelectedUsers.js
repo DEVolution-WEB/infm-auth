@@ -31,29 +31,22 @@ const SelectedUsers = () => {
 	};
 
 	return (
-		<>
-			<div className="w-full bg-white py-5 px-10">
-				<div className="text-black text-center pt-6 pb-6">
-					<h1 className="text-5xl">Utilisateurs inscrit</h1>
-					<div className="flex items-center justify-center pt-8 pb-6">
-						<img
-							className="pointer-events-none"
-							src={blueSep}
-							alt="separateur jaune"
-						></img>
-					</div>
-				</div>
-				<div className="flex justify-center mb-2 space-x-36">
-					<div className="w-full max-w-4xl">
-						<h2 className="text-xl font-medium text-primary mt-0 mb-8">
+			<div class="inline">
+			<div class="flex space-x-32">
+						<div className="mb-6 py-15">
+					<div className=" max-w-4xl">
+						<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
 							Modifier un utilisateur
 						</h2>
-						<label htmlFor="user">Liste des Utilisateurs:</label>
+						
+						<div className="w-64">
+						<label htmlFor="user" className=" text-black opacity-80 text-md mb-2">Liste des Utilisateurs:</label>
 						<select
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+							className="w-64 block bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
 							name="user"
 							onChange={(e) => setQuery(e.target.value)}
 						>
+								
 							<option></option>
 							{users.sort().map(({ id, data: { user_name } }) => (
 								<option key={id} value={user_name}>
@@ -61,6 +54,7 @@ const SelectedUsers = () => {
 								</option>
 							))}
 						</select>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -85,13 +79,13 @@ const SelectedUsers = () => {
 								id={id}
 								handleDeleteUsers={handleDeleteUsers}
 							/>
-							<div className="bg-white py-5 px-20">
+							<div className="bg-white py-5 px-3 mb-6">
 								<div>
 									<div className="flex mb-5 space-x-2">
 										<h1 className="text-xl text-black">
-											nom:
+											Nom:
 										</h1>
-										<p className="text-xl text-black">
+										<p className="text-lg text-black">
 											{user_name}
 										</p>
 									</div>
@@ -99,7 +93,7 @@ const SelectedUsers = () => {
 										<h1 className="text-xl text-black">
 											Email:
 										</h1>
-										<p className="text-xl text-black">
+										<p className="text-lg text-black">
 											{email}
 										</p>
 									</div>
@@ -107,7 +101,7 @@ const SelectedUsers = () => {
 										<h1 className="text-xl text-black">
 											Formation:
 										</h1>
-										<p className="text-xl text-black">
+										<p className="text-lg text-black">
 											{formation_id}
 										</p>
 									</div>
@@ -115,22 +109,24 @@ const SelectedUsers = () => {
 										<h1 className="text-xl text-black">
 											Date de création:
 										</h1>
-										<p className="text-xl text-black">
+										<p className="text-lg text-black">
 											{created_date}
 										</p>
 									</div>
+									<div class="flex justify-center">
 									<button
 										onClick={() => setEdit(!edit)}
 										className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
 									>
-										Editer
+										Modifier
 									</button>
 									<button
 										onClick={() => setModal(!modal)}
 										className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
 									>
-										Suprimer
+										Supprimer
 									</button>
+									</div>
 								</div>
 							</div>
 							<div className="bg-grey-light" key={index}>
@@ -149,7 +145,8 @@ const SelectedUsers = () => {
 						</div>
 					)
 				)}
-		</>
+		</div>
+		
 	);
 };
 

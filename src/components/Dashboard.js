@@ -20,7 +20,7 @@ const Dashboard = () => {
 
 	return (
 		<>
-			<div className="bg-white py-12">
+			<div className="bg-white py-12 h-screen">
 				<div>
 					<div>
 						{admin ? (
