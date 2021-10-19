@@ -10,20 +10,30 @@ const Createvideo = () => {
 	const [loading, setLoading] = useState(false);
 	const [nameFormation, setNameFormation] = useState('');
 	const [formationId, setFormationId] = useState('');
+	const [isFetched, setIsFetched] = useState(false);
+	const [error, setError] = useState('');
 	const [url, setUrl] = useState('');
 
 	const date = new Date().toLocaleDateString();
 
+	const currentFormation = formations.find(
+		(forma) => forma.data.formation_name === nameFormation
+	);
+
 	const handleSubmit = async (e) => {
 		// ADD FORMATION TO DATABASE
-		e.preventDefault();
+		e.preventDefault(); // prevent creating multiple formation with same name
+		if (currentFormation?.data.formation_name === nameFormation) {
+			return setError(`La Formation ${nameFormation} existe déja`);
+		}
+
 		await addDoc(collection(db, 'formations'), {
 			formation_name: nameFormation,
 			video_url: url,
 			created_date: date,
 		}).then(() => {
 			alert('Formation ajouté');
-			setNameFormation('');
+			// setNameFormation('');
 			setFormationId('');
 			setUrl('');
 		});
@@ -64,6 +74,9 @@ const Createvideo = () => {
 					<h2 className="text-xl font-medium text-primary mt-0 mb-8">
 						Créer une nouvelle Formation
 					</h2>
+					{error && (
+						<p className="text-sm text-red-400 mb-5">{error}</p>
+					)}
 					<label htmlFor="name">Nom de la formation</label>
 					<input
 						type="text"

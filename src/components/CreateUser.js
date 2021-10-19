@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { usePasswordValidation } from './usePasswordValidation';
 import { collection, addDoc } from 'firebase/firestore';
 import SelectedUsers from './SelectedUsers';
@@ -11,16 +11,18 @@ import CustomSection from './CustomSection';
 import Createvideo from './CreateVideo';
 import Validpassword from './ValidPassword';
 import '../assets/css/App.css';
-import UpdateProfile from './UpdateProfile';
+// import UpdateProfile from './UpdateProfile';
 
 const CreateUser = ({ admin }) => {
 	const {
+		users,
 		setUsers,
 		formations,
 		password,
 		setPassword,
 		activeBtn,
 		setActiveBtn,
+		logout,
 	} = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 	const [userName, setUserName] = useState('');
@@ -56,27 +58,29 @@ const CreateUser = ({ admin }) => {
 	};
 
 	// set password authentication
+	const currentUser = users.find((user) => user.data.user_name === userName);
 
 	const date = new Date().toLocaleDateString();
 
 	const handleSubmit = async (e) => {
 		// ADD USERS TO DATABASE
-		e.preventDefault();
+		e.preventDefault(); // prevent creating multiple users with same name
+		if (currentUser?.data.user_name === userName) {
+			return setError(`Le nom d'utilisateur ${userName} existe déja`);
+		}
 		if (passwordRef.current.value !== passwordConfirmRef.current.value) {
 			return setError('Les mots de passe ne correspondent pas!');
 		}
+
 		try {
 			setError('');
 			setLoading(true);
 			await signup(emailRef.current.value, passwordRef.current.value);
-			alert(
-				'Veuillez ne pas rafraîchir la pages pour ne pas être déconnecté entre chaque création de nouveau utilisateur'
-			);
 		} catch {
 			return setError('Impossible de créer un compte');
 		}
 		setLoading(false);
-		// history.push('/');
+
 		// create database
 		await addDoc(collection(db, 'users'), {
 			user_name: userName,

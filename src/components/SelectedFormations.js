@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import blueSep from '../assets/darkBlueSep.png';
 import { db } from '../firebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { useGlobalContext } from '../context';

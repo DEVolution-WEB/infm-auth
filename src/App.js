@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 import { AuthProvider } from './AuthContext';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Privateroute from './components/PrivateRoute';
-import ForgotPassword from './components/ForgotPassword';
+// import ForgotPassword from './components/ForgotPassword';
 // import UpdateProfile from './components/UpdateProfile';
 import Footer from './components/Footer';
 
@@ -18,7 +18,7 @@ function App() {
 					<Switch>
 						<Route exact path="/" component={Login} />
 						<Privateroute path="/dashboard" component={Dashboard} />
-						{/* <Route
+						{/* <Privateroute
 							path="/update-profile"
 							component={UpdateProfile}
 						/> */}

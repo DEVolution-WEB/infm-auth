@@ -48,10 +48,9 @@ const Userpage = ({ currentUser }) => {
 		getFormations();
 	}, []);
 
-	const activeUser = users.filter(
+	const activeUser = users.find(
 		(user) => user.data.email === currentUser.email
 	);
-	console.log(isFetched);
 
 	return (
 		<div className="pt-10">
@@ -61,7 +60,7 @@ const Userpage = ({ currentUser }) => {
 					.filter(
 						(formation) =>
 							formation.data.formation_name ===
-							activeUser[0].data.formation_id
+							activeUser?.data.formation_id
 					)
 					.map(({ id, data: { video_url } }) => (
 						<div key={id}>
