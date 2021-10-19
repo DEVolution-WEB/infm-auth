@@ -54,7 +54,6 @@ const Userpage = ({ currentUser }) => {
 
 	return (
 		<div className="pt-10">
-			<h1>useur pages</h1>
 			{isFetched &&
 				formations
 					.filter(

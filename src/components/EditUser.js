@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomSection from './CustomSection';
+import { useGlobalContext } from '../context';
 
 const Edituser = ({
 	edit,
@@ -9,6 +10,8 @@ const Edituser = ({
 	setFormationId,
 	setUserName,
 }) => {
+	const { formations } = useGlobalContext();
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		handleEditUsers(id);
@@ -30,7 +33,7 @@ const Edituser = ({
 							onChange={(e) => setUserName(e.target.value)}
 							required
 						/>
-
+						{/* 
 						<label htmlFor="formationid">Formation:</label>
 						<input
 							type="text"
@@ -38,7 +41,23 @@ const Edituser = ({
 							placeholder="Formation"
 							onChange={(e) => setFormationId(e.target.value)}
 							required
-						/>
+						/> */}
+						<label htmlFor="user">Liste des Formations:</label>
+						<select
+							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+							name="user"
+							onChange={(e) => setFormationId(e.target.value)}
+							required
+						>
+							<option></option>
+							{formations
+								.sort()
+								.map(({ id, data: { formation_name } }) => (
+									<option key={id} value={formation_name}>
+										{formation_name}
+									</option>
+								))}
+						</select>
 						<button
 							onClick={() => setEdit(!edit)}
 							className="bg-darkBlueCust mt-2 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
