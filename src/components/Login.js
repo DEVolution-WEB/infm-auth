@@ -50,7 +50,7 @@ const Login = () => {
 						<input
 							type="email"
 							ref={emailRef}
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+							className="w-full p-2 text-primary text-black border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
 							id="email"
 							placeholder="Votre e-mail"
 							required
@@ -61,7 +61,7 @@ const Login = () => {
 						<input
 							type="password"
 							ref={passwordRef}
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+							className="w-full p-2 text-primary text-black border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
 							id="password"
 							placeholder="Votre mot de passe"
 							required
