@@ -9,6 +9,7 @@ import yellowSep from '../assets/yellowSep.png';
 import { useGlobalContext } from '../context';
 import { useAuth } from '../AuthContext';
 import CustomSection from './CustomSection';
+import SectionMembre from './SectionMembre';
 import Createvideo from './CreateVideo';
 import Validpassword from './ValidPassword';
 import FooterBottom from './FooterBottom';
@@ -130,19 +131,14 @@ const CreateUser = ({ admin }) => {
 
 	return (
 		<div>
-			<div class="pt-6">
-				<CustomSection>
-					<div className="text-darkBlueCust text-center pt-5 pb-3">
-						<h1 className="text-5xl">Dashboard Admin</h1>
-						<div className="flex items-center justify-center pt-8 pb-6">
-							<img
-								className="pointer-events-none"
-								src={yellowSep}
-								alt="separateur jaune"
-							></img>
+				<div class="bg-darkBlueCust w-full h-40 pt-24">
+						<div className="text-white text-center bg-darkBlueCust pb-5">
+							<h1 className="text-5xl ">Dashboard Admin </h1>
 						</div>
-					</div>
-					<div class="bg-transparent mb-6 w-1/3 items-center mx-auto">
+				</div>
+				<SectionMembre>
+					
+					<div class="bg-transparent mb-6 w-1/3 items-center mx-auto pt-6">
 					<nav class="flex flex-col sm:flex-row justify-center">
 						<button className={toggleState === 1 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(1)}>
 							Gérer utilisateurs
@@ -278,6 +274,12 @@ const CreateUser = ({ admin }) => {
 							>
 								Créer un compte
 							</button>
+							<div
+							onClick={() => setForgotPassword(!forgotPassword)}
+							className="cursor-pointer mt-3 mb-3"
+						>
+							<p>Mot de passe oublié</p>
+						</div>
 						</form>
 								
 								<div className="flex">
@@ -289,6 +291,10 @@ const CreateUser = ({ admin }) => {
 										match={match}
 									/>
 								</div>
+								<ForgotPassword
+							forgotPassword={forgotPassword}
+							setForgotPassword={setForgotPassword}
+						/>
 								{/* <UpdateProfile />{' '} */}
 								{/* permet a djamel de modifier sont mot de pas donc optionel */}
 						
@@ -303,7 +309,7 @@ const CreateUser = ({ admin }) => {
 						</div>
 
 						<div className={toggleState === 3 ? "content  active-content" : "content"}>
-							<div className="bg-gray-100 h-96 px-10">
+							<div className="bg-white h-96 px-10">
 								<div>
 									<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
 										Vos statistiques
@@ -313,20 +319,11 @@ const CreateUser = ({ admin }) => {
 
 							{/* permet a djamel de modifier sont mot de pas donc optionel */}
 							
-						<ForgotPassword
-							forgotPassword={forgotPassword}
-							setForgotPassword={setForgotPassword}
-						/>
-						<div
-							onClick={() => setForgotPassword(!forgotPassword)}
-							className="cursor-pointer mt-3 mb-3"
-						>
-							<p>Mot de passe oublié</p>
-						</div>
+						
+						
 					</div>
-				</CustomSection>
+				</SectionMembre>
 			</div>
-		</div>
 		
 	);
 };
