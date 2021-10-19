@@ -1,0 +1,18 @@
+.tabs {
+
+    @apply text-gray-600 bg-white py-4 px-6 block hover:text-blue-500 transition duration-300 hover:bg-gray-200  text-darkBlueCust font-medium;
+  }
+  .tabs:not(:last-child){
+    border-right: 1px solid rgba(0, 0, 0, 0.274);
+  }
+  
+  .active-tabs  {
+    @apply bg-darkBlueCust outline-none text-white hover:bg-blue-800 transition duration-300 hover:text-white border-b-2 font-medium border-yellowCust;
+  }
+
+  .content {
+    display: none;
+  }
+  .active-content {
+    @apply flex justify-center space-x-32
+  }

@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../AuthContext';
 import { useHistory } from 'react-router-dom';
+import SectionMembre from './SectionMembre';
+import customSectionMembre from '../assets/css/sectionMembres.css';
 import '../App.css';
 
 const Login = () => {
@@ -29,14 +31,16 @@ const Login = () => {
 	};
 
 	return (
-		<div className="h-screen flex bg-grey-light">
-			<div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
-				<h1
-					className="text-2xl font-medium text-primary mt-4 mb-10
-				 text-center"
-				>
-					Page de connection
-				</h1>
+		<div>
+			<div class="bg-darkBlueCust w-full h-48 pt-20">
+					<div className="text-white text-center bg-darkBlueCust pt-5">
+						<h1 className="text-5xl ">Espace membre</h1>
+					</div>
+			</div>
+		<div class="">
+				<SectionMembre>
+				<div className="h-screen flex bg-white justify-center">
+			<div className="w-96 h-72 mt-10 bg-darkBlueCust text-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
 
 				{error && <p className="text-sm text-red mb-5">{error}</p>}
 
@@ -67,13 +71,17 @@ const Login = () => {
 						<button
 							disabled={loading}
 							type="submit"
-							className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:text-yellowCust"
+							className="mt-3 py-2 px-4 text-sm bg-yellowCust text-black rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-yellow-400 transition duration-200"
 						>
 							Se connecter
 						</button>
 					</div>
 				</form>
 			</div>
+					</div>
+				</SectionMembre>
+		</div>
+		
 		</div>
 	);
 };
