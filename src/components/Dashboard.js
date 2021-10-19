@@ -4,6 +4,7 @@ import CreateUser from './CreateUser';
 import Userpage from './Userpage';
 import '../assets/css/fonts/font.css';
 import '../assets/css/section.css';
+import Footer from './Footer';
 
 const Dashboard = () => {
 	const [admin, setAdmin] = useState(false);
@@ -28,6 +29,7 @@ const Dashboard = () => {
 							<Userpage currentUser={currentUser} />
 						)}
 					</div>
+					<Footer />
 				</div>
 			</div>
 		</>
