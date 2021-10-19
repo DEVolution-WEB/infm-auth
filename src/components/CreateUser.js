@@ -11,7 +11,7 @@ import CustomSection from './CustomSection';
 import Createvideo from './CreateVideo';
 import Validpassword from './ValidPassword';
 import '../assets/css/App.css';
-// import UpdateProfile from './UpdateProfile';
+import ForgotPassword from './ForgotPassword';
 
 const CreateUser = ({ admin }) => {
 	const {
@@ -25,6 +25,7 @@ const CreateUser = ({ admin }) => {
 		logout,
 	} = useGlobalContext();
 	const [loading, setLoading] = useState(false);
+	const [forgotPassword, setForgotPassword] = useState(false);
 	const [userName, setUserName] = useState('');
 	const [email, setEmail] = useState('');
 	const [formationName, setFormationName] = useState('');
@@ -207,7 +208,7 @@ const CreateUser = ({ admin }) => {
 									match={match}
 								/>
 							</div>
-							{/* <UpdateProfile />{' '} */}
+
 							{/* permet a djamel de modifier sont mot de pas donc optionel */}
 							<button
 								className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
@@ -219,6 +220,16 @@ const CreateUser = ({ admin }) => {
 								Créer un compte
 							</button>
 						</form>
+						<ForgotPassword
+							forgotPassword={forgotPassword}
+							setForgotPassword={setForgotPassword}
+						/>
+						<div
+							onClick={() => setForgotPassword(!forgotPassword)}
+							className="cursor-pointer mt-3 mb-3"
+						>
+							<p>Mot de passe oublié</p>
+						</div>
 					</div>
 				</CustomSection>
 				{admin && <Createvideo />}

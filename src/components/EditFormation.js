@@ -5,7 +5,6 @@ const Editformation = ({
 	edit,
 	setEdit,
 	setNameFormation,
-	setFormationId,
 	setUrl,
 	handleEditFormations,
 	id,
@@ -28,14 +27,6 @@ const Editformation = ({
 							placeholder="Formation"
 							required
 							onChange={(e) => setNameFormation(e.target.value)}
-						/>
-						<label htmlFor="formationid">Formation</label>
-						<input
-							type="text"
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-							placeholder="Ex: F23"
-							required
-							onChange={(e) => setFormationId(e.target.value)}
 						/>
 						<label htmlFor="email">URL Video</label>
 						<input
