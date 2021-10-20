@@ -102,7 +102,7 @@ const Selectedformations = () => {
 									</div>
 								</div>
 							</div>
-							<div className="bg-grey-light" key={id}>
+							<div className="bg-white" key={id}>
 								{edit && (
 									<Editformation
 										edit={edit}

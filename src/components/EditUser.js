@@ -19,7 +19,7 @@ const Edituser = ({
 	};
 	return (
 		<div>
-			<div class="bg-gray-100">
+			<div class="bg-white">
 				<div className="w-32 mb-10 py-12 inline">
 					<form className="max-w-4xl" onSubmit={handleSubmit}>
 					<div className="w-64">
