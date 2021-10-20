@@ -331,8 +331,6 @@ const CreateUser = ({ admin }) => {
 										match={match}
 									/>
 								</div>
-								permet a djamel de modifier sont mot de pas donc
-								optionel
 							</div>
 							<SelectedUsers />
 						</div>
