@@ -34,7 +34,7 @@ const Edituser = ({
 
 						<label htmlFor="user">Liste des Formations:</label>
 						<select
-							className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+							className="w-64 block bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
 							name="user"
 							onChange={(e) => setFormationId(e.target.value)}
 							required
