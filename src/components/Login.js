@@ -40,10 +40,7 @@ const Login = () => {
 		<div class="">
 				<SectionMembre>
 				<div className="h-screen flex bg-white justify-center">
-			<div className="w-96 h-72 mt-10 bg-darkBlueCust text-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
-
-				{error && <p className="text-sm text-red mb-5">{error}</p>}
-
+			<div className="w-86 h-64  mt-10 bg-darkBlueCust text-white flex justify-center rounded-lg border border-primaryBorder shadow-default py-6 px-8">
 				<form onSubmit={handleSubmit}>
 					<div>
 						<label htmlFor="email">Adresse e-mail</label>
@@ -67,7 +64,8 @@ const Login = () => {
 							required
 						/>
 					</div>
-					<div className="flex flex-col justify-center items-center mt-6">
+					{error && <p className="text-xs text-yellowCust">{error}</p>}
+					<div className="flex flex-col justify-center items-center">
 						<button
 							disabled={loading}
 							type="submit"
