@@ -1,6 +1,6 @@
 .tabs {
 
-    @apply bg-white py-2 md:py-4 px-3 md:px-6 block hover:text-blue-500 transition duration-300 hover:bg-gray-200  text-darkBlueCust font-medium;
+    @apply bg-white py-2 md:py-4 px-6 block hover:text-blue-500 transition duration-300 hover:bg-gray-200  text-darkBlueCust font-medium;
   }
   .tabs:not(:last-child){
     border-right: 1px solid rgba(0, 0, 0, 0.274);
