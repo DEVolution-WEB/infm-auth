@@ -40,14 +40,14 @@ const Login = () => {
 		<div class="">
 				<SectionMembre>
 				<div className="h-screen flex bg-white justify-center">
-			<div className="w-86 h-64  mt-10 bg-darkBlueCust text-white flex justify-center rounded-lg border border-primaryBorder shadow-default py-6 px-8">
+			<div className="w-86 h-64  mt-10 bg-darkBlueCust text-white flex justify-center rounded-xl border border-primaryBorder shadow-default py-4 px-8">
 				<form onSubmit={handleSubmit}>
 					<div>
 						<label htmlFor="email">Adresse e-mail</label>
 						<input
 							type="email"
 							ref={emailRef}
-							className="w-full p-2 text-primary text-black border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+							className="w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-4"
 							id="email"
 							placeholder="Votre e-mail"
 							required
@@ -58,7 +58,7 @@ const Login = () => {
 						<input
 							type="password"
 							ref={passwordRef}
-							className="w-full p-2 text-primary text-black border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+							className="w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-2"
 							id="password"
 							placeholder="Votre mot de passe"
 							required
