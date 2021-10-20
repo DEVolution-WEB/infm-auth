@@ -14,5 +14,5 @@
     display: none;
   }
   .active-content {
-    @apply flex justify-center space-x-32
+    @apply inline md:flex md:justify-center md:space-x-32
   }

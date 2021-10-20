@@ -182,8 +182,8 @@ const CreateUser = ({ admin }) => {
 								: 'content'
 						}
 					>
-						<div className="flex justify-center space-x-32">
-							<div className="mb-10 py-15 px-10">
+						<div className="inline md:flex md:justify-center md:space-x-32">
+							<div className="mb-10 py-15 md:px-10">
 								<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
 									Créer un nouvel utilisateur
 								</h2>
