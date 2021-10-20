@@ -183,7 +183,7 @@ const CreateUser = ({ admin }) => {
 						}
 					>
 						<div className="inline md:flex md:justify-center md:space-x-32">
-							<div className="mb-10 py-15 md:px-10">
+							<div className="mb-10 py-15 px-10 md:px-0">
 								<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
 									Créer un nouvel utilisateur
 								</h2>
@@ -311,15 +311,17 @@ const CreateUser = ({ admin }) => {
 													)}
 											</select>
 										</div>
-										<button
-											className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
-												activeBtn ? '' : 'hidden'
-											}`}
-											type="submit"
-											disabled={!activeBtn}
-										>
-											Créer un compte
-										</button>
+										<div class="flex md:justify-center px-16 md:px-0">
+											<button
+												className={`bg-darkBlueCust py-2 px-4 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
+													activeBtn ? '' : 'hidden'
+												}`}
+												type="submit"
+												disabled={!activeBtn}
+											>
+												Créer un compte
+											</button>
+										</div>
 									</form>
 								</div>
 								<div className="flex">

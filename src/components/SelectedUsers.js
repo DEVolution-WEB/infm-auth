@@ -33,7 +33,7 @@ const SelectedUsers = () => {
 	return (
 			<div class="inline">
 			<div class="flex space-x-32">
-						<div className="mb-6 py-15">
+						<div className="mb-6 py-15 px-10 md:px-0">
 					<div className=" max-w-4xl">
 						<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
 							Modifier un utilisateur
@@ -79,7 +79,7 @@ const SelectedUsers = () => {
 								id={id}
 								handleDeleteUsers={handleDeleteUsers}
 							/>
-							<div className="bg-white py-5 px-3 mb-6">
+							<div className="bg-white py-5 px-10 md:px-0 mb-6">
 								<div>
 									<div className="flex mb-5 space-x-2">
 										<h1 className="text-xl text-black">
@@ -113,7 +113,7 @@ const SelectedUsers = () => {
 											{created_date}
 										</p>
 									</div>
-									<div class="flex justify-center">
+									<div class="flex px-8 md:justify-center md:px-0">
 									<button
 										onClick={() => setEdit(!edit)}
 										className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"

@@ -102,12 +102,14 @@ const Createvideo = () => {
 								onChange={(e) => setUrl(e.target.value)}
 							/>
 						</div>
-						<button
-							type="submit"
-							className="bg-darkBlueCust mt-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
-						>
-							Ajouter
-						</button>
+						<div class="flex md:justify-center px-16 md:px-0">
+							<button
+								type="submit"
+								className="bg-darkBlueCust mt-2 py-2 px-6 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+							>
+								Ajouter
+							</button>
+						</div>
 					</div>
 				</form>
 			</div>
