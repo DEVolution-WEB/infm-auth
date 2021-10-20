@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { useGlobalContext } from '../context';
+import SectionMembre from './SectionMembre';
 
 const Userpage = ({ currentUser }) => {
 	const {
@@ -53,8 +54,17 @@ const Userpage = ({ currentUser }) => {
 	);
 
 	return (
-		<div className="pt-10">
-			<h1>useur pages</h1>
+		<div>
+				<div class="bg-darkBlueCust w-full h-40 pt-24">
+						<div className="text-white text-center bg-darkBlueCust pb-5">
+							<h1 className="text-5xl ">Formation {activeUser?.data.formation_id}</h1>
+						</div>
+				</div>
+			
+	<SectionMembre>
+					
+					
+		<div className="pt-6">
 			{isFetched &&
 				formations
 					.filter(
@@ -64,7 +74,7 @@ const Userpage = ({ currentUser }) => {
 					)
 					.map(({ id, data: { video_url } }) => (
 						<div key={id}>
-							<div className="pt-48 relative">
+							<div className="pt-48 relative pb-32">
 								<iframe
 									src={video_url}
 									frameBorder="0"
@@ -76,6 +86,8 @@ const Userpage = ({ currentUser }) => {
 							</div>
 						</div>
 					))}
+		</div>
+		</SectionMembre>
 		</div>
 	);
 };

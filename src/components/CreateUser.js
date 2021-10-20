@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { usePasswordValidation } from './usePasswordValidation';
 import { collection, addDoc } from 'firebase/firestore';
 import SelectedUsers from './SelectedUsers';
@@ -11,7 +11,6 @@ import { useAuth } from '../AuthContext';
 import CustomSection from './CustomSection';
 import Createvideo from './CreateVideo';
 import Validpassword from './ValidPassword';
-import FooterBottom from './FooterBottom';
 import '../assets/css/App.css';
 import ForgotPassword from './ForgotPassword';
 import '../assets/css/Tabs.css';
@@ -36,7 +35,7 @@ const CreateUser = ({ admin }) => {
 	const passwordConfirmRef = useRef();
 	const { signup, login } = useAuth();
 	const [error, setError] = useState('');
-	const history = useHistory();
+	// const history = useHistory();
 
 	// password validation //
 	const [validLength, hasNumber, upperCase, lowerCase, match] =
@@ -143,95 +142,6 @@ const CreateUser = ({ admin }) => {
 						</div>
 					</div>
 
-					{/* <div className="w-full mb-10 py-15 px-10">
-						<form className="max-w-4xl" onSubmit={handleSubmit}>
-							<h2 className="text-xl font-medium text-primary mt-0 mb-8">
-								Créer un nouvel utilisateur
-							</h2>
-							{error && (
-								<p className="text-sm text-red-400 mb-5">
-									{error}
-								</p>
-							)}
-							<label htmlFor="name">Nom</label>
-							<input
-								type="text"
-								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-								placeholder="Utilisateur"
-								onChange={(e) => setUserName(e.target.value)}
-								required
-								value={userName}
-							/>
-							<label htmlFor="email">Adresse e-mail</label>
-							<input
-								type="email"
-								ref={emailRef}
-								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-								placeholder="email"
-								onChange={(e) => setEmail(e.target.value)}
-								required
-								value={email}
-							/>
-							<label htmlFor="password">Mot de passe</label>
-							<input
-								type="password"
-								ref={passwordRef}
-								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-								id="password"
-								placeholder="Mot de passe"
-								required
-								onChange={setFirst}
-							/>
-							<label htmlFor="password-confirm">
-								Confirmer votre mot de passe
-							</label>
-							<input
-								type="password"
-								ref={passwordConfirmRef}
-								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-								id="passwordconfirm"
-								placeholder="Confirmer mot de passe"
-								required
-								onChange={setSecond}
-							/>
-							<label htmlFor="user">Liste des Formations:</label>
-							<select
-								className="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-								name="user"
-								onChange={(e) =>
-									setFormationName(e.target.value)
-								}
-								required
-							>
-								<option></option>
-								{formations
-									.sort()
-									.map(({ id, data: { formation_name } }) => (
-										<option key={id} value={formation_name}>
-											{formation_name}
-										</option>
-									))}
-							</select>
-							<div className="flex justify-center items-center">
-								<Validpassword
-									validLength={validLength}
-									hasNumber={hasNumber}
-									upperCase={upperCase}
-									lowerCase={lowerCase}
-									match={match}
-								/>
-							</div>
-							<button
-								className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
-									activeBtn ? '' : 'hidden'
-								}`}
-								type="submit"
-								disabled={!activeBtn}
-							>
-								Créer un compte
-							</button>
-						</form>
-					</div> */}
 					<div className="bg-transparent mb-6 w-1/3 items-center mx-auto">
 						<nav className="flex flex-col sm:flex-row justify-center">
 							<button
@@ -276,19 +186,19 @@ const CreateUser = ({ admin }) => {
 					>
 						<div className="flex justify-center space-x-32">
 							<div className="mb-10 py-15 px-10">
-								<form
-									className="max-w-4xl"
-									onSubmit={handleSubmit}
-								>
-									<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
-										Créer un nouvel utilisateur
-									</h2>
-									{error && (
-										<p className="text-sm text-red-400 mb-5">
-											{error}
-										</p>
-									)}
-									<div className="inline">
+								<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
+									Créer un nouvel utilisateur
+								</h2>
+								{error && (
+									<p className="text-sm text-red-400 mb-5">
+										{error}
+									</p>
+								)}
+								<div className="inline">
+									<form
+										className="max-w-4xl"
+										onSubmit={handleSubmit}
+									>
 										<div className="w-64">
 											<label
 												className=" text-black opacity-80 text-md mb-2"
@@ -297,9 +207,9 @@ const CreateUser = ({ admin }) => {
 												Nom
 											</label>
 											<input
-												className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
 												type="text"
-												placeholder="Nom d'utilisateur"
+												className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
+												placeholder="Utilisateur"
 												onChange={(e) =>
 													setUserName(e.target.value)
 												}
@@ -316,9 +226,10 @@ const CreateUser = ({ admin }) => {
 												Adresse e-mail
 											</label>
 											<input
-												className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
 												type="email"
-												placeholder="E-mail"
+												ref={emailRef}
+												className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
+												placeholder="email"
 												onChange={(e) =>
 													setEmail(e.target.value)
 												}
@@ -335,10 +246,10 @@ const CreateUser = ({ admin }) => {
 												Mot de passe
 											</label>
 											<input
-												className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-												id="password"
 												type="password"
 												ref={passwordRef}
+												className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
+												id="password"
 												placeholder="Mot de passe"
 												required
 												onChange={setFirst}
@@ -350,14 +261,14 @@ const CreateUser = ({ admin }) => {
 												className=" text-black opacity-80 text-md mb-2"
 												htmlFor="password-confirm"
 											>
-												Confirmez votre mot de passe
+												Confirmer votre mot de passe
 											</label>
 											<input
-												className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-												id="passwordconfirm"
 												type="password"
 												ref={passwordConfirmRef}
-												placeholder="Répétez votre mot de passe"
+												className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
+												id="passwordconfirm"
+												placeholder="Confirmer mot de passe"
 												required
 												onChange={setSecond}
 											/>
@@ -368,9 +279,8 @@ const CreateUser = ({ admin }) => {
 												className=" text-black opacity-80 text-md mb-2"
 												htmlFor="user"
 											>
-												Formations disponibles
+												Liste des Formations:
 											</label>
-
 											<select
 												className="w-full bg-red-100 text-black opacity-80 border-b border-white py-2 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
 												name="user"
@@ -403,17 +313,17 @@ const CreateUser = ({ admin }) => {
 													)}
 											</select>
 										</div>
-									</div>
-									<button
-										className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
-											activeBtn ? '' : 'hidden'
-										}`}
-										type="submit"
-										disabled={!activeBtn}
-									>
-										Créer un compte
-									</button>
-								</form>
+										<button
+											className={`bg-darkBlueCust py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
+												activeBtn ? '' : 'hidden'
+											}`}
+											type="submit"
+											disabled={!activeBtn}
+										>
+											Créer un compte
+										</button>
+									</form>
+								</div>
 								<div className="flex">
 									<Validpassword
 										validLength={validLength}
@@ -455,8 +365,6 @@ const CreateUser = ({ admin }) => {
 								</h2>
 							</div>
 						</div>
-
-						{/* permet a djamel de modifier sont mot de pas donc optionel */}
 
 						<ForgotPassword
 							forgotPassword={forgotPassword}

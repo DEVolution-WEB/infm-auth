@@ -30,7 +30,7 @@ const Selectedformations = () => {
 	};
 
 	return (
-		<div className="bg-gray-100 px-10">
+		<div className="bg-white px-10">
 			<div>
 				<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
 					Modifier une Formation

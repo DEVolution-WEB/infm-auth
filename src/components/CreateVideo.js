@@ -33,7 +33,7 @@ const Createvideo = () => {
 			created_date: date,
 		}).then(() => {
 			alert('Formation ajouté');
-			// setNameFormation('');
+			setNameFormation('');
 			setFormationId('');
 			setUrl('');
 		});
@@ -66,50 +66,51 @@ const Createvideo = () => {
 					{error && (
 						<p className="text-sm text-red-400 mb-5">{error}</p>
 					)}
-				<div class="inline">
-					<div className="w-64">
-						<label
-							className=" text-black opacity-80 text-md mb-2"
-							htmlFor="name"
+					<div class="inline">
+						<div className="w-64">
+							<label
+								className=" text-black opacity-80 text-md mb-2"
+								htmlFor="name"
 							>
-							Nom de la formation
-						</label>
-						<input
-							className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-							type="text"
-							placeholder="Formation"
-							value={nameFormation}
-							required
-							onChange={(e) => setNameFormation(e.target.value)}
-						/>
-					</div>
-					
-					<div className="w-64">
-						<label
-							className=" text-black opacity-80 text-md mb-2"
-							htmlFor="email"
+								Nom de la formation
+							</label>
+							<input
+								className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
+								type="text"
+								placeholder="Formation"
+								value={nameFormation}
+								required
+								onChange={(e) =>
+									setNameFormation(e.target.value)
+								}
+							/>
+						</div>
+
+						<div className="w-64">
+							<label
+								className=" text-black opacity-80 text-md mb-2"
+								htmlFor="email"
 							>
-							URL de la vidéo
-						</label>
-						<input
-							className="appearance-none block w-full bg-red-100 text-black opacity-80 text-sm border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-							type="url"
-							placeholder="https://"
-							value={url}
-							required
-							onChange={(e) => setUrl(e.target.value)}
-						/>
-					</div>
-					<button
-						type="submit"
-						className="bg-darkBlueCust mt-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
-					>
-						Ajouter
-					</button>
+								URL de la vidéo
+							</label>
+							<input
+								className="appearance-none block w-full bg-red-100 text-black opacity-80 text-sm border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
+								type="url"
+								placeholder="https://"
+								value={url}
+								required
+								onChange={(e) => setUrl(e.target.value)}
+							/>
+						</div>
+						<button
+							type="submit"
+							className="bg-darkBlueCust mt-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+						>
+							Ajouter
+						</button>
 					</div>
 				</form>
 			</div>
-			
 		</div>
 	);
 };
