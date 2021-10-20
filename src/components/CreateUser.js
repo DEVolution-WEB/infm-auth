@@ -133,7 +133,7 @@ const CreateUser = ({ admin }) => {
 
 	return (
 		<div>
-				<div class="bg-darkBlueCust w-full h-40 pt-24">
+				<div class="bg-darkBlueCust w-full h-46 md:h-40 pt-28 md:pt-24">
 						<div className="text-white text-center bg-darkBlueCust pb-5">
 							<h1 className="text-5xl ">Dashboard Admin </h1>
 						</div>
@@ -141,7 +141,7 @@ const CreateUser = ({ admin }) => {
 				<SectionMembre>
 				
 					<div className="bg-transparent mb-6 mt-6 w-1/3 items-center mx-auto">
-						<nav className="flex flex-col sm:flex-row justify-center">
+						<nav className="flex sm:flex-row justify-center">
 							<button
 								className={
 									toggleState === 1

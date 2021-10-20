@@ -55,7 +55,7 @@ const Userpage = ({ currentUser }) => {
 
 	return (
 		<div>
-				<div class="bg-darkBlueCust w-full h-40 pt-24">
+				<div class="bg-darkBlueCust w-full h-46 md:h-40 pt-28 md:pt-24">
 						<div className="text-white text-center bg-darkBlueCust pb-5">
 							<h1 className="text-5xl ">Formation {activeUser?.data.formation_id}</h1>
 						</div>
