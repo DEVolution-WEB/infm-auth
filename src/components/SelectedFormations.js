@@ -87,7 +87,7 @@ const Selectedformations = () => {
 									<div class="flex justify-center">
 									<button
 										onClick={() => setEdit(!edit)}
-										className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+										className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300"
 									>
 										Editer
 									</button>
@@ -95,7 +95,7 @@ const Selectedformations = () => {
 										onClick={() =>
 											setModalForma(!modalForma)
 										}
-										className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+										className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300"
 									>
 										Supprimer
 									</button>

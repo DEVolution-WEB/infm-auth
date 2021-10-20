@@ -313,7 +313,7 @@ const CreateUser = ({ admin }) => {
 										</div>
 										<div class="flex md:justify-center px-16 md:px-0">
 											<button
-												className={`bg-darkBlueCust py-2 px-4 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light ${
+												className={`bg-darkBlueCust py-2 px-4 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300 ${
 													activeBtn ? '' : 'hidden'
 												}`}
 												type="submit"

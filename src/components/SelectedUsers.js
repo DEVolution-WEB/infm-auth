@@ -116,13 +116,13 @@ const SelectedUsers = () => {
 									<div class="flex px-8 md:justify-center md:px-0">
 									<button
 										onClick={() => setEdit(!edit)}
-										className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+										className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300"
 									>
 										Modifier
 									</button>
 									<button
 										onClick={() => setModal(!modal)}
-										className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-light"
+										className="bg-darkBlueCust mt-3 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300"
 									>
 										Supprimer
 									</button>
