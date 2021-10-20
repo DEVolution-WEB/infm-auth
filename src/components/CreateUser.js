@@ -140,7 +140,7 @@ const CreateUser = ({ admin }) => {
 				</div>
 				<SectionMembre>
 				
-					<div className="bg-transparent mb-6 w-1/3 items-center mx-auto pt-6">
+					<div className="bg-transparent mb-6 w-1/3 items-center mx-auto">
 						<nav className="flex flex-col sm:flex-row justify-center">
 							<button
 								className={
@@ -331,6 +331,8 @@ const CreateUser = ({ admin }) => {
 										match={match}
 									/>
 								</div>
+								permet a djamel de modifier sont mot de pas donc
+								optionel
 							</div>
 							<SelectedUsers />
 						</div>
