@@ -99,6 +99,7 @@ const CreateUser = ({ admin }) => {
 			formation_id: formationName,
 			created_date: date,
 		}).then(() => {
+			alert('Crée avec succès');
 			setUserName('');
 			setEmail('');
 			setFormationName('');

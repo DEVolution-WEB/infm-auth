@@ -20,7 +20,7 @@ const SelectedUsers = () => {
 			user_name: userName,
 			formation_id: formationId,
 		})
-			.then(() => alert('Modifier avec success'))
+			.then(() => alert('Modifié avec success'))
 			.catch(() => alert('Erreur'));
 	};
 
@@ -29,6 +29,7 @@ const SelectedUsers = () => {
 
 		await deleteDoc(doc(db, 'users', id));
 	};
+	
 
 	return (
 			<div class="inline">
@@ -54,6 +55,7 @@ const SelectedUsers = () => {
 								</option>
 							))}
 						</select>
+						
 						</div>
 					</div>
 				</div>
