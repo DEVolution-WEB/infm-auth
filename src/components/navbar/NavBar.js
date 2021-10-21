@@ -68,10 +68,10 @@ const Navbar = () => {
 	  
 	return (
 		<div className='header'>
-			<div class="h-screen w-screen opacity-100 z-40 absolute top-0 backdrop-filter backdrop-blur-sm backdrop-brightness-75 hidden" ref={boite}></div>
+			<div class="h-screen w-screen opacity-100 z-40 absolute top-0 backdrop-filter backdrop-blur-sm backdrop-brightness-75 xl:hidden hidden" ref={boite}></div>
 			<header class=''>
 				<div  ref={outsideSidebar}>
-					<div class='sidebar min-h-screen xl:hidden flex fixed right-0 transform translate-x-96 transition duration-200 ease-in-out z-50' ref={navRef}>
+					<div class='sidebar min-h-screen xl:translate-x-96 flex fixed right-0 transform translate-x-96 transition duration-200 ease-in-out z-50' ref={navRef}>
 						<div class='bg-white text-darkBlueCust w-72'>
 							<div class='bg-darkBlueCust text-white text-xl flex items-center px-4 h-20'>
 								<button onClick={hideSidebar}>
