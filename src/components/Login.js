@@ -32,7 +32,7 @@ const Login = () => {
 
 	return (
 		<div class="bg-white h-screen">
-			<div class="bg-darkBlueCust w-full h-48 pt-20">
+			<div class="bg-darkBlueCust w-full h-48 pt-24 md:pt-20">
 					<div className="text-white text-center bg-darkBlueCust pt-5">
 						<h1 className="text-5xl ">Espace membre</h1>
 					</div>
