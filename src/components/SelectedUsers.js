@@ -34,8 +34,8 @@ const SelectedUsers = () => {
 		<div class='inline'>
 			<div class='flex space-x-32'>
 				<div className='mb-6 py-15 px-10 md:px-0'>
-					<div className=' max-w-4xl'>
-						<h2 className='text-2xl font-medium text-primary mt-0 mb-8'>Modifier un utilisateur</h2>
+					<div className='mb-10 p-12 shadow-md rounded'>
+						<h2 className='text-2xl px-5 font-light text-primary mt-0 mb-8'>Modifier un utilisateur</h2>
 
 						<div className='w-64'>
 							<label htmlFor='user' className=' text-black opacity-80 text-md mb-2'>

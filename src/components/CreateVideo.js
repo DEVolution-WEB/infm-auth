@@ -56,9 +56,9 @@ const Createvideo = () => {
 
 	return (
 		<div>
-			<div className='h-96 mb-10 py-15 px-10'>
-				<form className='max-w-4xl' onSubmit={handleSubmit}>
-					<h2 className='text-2xl font-medium text-primary mt-0 mb-8'>Créer une nouvelle formation</h2>
+			<div className='mb-10 p-12 shadow-md rounded'>
+				<form className='' onSubmit={handleSubmit}>
+					<h2 className='text-2xl px-5 font-light text-primary mt-0 mb-8'>Créer une nouvelle formation</h2>
 					{error && <p className='text-sm text-red-400 mb-5'>{error}</p>}
 					<div class='inline'>
 						<div className='w-64'>

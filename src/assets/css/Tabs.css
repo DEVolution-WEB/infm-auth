@@ -10,8 +10,8 @@
 }
 
 .content {
-	display: none;
+	@apply hidden justify-evenly;
 }
 .active-content {
-	@apply inline md:flex md:justify-center md:space-x-32;
+	@apply inline;
 }

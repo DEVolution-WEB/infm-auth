@@ -30,9 +30,9 @@ const Selectedformations = () => {
 	};
 
 	return (
-		<div className='bg-white px-10'>
+		<div className='mb-10 p-12 shadow-md rounded'>
 			<div>
-				<h2 className='text-2xl font-medium text-primary mt-0 mb-8'>Modifier une Formation</h2>
+				<h2 className='text-2xl px-5 font-light text-primary mt-0 mb-8'>Modifier une formation</h2>
 				<div className='inline mb-2 space-x-36'>
 					<div className='w-64 max-w-4xl'>
 						<label htmlFor='user'>Liste des Formations:</label>

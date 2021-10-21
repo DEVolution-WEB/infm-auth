@@ -146,41 +146,41 @@ const CreateUser = ({ admin }) => {
 				</div>
 
 				<div className={toggleState === 1 ? 'content  active-content' : 'content'}>
-					<div className='inline md:flex md:justify-center md:space-x-32'>
-						<div className='mb-10 py-15 px-10 md:px-0'>
-							<h2 className='text-2xl font-medium text-primary mt-0 mb-8'>Créer un nouvel utilisateur</h2>
+					<div className='flex flex-wrap justify-evenly'>
+						<div className='mb-10 p-12 shadow-md rounded'>
+							<h2 className='text-2xl px-5 font-light text-primary mt-0 mb-8'>Créer un nouvel utilisateur</h2>
 							{error && <p className='text-sm text-red-400 mb-5'>{error}</p>}
 							<div className='inline'>
 								<form className='max-w-4xl' onSubmit={handleSubmit}>
-									<div className='w-64'>
+									<div className=''>
 										<label className=' text-black opacity-80 text-md mb-2' htmlFor='name'>
 											Nom
 										</label>
 										<input type='text' className='appearance-none block w-full bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust' placeholder='Utilisateur' onChange={(e) => setUserName(e.target.value)} required value={userName} />
 									</div>
 
-									<div className='w-64'>
+									<div className=''>
 										<label className=' text-black opacity-80 text-md mb-2' htmlFor='email'>
 											Adresse e-mail
 										</label>
 										<input type='email' ref={emailRef} className='appearance-none block w-full bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust' placeholder='email' onChange={(e) => setEmail(e.target.value)} required value={email} />
 									</div>
 
-									<div className='w-64'>
+									<div className=''>
 										<label className=' text-black opacity-80 text-md mb-2' htmlFor='password'>
 											Mot de passe
 										</label>
 										<input type='password' ref={passwordRef} className='appearance-none block w-full bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust' id='password' placeholder='Mot de passe' required onChange={setFirst} />
 									</div>
 
-									<div className='w-64'>
+									<div className=''>
 										<label className=' text-black opacity-80 text-md mb-2' htmlFor='password-confirm'>
 											Confirmer votre mot de passe
 										</label>
 										<input type='password' ref={passwordConfirmRef} className='appearance-none block w-full bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust' id='passwordconfirm' placeholder='Confirmer mot de passe' required onChange={setSecond} />
 									</div>
 
-									<div className='w-64'>
+									<div className=''>
 										<label className=' text-black opacity-80 text-md mb-2' htmlFor='user'>
 											Liste des Formations:
 										</label>
@@ -209,8 +209,10 @@ const CreateUser = ({ admin }) => {
 				</div>
 
 				<div className={toggleState === 2 ? 'content  active-content' : 'content'}>
-					{admin && <Createvideo />}
-					<SelectedFormations />
+					<div className='flex flew-wrap justify-evenly'>
+						<Createvideo />
+						<SelectedFormations />
+					</div>
 				</div>
 
 				<div className={toggleState === 3 ? 'content  active-content' : 'content'}>
