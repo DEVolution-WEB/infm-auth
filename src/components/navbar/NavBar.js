@@ -30,10 +30,12 @@ const Navbar = () => {
 
 	const showSidebar = (e) => {
 		navRef.current.classList.remove('translate-x-96');
+		boite.current.classList.remove('hidden');
 	};
 
 	const hideSidebar = (e) => {
 		navRef.current.classList.add('translate-x-96');
+		boite.current.classList.add('hidden');
 	};
 
 	const { currentUser } = useAuth();
@@ -61,17 +63,19 @@ const Navbar = () => {
 	  let outsideSidebar = useClickOutside(() => {
 		hideSidebar();
 	  });
-	  
+	  const boite = useRef();
+
 	  
 	return (
 		<div className='header'>
+			<div class="h-screen w-screen opacity-100 z-40 absolute top-0 backdrop-filter backdrop-blur-sm backdrop-brightness-75 hidden" ref={boite}></div>
 			<header class=''>
 				<div  ref={outsideSidebar}>
 					<div class='sidebar min-h-screen xl:hidden flex fixed right-0 transform translate-x-96 transition duration-200 ease-in-out z-50' ref={navRef}>
 						<div class='bg-white text-darkBlueCust w-72'>
 							<div class='bg-darkBlueCust text-white text-xl flex items-center px-4 h-20'>
 								<button onClick={hideSidebar}>
-									<img class='h-6 w-6 -left-10 bg-red-300 fixed transform hover:-translate-x-1 transition duration-300 ease-in-out' src={cross} alt='fermer sidebar'></img>
+									<img class='h-6 w-6 -left-10 fixed transform hover:-translate-x-1 transition duration-300 ease-in-out' src={cross} alt='fermer sidebar'></img>
 								</button>
 								<h1> INFM</h1>
 							</div>
@@ -105,7 +109,7 @@ const Navbar = () => {
 						</div>
 					</div>
 				</div>
-				<nav class='flex items-center justify-between p-6 h-24 md:h-20 bg-white shadow-sm bg-opacity-70 fixed inset-x-0 z-40 backdrop-filter backdrop-blur'>
+				<nav class='flex items-center justify-between p-6 h-24 md:h-20 bg-white shadow-sm bg-opacity-70 fixed inset-x-0 z-30 backdrop-filter backdrop-blur'>
 					{' '}
 					{/* inset-x-0 équivaut a top-0 left-0 */}
 					<div class='py-3 px-1'>
