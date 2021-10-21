@@ -30,7 +30,7 @@ const SelectedUsers = () => {
 		await deleteDoc(doc(db, 'users', id));
 	};
 	
-
+		
 	return (
 			<div class="inline">
 			<div class="flex space-x-32">
@@ -60,7 +60,7 @@ const SelectedUsers = () => {
 					</div>
 				</div>
 			</div>
-
+							
 			{users
 				.filter(({ data: { user_name } }) => user_name === query)
 				.map(

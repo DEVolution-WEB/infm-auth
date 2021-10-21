@@ -131,6 +131,9 @@ const CreateUser = ({ admin }) => {
 	const toggleTab = (index) => {
 		setToggleState(index);
 	};
+	
+	const nbOfUsers = users.length;
+	const nbOfClasses = formations.length;
 
 	return (
 		<div>
@@ -359,22 +362,43 @@ const CreateUser = ({ admin }) => {
 					>
 						<div className="bg-white h-96 px-10">
 							<div>
+								<div class="flex justify-center">
 								<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
 									Vos statistiques
 								</h2>
+
+								</div>
+								<div class="flex space-x-12 justify-center">
+									<div class="inline-block border-r-2">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-darkBlueCust hover:text-blue-800 transition hover:duration-300 mx-6" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-7 9a7 7 0 1 1 14 0H3z" clip-rule="evenodd"/>
+										</svg>
+										<div class="h-8 text-center text-darkBlueCust">{nbOfUsers+" utilisateurs"}</div>
+									</div>
+
+									<div class="inline-block">
+										<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-darkBlueCust hover:text-blue-800 transition hover:duration-300" viewBox="0 0 20 20" fill="currentColor">
+										<path d="M9 4.804A7.968 7.968 0 0 0 5.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 0 1 5.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0 1 14.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0 0 14.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 1 1-2 0V4.804z"/>
+										</svg>
+										<div class="h-8 text-center text-darkBlueCust">{nbOfClasses+" formations"}</div>
+									</div>
+								</div>
+								
 							</div>
 						</div>
 
+						{/*
 						<ForgotPassword
 							forgotPassword={forgotPassword}
 							setForgotPassword={setForgotPassword}
 						/>
+						
 						<div
 							onClick={() => setForgotPassword(!forgotPassword)}
 							className="cursor-pointer mt-3 mb-3"
 						>
 							<p>Mot de passe oublié</p>
 						</div>
+						*/}
 					</div>
 							
 						
