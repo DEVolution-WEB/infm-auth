@@ -15,6 +15,7 @@ const Navbar = () => {
 
 	const handleLogout = async () => {
 		try {
+			hideSidebar();
 			setIsFetched(false);
 			await logout();
 		} catch (error) {
