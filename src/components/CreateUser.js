@@ -368,7 +368,7 @@ const CreateUser = ({ admin }) => {
 								</h2>
 
 								</div>
-								<div class="flex space-x-12 justify-center">
+								<div class="flex space-x-8 justify-center">
 									<div class="inline-block border-r-2">
 										<svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-darkBlueCust hover:text-blue-800 transition hover:duration-300 mx-6" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-7 9a7 7 0 1 1 14 0H3z" clip-rule="evenodd"/>
 										</svg>
@@ -382,7 +382,7 @@ const CreateUser = ({ admin }) => {
 										<div class="h-8 text-center text-darkBlueCust">{nbOfClasses+" formations"}</div>
 									</div>
 								</div>
-								
+
 							</div>
 						</div>
 
