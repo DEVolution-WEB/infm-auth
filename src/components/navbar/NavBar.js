@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import logoINFM from '../../assets/logo-infm.png';
 import cross from '../../assets/cross.png';
 import { useGlobalContext } from '../../context';
@@ -37,44 +37,72 @@ const Navbar = () => {
 	};
 
 	const { currentUser } = useAuth();
+
+	const useClickOutside = (handler) => {
+		let outsideSidebar = useRef();
+	  
+		useEffect(() => {
+		  const maybeHandler = (event) => {
+			if (!outsideSidebar.current.contains(event.target)) {
+			  handler();
+			}
+		  };
+	  
+		  document.addEventListener("mousedown", maybeHandler);
+	  
+		  return () => {
+			document.removeEventListener("mousedown", maybeHandler);
+		  };
+		});
+	  
+		return outsideSidebar;
+	  };
+
+	  let outsideSidebar = useClickOutside(() => {
+		hideSidebar();
+	  });
+	  
+	  
 	return (
 		<div className='header'>
 			<header class=''>
-				<div class='sidebar min-h-screen xl:hidden flex fixed right-0 transform translate-x-96 transition duration-200 ease-in-out z-50' ref={navRef}>
-					<div class='bg-white text-darkBlueCust w-72'>
-						<div class='bg-darkBlueCust text-white text-xl flex items-center px-4 h-20'>
-							<button onClick={hideSidebar}>
-								<img class='h-6 w-6 -left-10 bg-red-300 fixed transform hover:-translate-x-1 transition duration-300 ease-in-out' src={cross} alt='fermer sidebar'></img>
-							</button>
-							<h1> INFM</h1>
-						</div>
+				<div  ref={outsideSidebar}>
+					<div class='sidebar min-h-screen xl:hidden flex fixed right-0 transform translate-x-96 transition duration-200 ease-in-out z-50' ref={navRef}>
+						<div class='bg-white text-darkBlueCust w-72'>
+							<div class='bg-darkBlueCust text-white text-xl flex items-center px-4 h-20'>
+								<button onClick={hideSidebar}>
+									<img class='h-6 w-6 -left-10 bg-red-300 fixed transform hover:-translate-x-1 transition duration-300 ease-in-out' src={cross} alt='fermer sidebar'></img>
+								</button>
+								<h1> INFM</h1>
+							</div>
 
-						<nav>
-							<a href='https://www.infm.fr/#section-a836c60-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
-								Notre mission
-							</a>
-							<a href='https://www.infm.fr/#section-2f18e25-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
-								Nos formations
-							</a>
-							<a href='https://www.infm.fr/#section-6bb4f66-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
-								Le fondateur
-							</a>
-							<a href='https://www.infm.fr/#section-8cf797d-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
-								Quelques chiffres
-							</a>
-							<a href='https://www.infm.fr/#section-c1b9ad3-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
-								Témoignages
-							</a>
-							<a href='https://www.infm.fr/#section-71bd491-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
-								Plan d'accès
-							</a>
-							<a onClick={goToSection} class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200'>
-								Contact
-							</a>
-							<a onClick={handleLogout} class={ currentUser ? 'block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200':'hidden'}>
-								Se déconnecter
-							</a>
-						</nav>
+							<nav>
+								<a href='https://www.infm.fr/#section-a836c60-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
+									Notre mission
+								</a>
+								<a href='https://www.infm.fr/#section-2f18e25-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
+									Nos formations
+								</a>
+								<a href='https://www.infm.fr/#section-6bb4f66-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
+									Le fondateur
+								</a>
+								<a href='https://www.infm.fr/#section-8cf797d-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
+									Quelques chiffres
+								</a>
+								<a href='https://www.infm.fr/#section-c1b9ad3-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
+									Témoignages
+								</a>
+								<a href='https://www.infm.fr/#section-71bd491-o' class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover transition duration-200'>
+									Plan d'accès
+								</a>
+								<a onClick={goToSection} class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200'>
+									Contact
+								</a>
+								<a onClick={handleLogout} class={ currentUser ? 'block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200':'hidden'}>
+									Se déconnecter
+								</a>
+							</nav>
+						</div>
 					</div>
 				</div>
 				<nav class='flex items-center justify-between p-6 h-24 md:h-20 bg-white shadow-sm bg-opacity-70 fixed inset-x-0 z-40 backdrop-filter backdrop-blur'>
