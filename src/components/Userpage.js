@@ -63,7 +63,7 @@ const Userpage = ({ currentUser }) => {
 						</div>
 				</div>
 
-		<div class="h-96 bg-white">	
+		<div class="h-2/3 bg-white">	
 	<SectionMembre>
 					
 					
@@ -77,7 +77,7 @@ const Userpage = ({ currentUser }) => {
 					)
 					.map(({ id, data: { video_url } }) => (
 						<div key={id}>
-							<div className="pt-48 relative pb-32">
+							<div className="pt-48 relative pb-48">
 								<iframe
 									src={video_url}
 									frameBorder="0"
