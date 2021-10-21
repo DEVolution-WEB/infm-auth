@@ -10,7 +10,7 @@
 }
 
 .content {
-	@apply hidden justify-evenly;
+	@apply hidden justify-center;
 }
 .active-content {
 	@apply inline;

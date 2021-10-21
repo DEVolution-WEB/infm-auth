@@ -146,7 +146,7 @@ const CreateUser = ({ admin }) => {
 				</div>
 
 				<div className={toggleState === 1 ? 'content  active-content' : 'content'}>
-					<div className='flex flex-wrap justify-evenly'>
+					<div className='flex flex-wrap justify-center'>
 						<div className='mb-10 p-12 shadow-md rounded'>
 							<h2 className='text-2xl px-5 font-light text-primary mt-0 mb-8'>Créer un nouvel utilisateur</h2>
 							{error && <p className='text-sm text-red-400 mb-5'>{error}</p>}
@@ -209,7 +209,7 @@ const CreateUser = ({ admin }) => {
 				</div>
 
 				<div className={toggleState === 2 ? 'content  active-content' : 'content'}>
-					<div className='flex flew-wrap justify-evenly'>
+					<div className='flex flew-wrap justify-center'>
 						<Createvideo />
 						<SelectedFormations />
 					</div>
