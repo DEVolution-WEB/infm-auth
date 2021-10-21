@@ -53,6 +53,8 @@ const Userpage = ({ currentUser }) => {
 		(user) => user.data.email === currentUser.email
 	);
 
+
+
 	return (
 		<div>
 				<div class="bg-darkBlueCust w-full h-46 md:h-40 pt-28 md:pt-24">
@@ -60,7 +62,8 @@ const Userpage = ({ currentUser }) => {
 							<h1 className="text-5xl ">Formation {activeUser?.data.formation_id}</h1>
 						</div>
 				</div>
-			
+
+		<div class="h-96 bg-white">	
 	<SectionMembre>
 					
 					
@@ -88,6 +91,7 @@ const Userpage = ({ currentUser }) => {
 					))}
 		</div>
 		</SectionMembre>
+		</div>
 		</div>
 	);
 };
