@@ -31,7 +31,7 @@ const Login = () => {
 	};
 
 	return (
-		<div>
+		<div class="bg-white h-screen">
 			<div class="bg-darkBlueCust w-full h-48 pt-20">
 					<div className="text-white text-center bg-darkBlueCust pt-5">
 						<h1 className="text-5xl ">Espace membre</h1>
@@ -39,7 +39,7 @@ const Login = () => {
 			</div>
 		<div class="">
 				<SectionMembre>
-				<div className="h-screen flex bg-white justify-center">
+				<div className=" flex bg-white justify-center">
 			<div className="w-86 h-64  mt-10 bg-darkBlueCust text-white flex justify-center rounded-xl border border-primaryBorder shadow-default py-4 px-8">
 				<form onSubmit={handleSubmit}>
 					<div>
