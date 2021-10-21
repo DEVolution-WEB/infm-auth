@@ -17,6 +17,10 @@ module.exports = {
 			screens: {
 				navxl: '1300px',
 			},
+			zIndex: {
+				n1: -1,
+				n2: -2,
+			},
 		},
 	},
 	variants: {

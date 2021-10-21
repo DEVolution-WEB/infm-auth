@@ -16,9 +16,7 @@ const Createvideo = () => {
 
 	const date = new Date().toLocaleDateString();
 
-	const currentFormation = formations.find(
-		(forma) => forma.data.formation_name === nameFormation
-	);
+	const currentFormation = formations.find((forma) => forma.data.formation_name === nameFormation);
 
 	const handleSubmit = async (e) => {
 		// ADD FORMATION TO DATABASE
@@ -58,55 +56,26 @@ const Createvideo = () => {
 
 	return (
 		<div>
-			<div className="h-96 mb-10 py-15 px-10">
-				<form className="max-w-4xl" onSubmit={handleSubmit}>
-					<h2 className="text-2xl font-medium text-primary mt-0 mb-8">
-						Créer une nouvelle formation
-					</h2>
-					{error && (
-						<p className="text-sm text-red-400 mb-5">{error}</p>
-					)}
-					<div class="inline">
-						<div className="w-64">
-							<label
-								className=" text-black opacity-80 text-md mb-2"
-								htmlFor="name"
-							>
+			<div className='h-96 mb-10 py-15 px-10'>
+				<form className='max-w-4xl' onSubmit={handleSubmit}>
+					<h2 className='text-2xl font-medium text-primary mt-0 mb-8'>Créer une nouvelle formation</h2>
+					{error && <p className='text-sm text-red-400 mb-5'>{error}</p>}
+					<div class='inline'>
+						<div className='w-64'>
+							<label className=' text-black opacity-80 text-md mb-2' htmlFor='name'>
 								Nom de la formation
 							</label>
-							<input
-								className="appearance-none block w-full bg-red-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-								type="text"
-								placeholder="Formation"
-								value={nameFormation}
-								required
-								onChange={(e) =>
-									setNameFormation(e.target.value)
-								}
-							/>
+							<input className='appearance-none block w-full bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust' type='text' placeholder='Formation' value={nameFormation} required onChange={(e) => setNameFormation(e.target.value)} />
 						</div>
 
-						<div className="w-64">
-							<label
-								className=" text-black opacity-80 text-md mb-2"
-								htmlFor="email"
-							>
+						<div className='w-64'>
+							<label className=' text-black opacity-80 text-md mb-2' htmlFor='email'>
 								URL de la vidéo
 							</label>
-							<input
-								className="appearance-none block w-full bg-red-100 text-black opacity-80 text-sm border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-								type="url"
-								placeholder="https://"
-								value={url}
-								required
-								onChange={(e) => setUrl(e.target.value)}
-							/>
+							<input className='appearance-none block w-full bg-gray-100 text-black opacity-80 text-sm border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust' type='url' placeholder='https://' value={url} required onChange={(e) => setUrl(e.target.value)} />
 						</div>
-						<div class="flex md:justify-center px-16 md:px-0">
-							<button
-								type="submit"
-								className="bg-darkBlueCust mt-2 py-2 px-6 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300"
-							>
+						<div class='flex md:justify-center px-16 md:px-0'>
+							<button type='submit' className='bg-darkBlueCust mt-2 py-2 px-6 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300'>
 								Ajouter
 							</button>
 						</div>

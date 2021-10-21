@@ -42,35 +42,34 @@ const Navbar = () => {
 
 	const useClickOutside = (handler) => {
 		let outsideSidebar = useRef();
-	  
+
 		useEffect(() => {
-		  const maybeHandler = (event) => {
-			if (!outsideSidebar.current.contains(event.target)) {
-			  handler();
-			}
-		  };
-	  
-		  document.addEventListener("mousedown", maybeHandler);
-	  
-		  return () => {
-			document.removeEventListener("mousedown", maybeHandler);
-		  };
+			const maybeHandler = (event) => {
+				if (!outsideSidebar.current.contains(event.target)) {
+					handler();
+				}
+			};
+
+			document.addEventListener('mousedown', maybeHandler);
+
+			return () => {
+				document.removeEventListener('mousedown', maybeHandler);
+			};
 		});
-	  
+
 		return outsideSidebar;
-	  };
+	};
 
-	  let outsideSidebar = useClickOutside(() => {
+	let outsideSidebar = useClickOutside(() => {
 		hideSidebar();
-	  });
-	  const boite = useRef();
+	});
+	const boite = useRef();
 
-	  
 	return (
 		<div className='header'>
-			<div class="h-screen w-screen opacity-100 z-40 absolute top-0 backdrop-filter backdrop-blur-sm backdrop-brightness-75 xl:hidden hidden" ref={boite}></div>
+			<div class='h-screen w-screen opacity-100 z-40 absolute top-0 backdrop-filter backdrop-blur-sm backdrop-brightness-75 xl:hidden hidden' ref={boite}></div>
 			<header class=''>
-				<div  ref={outsideSidebar}>
+				<div ref={outsideSidebar}>
 					<div class='sidebar min-h-screen xl:translate-x-96 flex fixed right-0 transform translate-x-96 transition duration-200 ease-in-out z-50' ref={navRef}>
 						<div class='bg-white text-darkBlueCust w-72'>
 							<div class='bg-darkBlueCust text-white text-xl flex items-center px-4 h-20'>
@@ -102,7 +101,7 @@ const Navbar = () => {
 								<a onClick={goToSection} class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200'>
 									Contact
 								</a>
-								<a onClick={handleLogout} class={ currentUser ? 'block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200':'hidden'}>
+								<a onClick={handleLogout} class={currentUser ? 'block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200' : 'hidden'}>
 									Se déconnecter
 								</a>
 							</nav>
@@ -141,7 +140,7 @@ const Navbar = () => {
 								<button onClick={goToSection} class='py-2 px-2 hover:bg-blue-900 hover:text-white rounded-3xl transition duration-300'>
 									Contact
 								</button>
-								<button onClick={handleLogout} class={ currentUser ? 'py-2 px-1 bg-darkBlueCust hover:bg-blue-700 text-white hover:text-yellowCust rounded-3xl transition duration-300' : 'hidden'}>
+								<button onClick={handleLogout} class={currentUser ? 'py-2 px-4 bg-darkBlueCust hover:bg-yellowCust text-white hover:text-gray-900  rounded-3xl transition duration-300' : 'hidden'}>
 									Se déconnecter
 								</button>
 							</li>
