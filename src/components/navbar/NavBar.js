@@ -4,6 +4,7 @@ import cross from '../../assets/cross.png';
 import { useGlobalContext } from '../../context';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
+import { auth } from '../../firebase';
 
 const Navbar = () => {
 	const { setIsFetched } = useGlobalContext();
@@ -34,6 +35,7 @@ const Navbar = () => {
 		navRef.current.classList.add('translate-x-96');
 	};
 
+	const { currentUser } = useAuth();
 	return (
 		<div className='header'>
 			<header class=''>
@@ -68,8 +70,8 @@ const Navbar = () => {
 							<a onClick={goToSection} class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200'>
 								Contact
 							</a>
-							<a onClick={handleLogout} class='block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200'>
-								Se déco ?
+							<a onClick={handleLogout} class={ currentUser ? 'block py-2 px-4 shadow-sm hover:bg-graySidebarHover cursor-pointer transition duration-200':'hidden'}>
+								Se déconnecter
 							</a>
 						</nav>
 					</div>
@@ -106,7 +108,7 @@ const Navbar = () => {
 								<button onClick={goToSection} class='py-2 px-2 hover:bg-blue-900 hover:text-white rounded-3xl transition duration-300'>
 									Contact
 								</button>
-								<button onClick={handleLogout} class='py-2 px-1 bg-darkBlueCust hover:bg-blue-700 text-white hover:text-yellowCust rounded-3xl transition duration-300'>
+								<button onClick={handleLogout} class={ currentUser ? 'py-2 px-1 bg-darkBlueCust hover:bg-blue-700 text-white hover:text-yellowCust rounded-3xl transition duration-300' : 'hidden'}>
 									Se déconnecter
 								</button>
 							</li>
