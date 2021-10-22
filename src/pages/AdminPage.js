@@ -204,7 +204,7 @@ const CreateUser = ({ admin }) => {
 			</div>
 
 			<div className={toggleState === 2 ? 'content  active-content' : 'content'}>
-				<div className='flex flew-wrap justify-center'>
+				<div className='flex flex-wrap justify-center'>
 					<CreateFormation />
 					<SelectedFormations />
 				</div>
