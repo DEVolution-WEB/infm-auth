@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import yellowSep from '../assets/yellowSep.png';
-import { useGlobalContext } from '../context';
-import { db } from '../firebase';
+import { useGlobalContext } from '../../context';
+import { db } from '../../firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import Selectedformations from './SelectedFormations';
 
-const Createvideo = () => {
+const CreateFormation = () => {
 	const { formations, setFormations } = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 	const [nameFormation, setNameFormation] = useState('');
@@ -86,4 +84,4 @@ const Createvideo = () => {
 	);
 };
 
-export default Createvideo;
+export default CreateFormation;

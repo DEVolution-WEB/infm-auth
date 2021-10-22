@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
-import logoINFM from '../../assets/logo-infm.png';
-import cross from '../../assets/cross.png';
+import logoINFM from '../../assets/image/logo-infm.png';
+import cross from '../../assets/image/cross.png';
 import { useGlobalContext } from '../../context';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';

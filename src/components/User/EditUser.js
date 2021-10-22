@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../../context';
 
 const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationId, setUserName }) => {
 	const { formations } = useGlobalContext();

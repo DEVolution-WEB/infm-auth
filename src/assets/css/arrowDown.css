@@ -1,0 +1,33 @@
+/* .customSectionMembre{
+    height: 0;
+    @apply bg-darkBlueCust;
+    text-align: center;
+    position: relative;
+} */
+.arrowDown::after {
+	content: '';
+	position: absolute;
+	left: 47%;
+	top: 23%;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 50px solid rgba(49, 39, 131, var(--tw-bg-opacity));
+	clear: both;
+}
+
+@media only screen and (max-width: 600px) {
+	.arrowDown::after {
+		content: '';
+		position: absolute;
+		left: 43%;
+		top: 23%;
+		width: 0;
+		height: 0;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+		border-top: 50px solid rgba(49, 39, 131, var(--tw-bg-opacity));
+		clear: both;
+	}
+}

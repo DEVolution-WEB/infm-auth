@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useGlobalContext } from '../context';
-import { db } from '../firebase';
+import { useGlobalContext } from '../../context';
+import { db } from '../../firebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import Edituser from './EditUser';
-import blueSep from '../assets/darkBlueSep.png';
-import Modal from './Modal';
+import Modal from './DeleteUser';
 
-const SelectedUsers = () => {
+const UserBlock = () => {
 	const { users, modal, setModal } = useGlobalContext();
 	const [query, setQuery] = useState('');
 	const [edit, setEdit] = useState(false);
@@ -96,4 +95,4 @@ const SelectedUsers = () => {
 	);
 };
 
-export default SelectedUsers;
+export default UserBlock;

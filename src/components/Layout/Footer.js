@@ -9,7 +9,7 @@ const Footer = () => {
 	return (
 		<>
 			<div>
-				<footer className="bg-darkBlueCust">
+				<footer className='bg-darkBlueCust'>
 					<Footertitle />
 					<Footercontactform />
 					<Footertoplogo />

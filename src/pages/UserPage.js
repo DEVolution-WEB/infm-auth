@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { useGlobalContext } from '../context';
-import SectionMembre from './SectionMembre';
+import HeaderTitle from '../components/Layout/HeaderTitle';
 
-const Userpage = ({ currentUser }) => {
+const UserPage = ({ currentUser }) => {
 	const { users, setUsers, formations, setFormations, isFetched, setIsFetched } = useGlobalContext();
 	const [loading, setLoading] = useState(false);
 
@@ -46,30 +46,24 @@ const Userpage = ({ currentUser }) => {
 
 	return (
 		<div>
-			<div class='bg-darkBlueCust w-full h-46 md:h-40 pt-28 md:pt-24'>
-				<div className='text-white text-center bg-darkBlueCust pb-5'>
-					<h1 className='text-5xl '>Formation {activeUser?.data.formation_id}</h1>
-				</div>
-			</div>
+			<HeaderTitle title={`Formation ${activeUser?.data.formation_id}`} />
 
-			<div class='h-2/3 bg-white'>
-				<SectionMembre>
-					<div className='pt-6'>
-						{isFetched &&
-							formations
-								.filter((formation) => formation.data.formation_name === activeUser?.data.formation_id)
-								.map(({ id, data: { video_url } }) => (
-									<div key={id}>
-										<div className='pt-48 relative pb-48'>
-											<iframe src={video_url} frameBorder='0' allow='autoplay; fullscreen; picture-in-picture' allowFullScreen className='absolute top-0 left-0 w-full h-full' title="Présentation de l'INFM"></iframe>
-										</div>
+			<div class='h-2/3 bg-white my-20'>
+				<div className='pt-6'>
+					{isFetched &&
+						formations
+							.filter((formation) => formation.data.formation_name === activeUser?.data.formation_id)
+							.map(({ id, data: { video_url } }) => (
+								<div key={id}>
+									<div className='pt-48 relative pb-48'>
+										<iframe src={video_url} frameBorder='0' allow='autoplay; fullscreen; picture-in-picture' allowFullScreen className='absolute top-0 left-0 w-full h-full' title="Présentation de l'INFM"></iframe>
 									</div>
-								))}
-					</div>
-				</SectionMembre>
+								</div>
+							))}
+				</div>
 			</div>
 		</div>
 	);
 };
 
-export default Userpage;
+export default UserPage;

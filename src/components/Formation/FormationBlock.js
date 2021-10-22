@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { db } from '../firebase';
+import { db } from '../../firebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../../context';
 import Editformation from './EditFormation';
-import ModalForma from './ModalForma';
+import ModalForma from './DeleteFormation';
 
-const Selectedformations = () => {
+const FormationBlock = () => {
 	const { formations, modalForma, setModalForma } = useGlobalContext();
 	const [query, setQuery] = useState('');
 	const [edit, setEdit] = useState(false);
@@ -82,4 +82,4 @@ const Selectedformations = () => {
 	);
 };
 
-export default Selectedformations;
+export default FormationBlock;
