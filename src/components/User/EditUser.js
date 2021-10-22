@@ -13,7 +13,7 @@ const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationId, setUserN
 		<div>
 			<div class='bg-white px-10 md:px-0'>
 				<div className='w-32 mb-10 py-12 inline'>
-					<form className='max-w-4xl' onSubmit={handleSubmit}>
+					<form className='max-w-4xl pb-3' onSubmit={handleSubmit}>
 						<div className='w-64'>
 							<label htmlFor='name'>Nom d'utilisateur</label>
 							<input type='text' className='appearance-none block w-full bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust' placeholder='Utilisateur' onChange={(e) => setUserName(e.target.value)} required />
