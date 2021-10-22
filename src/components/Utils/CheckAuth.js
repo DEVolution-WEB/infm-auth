@@ -11,7 +11,7 @@ const CheckAuth = () => {
 	const { currentUser } = useAuth();
 
 	useEffect(() => {
-		if (currentUser.email === 'admin@dev.team') {
+		if (currentUser.email === 'admin@dev.team' || currentUser.email === 'admin@infm.live') {
 			setAdmin(true);
 		} else {
 			setAdmin(false);
