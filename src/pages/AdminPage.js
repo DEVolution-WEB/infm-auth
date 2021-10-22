@@ -9,6 +9,7 @@ import { useGlobalContext } from '../context';
 import { useAuth } from '../AuthContext';
 import CreateFormation from '../components/Formation/CreateFormation';
 import Validpassword from '../components/Utils/ValidPassword';
+import HeaderTitle from '../components/Layout/HeaderTitle';
 import '../assets/css/App.css';
 import '../assets/css/Tabs.css';
 
@@ -121,12 +122,8 @@ const CreateUser = ({ admin }) => {
 
 	return (
 		<div>
-			<div class='bg-darkBlueCust w-full h-46 md:h-40 pt-28 md:pt-24'>
-				<div className='text-white text-center bg-darkBlueCust pb-5'>
-					<h1 className='text-5xl '>Tableau de Bord</h1>
-				</div>
-			</div>
-			<div className='bg-transparent mb-6 mt-6 items-center mx-auto'>
+			<HeaderTitle title='Tableau de bord' />
+			<div className='bg-transparent mb-6 mt-12 items-center mx-auto'>
 				<nav className='flex sm:flex-row justify-center'>
 					<button className={toggleState === 1 ? 'tabs active-tabs' : 'tabs'} onClick={() => toggleTab(1)}>
 						Gérer utilisateurs
