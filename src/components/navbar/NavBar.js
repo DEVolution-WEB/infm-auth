@@ -68,7 +68,7 @@ const Navbar = () => {
 	  
 	return (
 		<div className='header'>
-			<div class="h-screen w-screen opacity-100 z-40 absolute top-0 backdrop-filter backdrop-blur-sm backdrop-brightness-75 xl:hidden hidden" ref={boite}></div>
+			<div class="h-full w-full opacity-100 z-40 fixed top-0 left-0 backdrop-filter backdrop-blur-sm backdrop-brightness-75 xl:hidden hidden" ref={boite}></div>
 			<header class=''>
 				<div  ref={outsideSidebar}>
 					<div class='sidebar min-h-screen xl:translate-x-96 flex fixed right-0 transform translate-x-96 transition duration-200 ease-in-out z-50' ref={navRef}>
