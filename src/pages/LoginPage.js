@@ -2,8 +2,6 @@ import React, { useRef, useState } from 'react';
 import { useAuth } from '../AuthContext';
 import { useHistory } from 'react-router-dom';
 import HeaderTitle from '../components/Layout/HeaderTitle';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
 import '../App.css';
 
 const LoginPage = () => {
@@ -49,39 +47,28 @@ const LoginPage = () => {
 			<div className="flex bg-transparent justify-center mt-20">
 				<div className="w-86 h-64  mt-10 bg-darkBlueCust text-white flex justify-center rounded-xl shadow-md py-4 px-8">
 					<form onSubmit={handleSubmit}>
-						<Box noValidate>
-							<TextField
-								id="email"
-								label="Adresse e-mail"
+						<div>
+							<label htmlFor="email">Adresse e-mail</label>
+							<input
 								type="email"
-								variant="outlined"
-								inputRef={emailRef}
-								required={true}
-								margin="normal"
-								style={{
-									backgroundColor: 'white',
-									width: '80%',
-									marginTop: '1rem',
-									borderRadius: '5px',
-								}}
+								ref={emailRef}
+								className="w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-4"
+								id="email"
+								placeholder="Votre e-mail"
+								required
 							/>
-							<TextField
-								// error
-								id="password"
-								label="Mot de passe"
+						</div>
+						<div>
+							<label htmlFor="password">Mot de passe</label>
+							<input
 								type="password"
-								variant="outlined"
-								inputRef={passwordRef}
-								required={true}
-								style={{
-									backgroundColor: 'white',
-									width: '80%',
-									marginTop: '1rem',
-									marginBottom: '1rem',
-									borderRadius: '5px',
-								}}
+								ref={passwordRef}
+								className="w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-2"
+								id="password"
+								placeholder="Votre mot de passe"
+								required
 							/>
-						</Box>
+						</div>
 						{error && (
 							<p className="text-xs text-yellowCust">{error}</p>
 						)}

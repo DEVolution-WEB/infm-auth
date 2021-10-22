@@ -5,6 +5,18 @@ import CheckAuth from './components/Utils/CheckAuth';
 import { AuthProvider } from './AuthContext';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Privateroute from './components/Utils/PrivateRoute';
+// import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+// const theme = createTheme({
+// 	palette: {
+// 		primary: {
+// 			main: '#312783',
+// 		},
+// 		secondary: {
+// 			main: '#ffdd0e',
+// 		},
+// 	},
+// });
 
 function App() {
 	return (
@@ -13,8 +25,8 @@ function App() {
 				<AuthProvider>
 					<Navbar />
 					<Switch>
-						<Route exact path='/' component={LoginPage} />
-						<Privateroute path='/dashboard' component={CheckAuth} />
+						<Route exact path="/" component={LoginPage} />
+						<Privateroute path="/dashboard" component={CheckAuth} />
 					</Switch>
 				</AuthProvider>
 			</Router>
