@@ -52,7 +52,9 @@ const LoginPage = () => {
 							<input
 								type="email"
 								ref={emailRef}
-								className="w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-4"
+								className={`w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-4 ${
+									error && 'outline-red'
+								}`}
 								id="email"
 								placeholder="Votre e-mail"
 								required
@@ -63,7 +65,9 @@ const LoginPage = () => {
 							<input
 								type="password"
 								ref={passwordRef}
-								className="w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-2"
+								className={`w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-4 ${
+									error && 'outline-red'
+								}`}
 								id="password"
 								placeholder="Votre mot de passe"
 								required

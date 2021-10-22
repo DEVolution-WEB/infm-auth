@@ -21,6 +21,9 @@ module.exports = {
 				n1: -1,
 				n2: -2,
 			},
+			outline: {
+				red: '3px solid #e03737',
+			},
 		},
 	},
 	variants: {
