@@ -123,7 +123,7 @@ const CreateUser = ({ admin }) => {
 	return (
 		<div>
 			<HeaderTitle title='Tableau de bord' />
-			<div className='bg-transparent mb-6 mt-12 items-center mx-auto'>
+			<div className='bg-transparent mb-6 mt-16 md:mt-12 items-center mx-auto'>
 				<nav className='flex sm:flex-row justify-center'>
 					<button className={toggleState === 1 ? 'tabs active-tabs' : 'tabs'} onClick={() => toggleTab(1)}>
 						Gérer utilisateurs
