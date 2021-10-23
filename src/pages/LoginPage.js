@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import HeaderTitle from '../components/Layout/HeaderTitle';
 import '../App.css';
 import '../assets/css/Inputs.css';
+import InputLogin from '../components/Utils/InputLogin';
 
 const LoginPage = () => {
 	// set password authentication
@@ -48,58 +49,11 @@ const LoginPage = () => {
 			<div className="flex bg-transparent justify-center mt-20">
 				<div className="w-86 h-64  mt-10 bg-darkBlueCust text-white flex justify-center rounded-xl shadow-md py-4 px-8">
 					<form onSubmit={handleSubmit}>
-						<div className="md-input-main font-sans text-xl mt-5">
-							<div className="md-input-box relative">
-								<input
-									id="email"
-									ref={emailRef}
-									type="email"
-									className="md-input w-full text-lightGrayCust bg-transparent"
-									placeholder=" "
-								/>
-								<label
-									htmlFor="email"
-									className={`md-label absolute pointer-events-none block ${
-										error
-											? 'text-red-600'
-											: 'text-lightGrayCust'
-									}`}
-								>
-									Votre e-mail
-								</label>
-								<div
-									className={`md-input-underline absolute left-0 right-0 pointer-events-none ${
-										error && 'error'
-									}`}
-								/>
-							</div>
-						</div>
-						<div className="md-input-main font-sans text-xl mt-5">
-							<div className="md-input-box relative">
-								<input
-									id="password"
-									ref={passwordRef}
-									type="password"
-									className="md-input w-full text-lightGrayCust bg-transparent"
-									placeholder=" "
-								/>
-								<label
-									htmlFor="password"
-									className={`md-label absolute pointer-events-none block ${
-										error
-											? 'text-red-600'
-											: 'text-lightGrayCust'
-									}`}
-								>
-									Mot de passe
-								</label>
-								<div
-									className={`md-input-underline absolute left-0 right-0 pointer-events-none ${
-										error && 'error'
-									}`}
-								/>
-							</div>
-						</div>
+						<InputLogin
+							error={error}
+							emailRef={emailRef}
+							passwordRef={passwordRef}
+						/>
 
 						{error && (
 							<p className="text-xs text-yellowCust">{error}</p>
