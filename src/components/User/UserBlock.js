@@ -3,6 +3,7 @@ import { useGlobalContext } from '../../context';
 import { db } from '../../firebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import Edituser from './EditUser';
+// import { getAuth, deleteUser } from "firebase/auth";
 import Modal from './DeleteUser';
 
 const UserBlock = ({ error }) => {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase';
-// import { useHistory } from 'react-router-dom';
 import { usePasswordValidation } from '../components/Utils/usePasswordValidation';
 import { collection, addDoc } from 'firebase/firestore';
 import SelectedUsers from '../components/User/UserBlock';
@@ -13,8 +12,10 @@ import HeaderTitle from '../components/Layout/HeaderTitle';
 import '../assets/css/App.css';
 import '../assets/css/Tabs.css';
 import Inputadmin from '../components/Utils/InputAdmin';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
-const CreateUser = ({ admin }) => {
+const CreateUser = () => {
 	const {
 		users,
 		setUsers,
@@ -78,8 +79,6 @@ const CreateUser = ({ admin }) => {
 			setLoading(true);
 			await signup(emailRef.current.value, passwordRef.current.value);
 		} catch {
-			// console.log(emailRef.current.value);
-			// console.log(passwordRef.current.value);
 			return setError('Impossible de créer un compte');
 		}
 		setLoading(false);
@@ -104,7 +103,6 @@ const CreateUser = ({ admin }) => {
 			passwordConfirmRef.current.value = '';
 		});
 	};
-	// console.log(emailRef.current.value);
 
 	const getUsers = () => {
 		// GET USERS FROM DATABASE
@@ -132,6 +130,8 @@ const CreateUser = ({ admin }) => {
 
 	const nbOfUsers = users.length;
 	const nbOfClasses = formations.length;
+
+	const selectedFormations = formations.map((data) => data.data);
 
 	return (
 		<div>
@@ -184,6 +184,9 @@ const CreateUser = ({ admin }) => {
 									emailRef={emailRef}
 									passwordRef={passwordRef}
 									passwordConfirmRef={passwordConfirmRef}
+									selectedFormations={selectedFormations}
+									setFormationName={setFormationName}
+									formationName={formationName}
 									setUserName={setUserName}
 									userName={userName}
 									email={email}
@@ -193,13 +196,7 @@ const CreateUser = ({ admin }) => {
 									error={error}
 								/>
 								<div className="">
-									<label
-										className=" text-black opacity-80 text-md mb-2"
-										htmlFor="user"
-									>
-										Liste des Formations:
-									</label>
-									<select
+									{/* <select
 										className="w-full bg-gray-100 text-black opacity-80 border-b border-white py-2 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
 										name="user"
 										onChange={(e) =>
@@ -223,7 +220,7 @@ const CreateUser = ({ admin }) => {
 													</option>
 												)
 											)}
-									</select>
+									</select> */}
 								</div>
 								<div class="flex md:justify-center px-16 md:px-0">
 									<button

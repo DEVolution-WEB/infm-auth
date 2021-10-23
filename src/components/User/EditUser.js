@@ -17,6 +17,7 @@ const Edituser = ({
 		handleEditUsers(id);
 		setEdit(!edit);
 	};
+
 	return (
 		<div>
 			<div className="bg-white px-10 md:px-0">
@@ -52,6 +53,7 @@ const Edituser = ({
 						</div>
 
 						<label htmlFor="user">Liste des Formations:</label>
+
 						<select
 							className="w-64 block bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
 							name="user"

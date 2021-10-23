@@ -1,9 +1,14 @@
 import React from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const Inputadmin = ({
 	emailRef,
 	passwordRef,
 	passwordConfirmRef,
+	setFormationName,
+	formationName,
+	selectedFormations,
 	setUserName,
 	userName,
 	email,
@@ -116,6 +121,27 @@ const Inputadmin = ({
 						}`}
 					/>
 				</div>
+			</div>
+			<div className="mt-5">
+				<Autocomplete
+					fullWidth="true"
+					disablePortal
+					onChange={(event, value) =>
+						setFormationName(value?.formation_name)
+					}
+					id="combo-box-demo"
+					options={selectedFormations}
+					sx={{ width: 400 }}
+					renderInput={(params) => (
+						<TextField
+							{...params}
+							label="Liste des Formations"
+							variant="standard"
+							color="warning"
+						/>
+					)}
+					getOptionLabel={(option) => `${option?.formation_name} `}
+				/>
 			</div>
 		</>
 	);
