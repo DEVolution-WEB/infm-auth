@@ -48,7 +48,7 @@ const LoginPage = () => {
 			</video>
 			<div className="flex bg-transparent justify-center mt-20">
 				<div className="w-86 h-64  mt-10 bg-darkBlueCust text-white flex justify-center rounded-xl shadow-md py-4 px-8">
-					<form onSubmit={handleSubmit}>
+					<form onSubmit={handleSubmit} autocomplete="off">
 						<InputLogin
 							error={error}
 							emailRef={emailRef}
