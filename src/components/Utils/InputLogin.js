@@ -10,7 +10,7 @@ const InputLogin = ({ emailRef, error, passwordRef }) => {
 						id="email"
 						ref={emailRef}
 						type="email"
-						className="md-input w-full text-lightGrayCust bg-transparent"
+						className="md-input-login w-full text-lightGrayCust bg-transparent"
 						placeholder=" "
 					/>
 					<label
@@ -34,7 +34,7 @@ const InputLogin = ({ emailRef, error, passwordRef }) => {
 						id="password"
 						ref={passwordRef}
 						type="password"
-						className="md-input w-full text-lightGrayCust bg-transparent"
+						className="md-input-login w-full text-lightGrayCust bg-transparent"
 						placeholder=" "
 					/>
 					<label

@@ -30,8 +30,8 @@ const UserBlock = ({ error }) => {
 	};
 
 	return (
-		<div class="inline">
-			<div class="flex space-x-32">
+		<div className="inline">
+			<div className="flex space-x-32">
 				<div className="mb-6 py-15 px-10 md:px-0">
 					<div className="mb-10 p-12 shadow-md rounded">
 						<h2 className="text-2xl px-5 font-light text-primary mt-0 mb-8">
@@ -118,7 +118,7 @@ const UserBlock = ({ error }) => {
 											{created_date}
 										</p>
 									</div>
-									<div class="flex px-8 md:justify-center md:px-0">
+									<div className="flex px-8 md:justify-center md:px-0">
 										<button
 											onClick={() => setEdit(!edit)}
 											className="bg-darkBlueCust mt-3 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300"

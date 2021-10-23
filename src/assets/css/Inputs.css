@@ -12,6 +12,8 @@
 	width: 100%;
 	outline: none;
 	height: 50px;
+	-webkit-box-shadow: 0 0 0 1000px #1b1b1b00 inset !important;
+	-webkit-text-fill-color: #2c2c2c !important;
 }
 .md-label {
 	display: block;
@@ -49,6 +51,23 @@
 }
 .md-input:focus + .md-label,
 .md-input:not(:placeholder-shown) + .md-label {
+	color: #8e88bb;
+	transform: translate(0, -65px) scale(0.75);
+	transform-origin: top left;
+}
+
+.md-input-login {
+	width: 100%;
+	outline: none;
+	height: 50px;
+	-webkit-box-shadow: 0 0 0 1000px #2e257c inset !important;
+	-webkit-text-fill-color: white !important;
+}
+.md-input-login:focus ~ .md-input-underline:after {
+	transform: scaleX(1);
+}
+.md-input-login:focus + .md-label,
+.md-input-login:not(:placeholder-shown) + .md-label {
 	color: #8e88bb;
 	transform: translate(0, -65px) scale(0.75);
 	transform-origin: top left;
