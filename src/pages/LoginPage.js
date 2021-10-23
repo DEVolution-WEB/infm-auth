@@ -3,6 +3,7 @@ import { useAuth } from '../AuthContext';
 import { useHistory } from 'react-router-dom';
 import HeaderTitle from '../components/Layout/HeaderTitle';
 import '../App.css';
+import '../assets/css/Inputs.css';
 
 const LoginPage = () => {
 	// set password authentication
@@ -47,32 +48,59 @@ const LoginPage = () => {
 			<div className="flex bg-transparent justify-center mt-20">
 				<div className="w-86 h-64  mt-10 bg-darkBlueCust text-white flex justify-center rounded-xl shadow-md py-4 px-8">
 					<form onSubmit={handleSubmit}>
-						<div>
-							<label htmlFor="email">Adresse e-mail</label>
-							<input
-								type="email"
-								ref={emailRef}
-								className={`w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-4 ${
-									error && 'outline-red'
-								}`}
-								id="email"
-								placeholder="Votre e-mail"
-								required
-							/>
+						<div className="md-input-main font-sans text-xl mt-5">
+							<div className="md-input-box relative">
+								<input
+									id="email"
+									ref={emailRef}
+									type="email"
+									className="md-input w-full text-lightGrayCust bg-transparent"
+									placeholder=" "
+								/>
+								<label
+									htmlFor="email"
+									className={`md-label absolute pointer-events-none block ${
+										error
+											? 'text-red-600'
+											: 'text-lightGrayCust'
+									}`}
+								>
+									Votre e-mail
+								</label>
+								<div
+									className={`md-input-underline absolute left-0 right-0 pointer-events-none ${
+										error && 'error'
+									}`}
+								/>
+							</div>
 						</div>
-						<div>
-							<label htmlFor="password">Mot de passe</label>
-							<input
-								type="password"
-								ref={passwordRef}
-								className={`w-full p-2 text-primary text-black border outline-none text-sm transition duration-150 ease-in-out mt-2 mb-4 ${
-									error && 'outline-red'
-								}`}
-								id="password"
-								placeholder="Votre mot de passe"
-								required
-							/>
+						<div className="md-input-main font-sans text-xl mt-5">
+							<div className="md-input-box relative">
+								<input
+									id="password"
+									ref={passwordRef}
+									type="password"
+									className="md-input w-full text-lightGrayCust bg-transparent"
+									placeholder=" "
+								/>
+								<label
+									htmlFor="password"
+									className={`md-label absolute pointer-events-none block ${
+										error
+											? 'text-red-600'
+											: 'text-lightGrayCust'
+									}`}
+								>
+									Mot de passe
+								</label>
+								<div
+									className={`md-input-underline absolute left-0 right-0 pointer-events-none ${
+										error && 'error'
+									}`}
+								/>
+							</div>
 						</div>
+
 						{error && (
 							<p className="text-xs text-yellowCust">{error}</p>
 						)}
@@ -80,7 +108,7 @@ const LoginPage = () => {
 							<button
 								disabled={loading}
 								type="submit"
-								className="mt-3 py-2 px-4 text-sm bg-yellowCust text-black rounded focus:outline-none hover:bg-yellow-400 transition duration-200"
+								className="mt-5 py-2 px-4 text-sm bg-yellowCust text-black rounded focus:outline-none hover:bg-yellow-400 transition duration-200"
 							>
 								Se connecter
 							</button>
