@@ -3,8 +3,9 @@ import { useGlobalContext } from '../../context';
 import { db } from '../../firebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import Edituser from './EditUser';
-// import { getAuth, deleteUser } from "firebase/auth";
 import Modal from './DeleteUser';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const UserBlock = ({ error }) => {
 	const { users, modal, setModal } = useGlobalContext();
@@ -12,13 +13,13 @@ const UserBlock = ({ error }) => {
 	const [edit, setEdit] = useState(false);
 	const [userName, setUserName] = useState('');
 	const [email, setEmail] = useState('');
-	const [formationId, setFormationId] = useState('');
+	const [formationName, setFormationName] = useState('');
 
 	const handleEditUsers = async (id) => {
 		//   UPDATE USERS FROM DATABASE
 		await updateDoc(doc(db, 'users', id), {
 			user_name: userName,
-			formation_id: formationId,
+			formation_Name: formationName,
 		})
 			.then(() => alert('Modifié avec success'))
 			.catch(() => alert('Erreur'));
@@ -30,6 +31,8 @@ const UserBlock = ({ error }) => {
 		await deleteDoc(doc(db, 'users', id));
 	};
 
+	const selectedUsers = users.map((data) => data.data);
+
 	return (
 		<div className="inline">
 			<div className="flex space-x-32">
@@ -40,26 +43,27 @@ const UserBlock = ({ error }) => {
 						</h2>
 
 						<div className="w-64">
-							<label
-								htmlFor="user"
-								className=" text-black opacity-80 text-md mb-2"
-							>
-								Liste des Utilisateurs:
-							</label>
-							<select
-								className="w-64 block bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-								name="user"
-								onChange={(e) => setQuery(e.target.value)}
-							>
-								<option></option>
-								{users
-									.sort()
-									.map(({ id, data: { user_name } }) => (
-										<option key={id} value={user_name}>
-											{user_name}
-										</option>
-									))}
-							</select>
+							<Autocomplete
+								fullWidth="true"
+								disablePortal
+								onChange={(event, value) =>
+									setQuery(value?.user_name)
+								}
+								id="combo-box-demo"
+								options={selectedUsers}
+								// sx={{ width: 400 }}
+								renderInput={(params) => (
+									<TextField
+										{...params}
+										label="Liste des Utilisateurs"
+										variant="standard"
+										color="warning"
+									/>
+								)}
+								getOptionLabel={(option) =>
+									`${option?.user_name} `
+								}
+							/>
 						</div>
 					</div>
 				</div>
@@ -144,7 +148,7 @@ const UserBlock = ({ error }) => {
 										id={id}
 										setUserName={setUserName}
 										setEmail={setEmail}
-										setFormationId={setFormationId}
+										setFormationName={setFormationName}
 										error={error}
 									/>
 								)}

@@ -1,12 +1,14 @@
 import React from 'react';
 import { useGlobalContext } from '../../context';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const Edituser = ({
 	edit,
 	setEdit,
 	id,
 	handleEditUsers,
-	setFormationId,
+	setFormationName,
 	setUserName,
 	error,
 }) => {
@@ -17,6 +19,8 @@ const Edituser = ({
 		handleEditUsers(id);
 		setEdit(!edit);
 	};
+
+	const selectedFormations = formations.map((data) => data.data);
 
 	return (
 		<div>
@@ -49,26 +53,33 @@ const Edituser = ({
 										error && 'error'
 									}`}
 								/>
+								<div className="mt-5">
+									<Autocomplete
+										fullWidth="true"
+										disablePortal
+										onChange={(event, value) =>
+											setFormationName(
+												value?.formation_name
+											)
+										}
+										id="combo-box-demo"
+										options={selectedFormations}
+										// sx={{ width: 300 }}
+										renderInput={(params) => (
+											<TextField
+												{...params}
+												label="Liste des Formations"
+												variant="standard"
+												color="warning"
+											/>
+										)}
+										getOptionLabel={(option) =>
+											`${option?.formation_name} `
+										}
+									/>
+								</div>
 							</div>
 						</div>
-
-						<label htmlFor="user">Liste des Formations:</label>
-
-						<select
-							className="w-64 block bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-							name="user"
-							onChange={(e) => setFormationId(e.target.value)}
-							required
-						>
-							<option></option>
-							{formations
-								.sort()
-								.map(({ id, data: { formation_name } }) => (
-									<option key={id} value={formation_name}>
-										{formation_name}
-									</option>
-								))}
-						</select>
 
 						<div className="flex px-8 md:justify-center md:px-0">
 							<button

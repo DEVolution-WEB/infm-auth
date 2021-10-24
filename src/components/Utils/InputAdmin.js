@@ -8,7 +8,6 @@ const Inputadmin = ({
 	passwordRef,
 	passwordConfirmRef,
 	setFormationName,
-	formationName,
 	selectedFormations,
 	setUserName,
 	userName,

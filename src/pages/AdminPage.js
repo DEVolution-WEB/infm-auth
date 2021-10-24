@@ -93,7 +93,7 @@ const CreateUser = () => {
 			formation_id: formationName,
 			created_date: date,
 		}).then(() => {
-			alert('Crée avec succès');
+			alert('Créé avec succès');
 			setUserName('');
 			setEmail('');
 			setFormationName('');

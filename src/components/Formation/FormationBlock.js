@@ -4,13 +4,14 @@ import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { useGlobalContext } from '../../context';
 import Editformation from './EditFormation';
 import ModalForma from './DeleteFormation';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const FormationBlock = () => {
 	const { formations, modalForma, setModalForma } = useGlobalContext();
 	const [query, setQuery] = useState('');
 	const [edit, setEdit] = useState(false);
 	const [nameFormation, setNameFormation] = useState('');
-	const [formationId, setFormationId] = useState('');
 	const [url, setUrl] = useState('');
 
 	const handleEditFormations = async (id) => {
@@ -28,6 +29,8 @@ const FormationBlock = () => {
 		await deleteDoc(doc(db, 'formations', id));
 	};
 
+	const selectedFormations = formations.map((data) => data.data);
+
 	return (
 		<div className="mb-10 p-12 shadow-md rounded">
 			<div>
@@ -36,21 +39,27 @@ const FormationBlock = () => {
 				</h2>
 				<div className="inline mb-2 space-x-36">
 					<div className="w-64 max-w-4xl">
-						<label htmlFor="user">Liste des Formations:</label>
-						<select
-							className="block w-full bg-gray-100 text-black opacity-80 border-b border-white py-3 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-							name="user"
-							onChange={(e) => setQuery(e.target.value)}
-						>
-							<option></option>
-							{formations
-								.sort()
-								.map(({ id, data: { formation_name } }) => (
-									<option key={id} value={formation_name}>
-										{formation_name}
-									</option>
-								))}
-						</select>
+						<Autocomplete
+							fullWidth="true"
+							disablePortal
+							onChange={(event, value) =>
+								setQuery(value?.formation_name)
+							}
+							id="combo-box-demo"
+							options={selectedFormations}
+							// sx={{ width: 300 }}
+							renderInput={(params) => (
+								<TextField
+									{...params}
+									label="Liste des Formations"
+									variant="standard"
+									color="warning"
+								/>
+							)}
+							getOptionLabel={(option) =>
+								`${option?.formation_name} `
+							}
+						/>
 					</div>
 				</div>
 
@@ -112,7 +121,6 @@ const FormationBlock = () => {
 										id={id}
 										setNameFormation={setNameFormation}
 										setUrl={setUrl}
-										setFormationId={setFormationId}
 									/>
 								)}
 							</div>
