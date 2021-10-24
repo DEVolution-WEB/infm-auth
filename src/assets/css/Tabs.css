@@ -10,8 +10,10 @@
 }
 
 .content {
-	@apply hidden justify-center;
+	@apply hidden;
 }
 .active-content {
-	@apply inline;
+	max-width: 1250px;
+	padding: 5%;
+	@apply flex flex-wrap justify-center mx-auto gap-8;
 }

@@ -13,6 +13,7 @@ module.exports = {
 				lightGrayCust: '#8e88bb',
 				grayContentCust: '#f2f2f2',
 				graySidebarHover: '#eae9f2',
+				delete: '#a73434',
 			},
 			screens: {
 				navxl: '1300px',
@@ -20,6 +21,19 @@ module.exports = {
 			zIndex: {
 				n1: -1,
 				n2: -2,
+			},
+			fontSize: {
+				xxs: '10px',
+			},
+			maxWidth: {
+				container: '1500px',
+				tile: '500px',
+			},
+			maxHeight: {
+				tile: '500px',
+			},
+			height: {
+				vh25: '25vh',
 			},
 		},
 	},
