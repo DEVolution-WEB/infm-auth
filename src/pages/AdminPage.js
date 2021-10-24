@@ -12,8 +12,6 @@ import HeaderTitle from '../components/Layout/HeaderTitle';
 import '../assets/css/App.css';
 import '../assets/css/Tabs.css';
 import Inputadmin from '../components/Utils/InputAdmin';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 
 const CreateUser = () => {
 	const {
@@ -135,10 +133,15 @@ const CreateUser = () => {
 
 	return (
 		<div>
-			<HeaderTitle title='Tableau de bord' />
-			<div className='bg-transparent mb-6 mt-16 md:mt-12 items-center mx-auto'>
-				<nav className='flex sm:flex-row justify-center'>
-					<button className={toggleState === 1 ? 'tabs active-tabs' : 'tabs'} onClick={() => toggleTab(1)}>
+			<HeaderTitle title="Tableau de bord" />
+			<div className="bg-transparent mb-6 mt-16 md:mt-12 items-center mx-auto">
+				<nav className="flex sm:flex-row justify-center">
+					<button
+						className={
+							toggleState === 1 ? 'tabs active-tabs' : 'tabs'
+						}
+						onClick={() => toggleTab(1)}
+					>
 						Gérer utilisateurs
 					</button>
 					<button
@@ -190,33 +193,7 @@ const CreateUser = () => {
 									setSecond={setSecond}
 									error={error}
 								/>
-								<div className="">
-									{/* <select
-										className="w-full bg-gray-100 text-black opacity-80 border-b border-white py-2 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-										name="user"
-										onChange={(e) =>
-											setFormationName(e.target.value)
-										}
-										required
-									>
-										<option></option>
-										{formations
-											.sort()
-											.map(
-												({
-													id,
-													data: { formation_name },
-												}) => (
-													<option
-														key={id}
-														value={formation_name}
-													>
-														{formation_name}
-													</option>
-												)
-											)}
-									</select> */}
-								</div>
+
 								<div class="flex md:justify-center px-16 md:px-0">
 									<button
 										className={`bg-darkBlueCust py-2 px-4 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300 ${
