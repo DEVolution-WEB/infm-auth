@@ -11,7 +11,7 @@ import Validpassword from '../components/Utils/ValidPassword';
 import HeaderTitle from '../components/Layout/HeaderTitle';
 import '../assets/css/App.css';
 import '../assets/css/Tabs.css';
-import Inputadmin from '../components/Utils/InputAdmin';
+import InputAdmin from '../components/Utils/InputAdmin';
 
 const CreateUser = () => {
 	const { users, setUsers, formations, password, setPassword, activeBtn, setActiveBtn } = useGlobalContext();
@@ -145,7 +145,7 @@ const CreateUser = () => {
 					{error && <p className='text-sm text-red-400 mb-5'>{error}</p>}
 					<div className='inline'>
 						<form className='max-w-4xl' onSubmit={handleSubmit}>
-							<Inputadmin emailRef={emailRef} passwordRef={passwordRef} passwordConfirmRef={passwordConfirmRef} selectedFormations={selectedFormations} setFormationName={setFormationName} formationName={formationName} setUserName={setUserName} userName={userName} email={email} setEmail={setEmail} setFirst={setFirst} setSecond={setSecond} error={error} />
+							<InputAdmin emailRef={emailRef} passwordRef={passwordRef} passwordConfirmRef={passwordConfirmRef} selectedFormations={selectedFormations} setFormationName={setFormationName} formationName={formationName} setUserName={setUserName} userName={userName} email={email} setEmail={setEmail} setFirst={setFirst} setSecond={setSecond} error={error} />
 							<div class='flex md:justify-center px-16 md:px-0 mt-5'>
 								<button className={`bg-darkBlueCust py-2 px-4 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300 ${activeBtn ? '' : 'hidden'}`} type='submit' disabled={!activeBtn}>
 									Créer un compte

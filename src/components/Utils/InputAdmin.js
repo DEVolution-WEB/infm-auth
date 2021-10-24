@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import '../../App.css';
 
-const Inputadmin = ({ emailRef, passwordRef, passwordConfirmRef, setFormationName, formationName, selectedFormations, setUserName, userName, email, setEmail, setFirst, setSecond, error }) => {
+const InputAdmin = ({ emailRef, passwordRef, passwordConfirmRef, setFormationName, formationName, selectedFormations, setUserName, userName, email, setEmail, setFirst, setSecond, error }) => {
 	return (
 		<>
 			<div className='md-input-main font-sans text-lg mt-12'>
@@ -49,4 +49,4 @@ const Inputadmin = ({ emailRef, passwordRef, passwordConfirmRef, setFormationNam
 	);
 };
 
-export default Inputadmin;
+export default InputAdmin;
