@@ -12,8 +12,6 @@ import HeaderTitle from '../components/Layout/HeaderTitle';
 import '../assets/css/App.css';
 import '../assets/css/Tabs.css';
 import Inputadmin from '../components/Utils/InputAdmin';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 
 const CreateUser = () => {
 	const { users, setUsers, formations, password, setPassword, activeBtn, setActiveBtn } = useGlobalContext();
@@ -86,7 +84,7 @@ const CreateUser = () => {
 			formation_id: formationName,
 			created_date: date,
 		}).then(() => {
-			alert('Crée avec succès');
+			alert('Créé avec succès');
 			setUserName('');
 			setEmail('');
 			setFormationName('');

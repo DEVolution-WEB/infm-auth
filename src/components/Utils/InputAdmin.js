@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import '../../App.css';
 
 const Inputadmin = ({ emailRef, passwordRef, passwordConfirmRef, setFormationName, formationName, selectedFormations, setUserName, userName, email, setEmail, setFirst, setSecond, error }) => {
 	return (
