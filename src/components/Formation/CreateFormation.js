@@ -56,7 +56,7 @@ const CreateFormation = () => {
 	return (
 		<div className='w-full flex-grow sm:w-80 md:w-80 mb-10 p-12 shadow-md rounded'>
 			<form className='' onSubmit={handleSubmit}>
-				<h2 className='text-2xl font-light text-primary mt-0 mb-8'>Créer une formation</h2>
+				<h2 className='text-2xl text-center font-light text-primary mt-0 mb-8'>Créer une formation</h2>
 				{error && <p className='text-sm text-red-400 mb-5'>{error}</p>}
 				<div className='inline'>
 					<div className='md-input-main font-sans text-lg mt-8 w-64'>

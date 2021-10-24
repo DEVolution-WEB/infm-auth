@@ -146,33 +146,6 @@ const CreateUser = () => {
 					<div className='inline'>
 						<form className='max-w-4xl' onSubmit={handleSubmit}>
 							<Inputadmin emailRef={emailRef} passwordRef={passwordRef} passwordConfirmRef={passwordConfirmRef} selectedFormations={selectedFormations} setFormationName={setFormationName} formationName={formationName} setUserName={setUserName} userName={userName} email={email} setEmail={setEmail} setFirst={setFirst} setSecond={setSecond} error={error} />
-							<div className=''>
-								{/* <select
-										className="w-full bg-gray-100 text-black opacity-80 border-b border-white py-2 px-4 mb-3 mt-1 leading-tight focus:outline-none focus:border-yellowCust"
-										name="user"
-										onChange={(e) =>
-											setFormationName(e.target.value)
-										}
-										required
-									>
-										<option></option>
-										{formations
-											.sort()
-											.map(
-												({
-													id,
-													data: { formation_name },
-												}) => (
-													<option
-														key={id}
-														value={formation_name}
-													>
-														{formation_name}
-													</option>
-												)
-											)}
-									</select> */}
-							</div>
 							<div class='flex md:justify-center px-16 md:px-0 mt-5'>
 								<button className={`bg-darkBlueCust py-2 px-4 text-md text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300 ${activeBtn ? '' : 'hidden'}`} type='submit' disabled={!activeBtn}>
 									Créer un compte

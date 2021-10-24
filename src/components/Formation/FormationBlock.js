@@ -3,7 +3,7 @@ import { db } from '../../firebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { useGlobalContext } from '../../context';
 import Editformation from './EditFormation';
-import ModalForma from './DeleteFormation';
+import DeleteFormation from './DeleteFormation';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
@@ -34,31 +34,18 @@ const FormationBlock = () => {
 	return (
 		<div className='w-full flex-grow sm:w-80 md:w-80 mb-10 p-12 shadow-md rounded'>
 			<div>
-				<h2 className="text-2xl px-5 font-light text-primary mt-0 mb-8">
-					Modifier une formation
-				</h2>
-				<div className="inline mb-2 space-x-36">
-					<div className="w-64 max-w-4xl">
+				<h2 className='text-2xl px-5 font-light text-primary mt-0 mb-8'>Modifier une formation</h2>
+				<div className='inline mb-2 space-x-36'>
+					<div className='w-full max-w-4xl'>
 						<Autocomplete
-							fullWidth="true"
+							fullWidth='true'
 							disablePortal
-							onChange={(event, value) =>
-								setQuery(value?.formation_name)
-							}
-							id="combo-box-demo"
+							onChange={(event, value) => setQuery(value?.formation_name)}
+							id='combo-box-demo'
 							options={selectedFormations}
 							// sx={{ width: 300 }}
-							renderInput={(params) => (
-								<TextField
-									{...params}
-									label="Liste des Formations"
-									variant="standard"
-									color="warning"
-								/>
-							)}
-							getOptionLabel={(option) =>
-								`${option?.formation_name} `
-							}
+							renderInput={(params) => <TextField {...params} label='Liste des Formations' variant='standard' color='warning' />}
+							getOptionLabel={(option) => `${option?.formation_name} `}
 						/>
 					</div>
 				</div>
@@ -79,7 +66,7 @@ const FormationBlock = () => {
 								</div>
 							) : (
 								<div className='bg-white' key={id}>
-									<Editformation edit={edit} setEdit={setEdit} handleEditFormations={handleEditFormations} id={id} videoURL={video_url} nameFormation={formation_name} setNameFormation={setNameFormation} setUrl={setUrl} setFormationId={setFormationId} />
+									<Editformation edit={edit} setEdit={setEdit} handleEditFormations={handleEditFormations} id={id} videoURL={video_url} nameFormation={formation_name} setNameFormation={setNameFormation} setUrl={setUrl} />
 								</div>
 							)}
 						</div>

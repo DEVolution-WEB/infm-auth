@@ -15,3 +15,7 @@ body {
 .css-1blc7dc-MuiInputBase-root-MuiInput-root:after {
 	border-bottom: #ffdd0e 2px solid !important;
 }
+
+.css-cyr6es-MuiFormLabel-root-MuiInputLabel-root {
+	color: #50508f !important;
+}

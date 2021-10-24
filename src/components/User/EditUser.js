@@ -3,11 +3,12 @@ import { useGlobalContext } from '../../context';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
-const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationId, setUserName, userName, error }) => {
+const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationName, setUserName, userName, error }) => {
 	const { formations } = useGlobalContext();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log(id);
 		handleEditUsers(id);
 		setEdit(!edit);
 	};
@@ -25,44 +26,24 @@ const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationId, setUserN
 								<label className={`md-label absolute pointer-events-none block  ${error ? 'text-red-600' : 'text-lightGrayCust'}`} htmlFor='name'>
 									Nom
 								</label>
-								<div
-									className={`md-input-underline absolute left-0 right-0 pointer-events-none ${
-										error && 'error'
-									}`}
-								/>
-								<div className="mt-5">
+								<div className={`md-input-underline absolute left-0 right-0 pointer-events-none ${error && 'error'}`} />
+								<div className='mt-5'>
 									<Autocomplete
-										fullWidth="true"
+										fullWidth='true'
 										disablePortal
-										onChange={(event, value) =>
-											setFormationName(
-												value?.formation_name
-											)
-										}
-										id="combo-box-demo"
+										onChange={(event, value) => setFormationName(value?.formation_name)}
+										id='combo-box-demo'
 										options={selectedFormations}
 										// sx={{ width: 300 }}
-										renderInput={(params) => (
-											<TextField
-												{...params}
-												label="Liste des Formations"
-												variant="standard"
-												color="warning"
-											/>
-										)}
-										getOptionLabel={(option) =>
-											`${option?.formation_name} `
-										}
+										renderInput={(params) => <TextField {...params} label='Attribuer formation' variant='standard' color='warning' />}
+										getOptionLabel={(option) => `${option?.formation_name} `}
 									/>
 								</div>
 							</div>
 						</div>
 
-						<div className="flex px-8 md:justify-center md:px-0">
-							<button
-								onClick={() => setEdit(!edit)}
-								className="bg-darkBlueCust mt-2 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300"
-							>
+						<div className='flex px-8 md:justify-center md:px-0 mt-10'>
+							<button onClick={() => setEdit(!edit)} className='w-full bg-darkBlueCust mt-2 mr-2 py-2 px-4 text-sm text-white rounded border border-blue-light focus:outline-none focus:border-primary hover:bg-blue-800 transition hover:duration-300'>
 								Annuler
 							</button>
 
