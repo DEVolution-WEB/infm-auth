@@ -3,7 +3,7 @@ import { useGlobalContext } from '../../context';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
-const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationName, setUserName, userName, error }) => {
+const EditUser = ({ edit, setEdit, id, handleEditUsers, formationName, setFormationName, setUserName, userName, error }) => {
 	const { formations } = useGlobalContext();
 
 	const handleSubmit = (e) => {
@@ -17,12 +17,13 @@ const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationName, setUse
 
 	return (
 		<div>
+			{setUserName(userName)}
 			<div className='bg-white px-10 md:px-0'>
 				<div className='w-32 mb-10 py-12 inline'>
 					<form className='max-w-4xl pb-3' onSubmit={handleSubmit}>
 						<div className='md-input-main font-sans text-lg mt-12'>
 							<div className='md-input-box relative'>
-								<input type='text' defaultValue={userName} className='md-input w-full text-black bg-gray-100' placeholder=' ' onChange={(e) => setUserName(e.target.value)} required />
+								<input type='text' defaultValue={userName} className='md-input w-full text-black bg-gray-100' onChange={(e) => setUserName(e.target.value)} required />
 								<label className={`md-label absolute pointer-events-none block  ${error ? 'text-red-600' : 'text-lightGrayCust'}`} htmlFor='name'>
 									Nom
 								</label>
@@ -31,6 +32,7 @@ const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationName, setUse
 									<Autocomplete
 										fullWidth='true'
 										disablePortal
+										defaultValue={{ formation_name: formationName }}
 										onChange={(event, value) => setFormationName(value?.formation_name)}
 										id='combo-box-demo'
 										options={selectedFormations}
@@ -56,4 +58,4 @@ const Edituser = ({ edit, setEdit, id, handleEditUsers, setFormationName, setUse
 	);
 };
 
-export default Edituser;
+export default EditUser;

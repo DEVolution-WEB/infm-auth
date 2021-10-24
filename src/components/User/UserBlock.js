@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useGlobalContext } from '../../context';
 import { db } from '../../firebase';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
-import Edituser from './EditUser';
+import EditUser from './EditUser';
 import Modal from './DeleteUser';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -19,7 +19,7 @@ const UserBlock = ({ error }) => {
 		//   UPDATE USERS FROM DATABASE
 		await updateDoc(doc(db, 'users', id), {
 			user_name: userName,
-			formation_Name: formationName,
+			formation_name: formationName,
 		})
 			.then(() => alert('Modifié avec success'))
 			.catch(() => alert('Erreur'));
@@ -52,7 +52,7 @@ const UserBlock = ({ error }) => {
 
 			{users
 				.filter(({ data: { user_name } }) => user_name === query)
-				.map(({ id, data: { user_name, email, formation_id, created_date } }, index) => (
+				.map(({ id, data: { user_name, email, formation_name, created_date } }, index) => (
 					<div key={index}>
 						<Modal id={id} handleDeleteUsers={handleDeleteUsers} />
 						{!edit ? (
@@ -67,7 +67,7 @@ const UserBlock = ({ error }) => {
 								</div>
 								<div className='flex mb-5 space-x-2'>
 									<p className=' text-black'>Formation:</p>
-									<p className=' text-black text-darkBlueCust'>{formation_id}</p>
+									<p className=' text-black text-darkBlueCust'>{formation_name}</p>
 								</div>
 								<div className='flex mb-5 space-x-2'>
 									<p className=' text-black'>Date de création:</p>
@@ -84,7 +84,7 @@ const UserBlock = ({ error }) => {
 							</div>
 						) : (
 							<div className='bg-grey-light' key={index}>
-								<Edituser edit={edit} setEdit={setEdit} handleEditUsers={handleEditUsers} id={id} userName={user_name} setUserName={setUserName} setEmail={setEmail} setFormationName={setFormationName} error={error} />
+								<EditUser edit={edit} setEdit={setEdit} handleEditUsers={handleEditUsers} id={id} userName={user_name} formationName={formation_name} setUserName={setUserName} setEmail={setEmail} setFormationName={setFormationName} error={error} />
 							</div>
 						)}
 					</div>

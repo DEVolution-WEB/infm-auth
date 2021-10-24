@@ -81,7 +81,7 @@ const CreateUser = () => {
 		await addDoc(collection(db, 'users'), {
 			user_name: userName,
 			email: email,
-			formation_id: formationName,
+			formation_name: formationName,
 			created_date: date,
 		}).then(() => {
 			alert('Créé avec succès');

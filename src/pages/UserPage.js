@@ -46,13 +46,13 @@ const UserPage = ({ currentUser }) => {
 
 	return (
 		<div>
-			<HeaderTitle title={`Formation ${activeUser?.data.formation_id}`} />
+			<HeaderTitle title={`Formation ${activeUser?.data.formation_name}`} />
 
 			<div class='h-2/3 bg-white my-20'>
 				<div className='pt-6'>
 					{isFetched &&
 						formations
-							.filter((formation) => formation.data.formation_name === activeUser?.data.formation_id)
+							.filter((formation) => formation.data.formation_name === activeUser?.data.formation_name)
 							.map(({ id, data: { video_url } }) => (
 								<div key={id}>
 									<div className='pt-48 relative pb-48'>
