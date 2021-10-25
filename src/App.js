@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from './components/Layout/NavBar';
 import LoginPage from './pages/LoginPage';
 import CheckAuth from './components/Utils/CheckAuth';
@@ -13,8 +12,8 @@ function App() {
 				<AuthProvider>
 					<Navbar />
 					<Switch>
-						<Route exact path="/" component={LoginPage} />
-						<Privateroute path="/dashboard" component={CheckAuth} />
+						<Route exact path='/' component={LoginPage} />
+						<Privateroute path='/dashboard' component={CheckAuth} />
 					</Switch>
 				</AuthProvider>
 			</Router>
