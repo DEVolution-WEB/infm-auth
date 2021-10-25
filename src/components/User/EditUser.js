@@ -29,17 +29,7 @@ const EditUser = ({ edit, setEdit, id, handleEditUsers, formationName, setFormat
 								</label>
 								<div className={`md-input-underline absolute left-0 right-0 pointer-events-none ${error && 'error'}`} />
 								<div className='w-full mt-5'>
-									<Autocomplete
-										fullWidth='true'
-										disablePortal
-										defaultValue={{ formation_name: formationName }}
-										onChange={(event, value) => setFormationName(value?.formation_name)}
-										id='combo-box-demo'
-										options={selectedFormations}
-										// sx={{ width: 300 }}
-										renderInput={(params) => <TextField {...params} label='Attribuer formation' variant='standard' color='warning' />}
-										getOptionLabel={(option) => `${option?.formation_name} `}
-									/>
+									<Autocomplete fullWidth='true' disablePortal defaultValue={{ formation_name: formationName }} onChange={(event, value) => setFormationName(value?.formation_name)} id='combo-box-demo' options={selectedFormations} renderInput={(params) => <TextField {...params} label='Attribuer formation' variant='standard' color='warning' />} getOptionLabel={(option) => `${option?.formation_name} `} />
 								</div>
 							</div>
 						</div>
