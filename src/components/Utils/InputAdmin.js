@@ -45,6 +45,7 @@ const InputAdmin = ({ emailRef, passwordRef, passwordConfirmRef, setFormationNam
 			<div className='w-full mt-5'>
 				<Autocomplete fullWidth='true' disablePortal onChange={(event, value) => setFormationName(value?.formation_name)} id='combo-box-demo' options={selectedFormations} renderInput={(params) => <TextField {...params} label='Attribuer une Formations' variant='standard' color='warning' />} getOptionLabel={(option) => `${option?.formation_name} `} />
 			</div>
+			{/* dev */}
 		</>
 	);
 };
