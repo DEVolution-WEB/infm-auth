@@ -1,3 +1,4 @@
+import './App.css';
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../AuthContext';
 import { useHistory } from 'react-router-dom';

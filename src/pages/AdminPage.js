@@ -9,7 +9,6 @@ import { useAuth } from '../AuthContext';
 import CreateFormation from '../components/Formation/CreateFormation';
 import Validpassword from '../components/Utils/ValidPassword';
 import HeaderTitle from '../components/Layout/HeaderTitle';
-import '../assets/css/App.css';
 import '../assets/css/Tabs.css';
 import InputAdmin from '../components/Utils/InputAdmin';
 

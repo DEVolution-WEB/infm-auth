@@ -1,3 +1,4 @@
+import './App.css';
 import Navbar from './components/Layout/NavBar';
 import LoginPage from './pages/LoginPage';
 import CheckAuth from './components/Utils/CheckAuth';
