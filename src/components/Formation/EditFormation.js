@@ -9,6 +9,8 @@ const Editformation = ({ edit, setEdit, setNameFormation, setUrl, handleEditForm
 
 	return (
 		<div>
+			{setNameFormation(nameFormation)}
+			{setUrl(videoURL)}
 			<div className='bg-white py-3'>
 				<div className='w-32 mb-10 py-12 inline'>
 					<form className='max-w-4xl' onSubmit={handleSubmit}>
