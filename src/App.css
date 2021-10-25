@@ -9,18 +9,15 @@ html {
 body {
 	background-color: white;
 }
-.MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+
+.Mui-focused {
 	color: #8e88bb !important;
 }
-.MuiInputBase-root-MuiInput-root:after {
+.MuiInputBase-root:after {
 	border-bottom: #ffdd0e 2px solid !important;
 }
 
-.MuiAutocomplete-endAdornment::after {
-	border-bottom: #ffdd0e 2px solid !important;
-}
-
-.MuiFormLabel-root-MuiInputLabel-root {
+.MuiInputLabel-root {
 	color: #50508f !important;
 }
 
