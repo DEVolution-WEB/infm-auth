@@ -18,6 +18,7 @@ const EditUser = ({ edit, setEdit, id, handleEditUsers, formationName, setFormat
 	return (
 		<div>
 			{setUserName(userName)}
+			{setFormationName(formationName)}
 			<div className='bg-white px-10 md:px-0'>
 				<div className='w-32 mb-10 py-12 inline'>
 					<form className='max-w-4xl pb-3' onSubmit={handleSubmit}>
