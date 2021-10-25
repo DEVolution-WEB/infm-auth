@@ -28,7 +28,7 @@ const EditUser = ({ edit, setEdit, id, handleEditUsers, formationName, setFormat
 									Nom
 								</label>
 								<div className={`md-input-underline absolute left-0 right-0 pointer-events-none ${error && 'error'}`} />
-								<div className='mt-5'>
+								<div className='w-full mt-5'>
 									<Autocomplete
 										fullWidth='true'
 										disablePortal
