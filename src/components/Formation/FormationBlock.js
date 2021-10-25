@@ -37,7 +37,7 @@ const FormationBlock = () => {
 				<h2 className='text-2xl px-5 font-light text-primary mt-0 mb-8'>Modifier une formation</h2>
 				<div className='inline mb-2 space-x-36'>
 					<div className='w-full'>
-						<Autocomplete fullWidth='true' disablePortal onChange={(event, value) => setQuery(value?.formation_name)} id='combo-box-demo' options={selectedFormations} renderInput={(params) => <TextField {...params} label='Liste des Formations' variant='standard' color='warning' />} getOptionLabel={(option) => `${option?.formation_name} `} />
+						<Autocomplete fullWidth='true' disablePortal onChange={(event, value) => setQuery(value?.formation_name)} id='combo-box-demo' options={selectedFormations} renderInput={(params) => <TextField {...params} label='Liste des Formations' variant='standard' />} getOptionLabel={(option) => `${option?.formation_name} `} />
 					</div>
 				</div>
 

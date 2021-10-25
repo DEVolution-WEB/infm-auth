@@ -43,7 +43,17 @@ const InputAdmin = ({ emailRef, passwordRef, passwordConfirmRef, setFormationNam
 				</div>
 			</div>
 			<div className='w-full mt-5'>
-				<Autocomplete fullWidth='true' disablePortal onChange={(event, value) => setFormationName(value?.formation_name)} id='combo-box-demo' options={selectedFormations} renderInput={(params) => <TextField {...params} label='Attribuer une Formations' variant='standard' color='warning' />} getOptionLabel={(option) => `${option?.formation_name} `} />
+				<Autocomplete
+					id='combo-box-demo'
+					fullWidth='true'
+					disablePortal
+					onChange={(event, value) => setFormationName(value?.formation_name)}
+					options={selectedFormations}
+					renderInput={(params) => {
+						return <TextField {...params} label='Attribuer une Formations' variant='standard' />;
+					}}
+					getOptionLabel={(option) => `${option?.formation_name} `}
+				/>
 			</div>
 		</>
 	);
