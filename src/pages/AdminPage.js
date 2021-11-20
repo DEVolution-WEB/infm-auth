@@ -9,6 +9,7 @@ import { useAuth } from '../AuthContext';
 import CreateFormation from '../components/Formation/CreateFormation';
 import Validpassword from '../components/Utils/ValidPassword';
 import HeaderTitle from '../components/Layout/HeaderTitle';
+import '../assets/css/App.css';
 import '../assets/css/Tabs.css';
 import InputAdmin from '../components/Utils/InputAdmin';
 
@@ -140,7 +141,7 @@ const CreateUser = () => {
 
 			<div className={toggleState === 1 ? 'content  active-content' : 'content'}>
 				<div className='w-full flex-grow sm:w-80 md:w-80 mb-10 p-12 shadow-md rounded'>
-					<h2 className='text-2xl text-center px-5 font-light text-primary mt-0 mb-8'>Créer un nouvel utilisateur</h2>
+					<h2 className='text-2xl px-5 font-light text-primary mt-0 mb-8'>Créer un nouvel utilisateur</h2>
 					{error && <p className='text-sm text-red-400 mb-5'>{error}</p>}
 					<div className='inline'>
 						<form className='max-w-4xl' onSubmit={handleSubmit}>

@@ -38,7 +38,16 @@ const UserBlock = ({ error }) => {
 			<h2 className='text-2xl text-center font-light text-primary mt-0 mb-8'>Modifier un utilisateur</h2>
 
 			<div className='w-full'>
-				<Autocomplete fullWidth='true' disablePortal onChange={(event, value) => setQuery(value?.user_name)} id='combo-box-demo' options={selectedUsers} renderInput={(params) => <TextField {...params} label='Sélectionner utilisateur' variant='standard' />} getOptionLabel={(option) => `${option?.user_name} `} />
+				<Autocomplete
+					fullWidth='true'
+					disablePortal
+					onChange={(event, value) => setQuery(value?.user_name)}
+					id='combo-box-demo'
+					options={selectedUsers}
+					// sx={{ width: 400 }}
+					renderInput={(params) => <TextField {...params} label='Sélectionner utilisateur' variant='standard' color='warning' />}
+					getOptionLabel={(option) => `${option?.user_name} `}
+				/>
 			</div>
 
 			{users

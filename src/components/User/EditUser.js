@@ -18,7 +18,6 @@ const EditUser = ({ edit, setEdit, id, handleEditUsers, formationName, setFormat
 	return (
 		<div>
 			{setUserName(userName)}
-			{setFormationName(formationName)}
 			<div className='bg-white px-10 md:px-0'>
 				<div className='w-32 mb-10 py-12 inline'>
 					<form className='max-w-4xl pb-3' onSubmit={handleSubmit}>
@@ -29,8 +28,18 @@ const EditUser = ({ edit, setEdit, id, handleEditUsers, formationName, setFormat
 									Nom
 								</label>
 								<div className={`md-input-underline absolute left-0 right-0 pointer-events-none ${error && 'error'}`} />
-								<div className='w-full mt-5'>
-									<Autocomplete fullWidth='true' disablePortal defaultValue={{ formation_name: formationName }} onChange={(event, value) => setFormationName(value?.formation_name)} id='combo-box-demo' options={selectedFormations} renderInput={(params) => <TextField {...params} label='Attribuer formation' variant='standard' />} getOptionLabel={(option) => `${option?.formation_name} `} />
+								<div className='mt-5'>
+									<Autocomplete
+										fullWidth='true'
+										disablePortal
+										defaultValue={{ formation_name: formationName }}
+										onChange={(event, value) => setFormationName(value?.formation_name)}
+										id='combo-box-demo'
+										options={selectedFormations}
+										// sx={{ width: 300 }}
+										renderInput={(params) => <TextField {...params} label='Attribuer formation' variant='standard' color='warning' />}
+										getOptionLabel={(option) => `${option?.formation_name} `}
+									/>
 								</div>
 							</div>
 						</div>
