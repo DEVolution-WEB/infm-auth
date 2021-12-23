@@ -13,8 +13,8 @@ function App() {
 				<AuthProvider>
 					<Navbar />
 					<Switch>
-						<Route exact path='/' component={LoginPage} />
-						<Privateroute path='/dashboard' component={CheckAuth} />
+						<Route exact path="/" component={LoginPage} />
+						<Privateroute path="/dashboard" component={CheckAuth} />
 					</Switch>
 				</AuthProvider>
 			</Router>
