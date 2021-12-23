@@ -15,6 +15,6 @@ jobs:
             - uses: FirebaseExtended/action-hosting-deploy@v0
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
-                  firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_INFM_773D8 }}'
+                  firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KELLY_MODULES }}'
                   channelId: live
-                  projectId: infm-773d8
+                  projectId: kelly-modules
